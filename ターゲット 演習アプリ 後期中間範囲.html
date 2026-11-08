@@ -1,0 +1,3088 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="handbook">
+  <title>英単語ターゲット1900 [No.1301-1800] 4択クイズ & 暗記マスター</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Noto+Sans+JP:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces */
+      --background: #ffffff;
+      --surface-container-low: #f3f2f1;
+      --surface-container: #e8e7e5;
+      --surface-container-high: #dbdad9;
+
+      /* Ink */
+      --on-surface: #0b0c0c;
+      --on-surface-variant: #505a5f;
+
+      /* Rules */
+      --outline: #0b0c0c;
+      --outline-variant: #b1b4b6;
+
+      /* Accents */
+      --primary: #162e51;
+      --on-primary: #ffffff;
+      --primary-container: #d2e2f1;
+      --on-primary-container: #0c2d4a;
+      --secondary: #4c2c92;
+      --tertiary: #1a569e;
+      --on-tertiary: #ffffff;
+
+      /* Semantic */
+      --positive: #00703c;
+      --on-positive: #ffffff;
+      --positive-container: #d4f3e2;
+      --on-positive-container: #004d29;
+      --warning: #f47738;
+      --warning-container: #fff1e5;
+      --on-warning-container: #6e2a00;
+      --error: #d4351c;
+      --on-error: #ffffff;
+      --error-container: #feebe8;
+      --on-error-container: #821300;
+
+      /* Feature specific tokens */
+      --mask-color: #d4351c;
+      --mask-bg: #ffebe8;
+      --star-gold: #b58105;
+      --star-bg: #fff8e5;
+
+      /* Data series */
+      --data-1: #1a569e;
+      --data-2: #c75a0a;
+      --data-3: #28a197;
+      --data-4: #4c2c92;
+      --data-context: #b1b4b6;
+
+      /* Fonts */
+      --font-headline: 'Public Sans', 'Noto Sans JP', sans-serif;
+      --font-body: 'Public Sans', 'Noto Sans JP', sans-serif;
+      --font-label: 'Public Sans', 'Noto Sans JP', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Shape */
+      --rounded: 0px;
+      --rounded-lg: 0px;
+      --rounded-full: 0px;
+
+      /* Style effects */
+      --top-index-rule: 6px solid var(--primary);
+      --inset-rule: 5px solid var(--tertiary);
+      --inset-rule-error: 5px solid var(--error);
+      --inset-rule-positive: 5px solid var(--positive);
+      --button-ground: 0 2px 0 #091526;
+      --button-ground-secondary: 0 2px 0 #858686;
+      --button-ground-positive: 0 2px 0 #004022;
+      --focus-yellow: #ffdd00;
+      --focus-ring: 3px solid var(--focus-yellow);
+      --focus-bar: inset 0 0 0 2px var(--on-surface);
+      --focus-underline: 0 -2px var(--focus-yellow), 0 4px var(--on-surface);
+
+      /* Spacing Scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Type Scale */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: static !important;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      max-width: 1120px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Top Handbook Index Header */
+    .index-header {
+      border-top: var(--top-index-rule);
+      border-bottom: 1px solid var(--on-surface);
+      padding: var(--space-sm) 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 6px;
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 800;
+      font-size: var(--label-size);
+      letter-spacing: 0.05em;
+    }
+
+    .masthead {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--outline);
+    }
+
+    .masthead-title {
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0;
+      color: var(--on-surface);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--space-sm);
+    }
+
+    .masthead-sub {
+      color: var(--on-surface-variant);
+      font-size: var(--subhead-size);
+      margin: 0;
+    }
+
+    /* Mode Navigation Tabs */
+    .tab-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      background: var(--outline-variant);
+      border: 2px solid var(--outline);
+      padding: 2px;
+    }
+
+    .tab-btn {
+      flex: 1 1 auto;
+      min-width: 140px;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 0;
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: 0.875rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      transition: background var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+
+    .tab-btn:hover {
+      background: var(--surface-container);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--button-ground);
+    }
+
+    /* Grounded Buttons */
+    .button {
+      font: 700 0.9375rem/1.2 var(--font-label);
+      background: var(--primary);
+      color: var(--on-primary);
+      border: 2px solid var(--outline);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      box-shadow: var(--button-ground);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      text-decoration: none;
+      min-height: 44px;
+    }
+
+    .button--secondary {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      box-shadow: var(--button-ground-secondary);
+    }
+
+    .button--positive {
+      background: var(--positive);
+      color: var(--on-positive);
+      box-shadow: var(--button-ground-positive);
+    }
+
+    .button:hover {
+      filter: brightness(0.96);
+    }
+
+    .button:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+
+    .button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Accessibility Focus */
+    button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 1px;
+      box-shadow: var(--focus-bar);
+    }
+
+    /* Inset Panels */
+    .inset-panel {
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .inset-panel--error {
+      border-left: var(--inset-rule-error);
+      background: var(--error-container);
+    }
+
+    .inset-panel--positive {
+      border-left: var(--inset-rule-positive);
+      background: var(--positive-container);
+    }
+
+    /* Key Figure cards */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .metric-card {
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md);
+    }
+
+    .metric-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: var(--space-xs) 0;
+      color: var(--on-surface);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric-sub {
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Form Fields */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .form-label {
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--on-surface);
+    }
+
+    .form-select, .form-input {
+      padding: var(--space-sm) var(--space-md);
+      border: 2px solid var(--outline);
+      background: var(--background);
+      color: var(--on-surface);
+      font-size: 0.9375rem;
+      border-radius: var(--rounded);
+      min-height: 44px;
+    }
+
+    /* Section Panels */
+    .view-container {
+      display: none;
+    }
+    .view-container.active {
+      display: block;
+    }
+
+    /* QUIZ VIEW STYLES */
+    .quiz-card {
+      border: 2px solid var(--outline);
+      padding: var(--space-lg);
+      background: var(--background);
+    }
+
+    .quiz-progress-bar {
+      height: 8px;
+      background: var(--surface-container);
+      border: 1px solid var(--outline);
+      margin-bottom: var(--space-md);
+      position: relative;
+    }
+
+    .quiz-progress-fill {
+      height: 100%;
+      background: var(--tertiary);
+      width: 0%;
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    .quiz-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .word-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--primary);
+      color: var(--on-primary);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.8125rem;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .question-prompt {
+      font-family: var(--font-headline);
+      font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin: var(--space-md) 0;
+      color: var(--on-surface);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .icon-action-btn {
+      background: var(--surface-container-low);
+      border: 2px solid var(--outline);
+      padding: var(--space-xs) var(--space-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      min-height: 38px;
+      box-shadow: var(--button-ground-secondary);
+    }
+    .icon-action-btn:hover { background: var(--surface-container); }
+    .icon-action-btn:active { transform: translateY(2px); box-shadow: none; }
+    .icon-action-btn.starred {
+      background: var(--star-bg);
+      color: var(--star-gold);
+      border-color: var(--star-gold);
+    }
+
+    .choices-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .choice-btn {
+      text-align: left;
+      padding: var(--space-md);
+      border: 2px solid var(--outline);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      box-shadow: var(--button-ground-secondary);
+      transition: background var(--dur-micro) var(--ease-out);
+      min-height: 56px;
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .choice-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--outline);
+      color: var(--background);
+      font-weight: 800;
+      font-size: 0.8125rem;
+      flex-shrink: 0;
+    }
+
+    .choice-btn.correct {
+      background: var(--positive-container) !important;
+      color: var(--on-positive-container) !important;
+      border-color: var(--positive) !important;
+    }
+    .choice-btn.correct .choice-num {
+      background: var(--positive);
+    }
+
+    .choice-btn.incorrect {
+      background: var(--error-container) !important;
+      color: var(--on-error-container) !important;
+      border-color: var(--error) !important;
+    }
+    .choice-btn.incorrect .choice-num {
+      background: var(--error);
+    }
+
+    /* Explanation Banner */
+    .feedback-banner {
+      display: none;
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+      border: 2px solid var(--outline);
+      background: var(--surface-container-low);
+    }
+
+    .feedback-banner.show {
+      display: block;
+    }
+
+    /* FLASHCARD STYLES */
+    .flashcard-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .flashcard {
+      border: 3px solid var(--outline);
+      min-height: 280px;
+      padding: var(--space-xl);
+      background: var(--background);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 0 var(--outline);
+      transition: transform var(--dur-short) var(--ease-out);
+    }
+    .flashcard:hover {
+      background: var(--surface-container-low);
+    }
+
+    .card-face-badge {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-center-text {
+      text-align: center;
+      padding: var(--space-lg) 0;
+    }
+
+    .card-primary-word {
+      font-family: var(--font-headline);
+      font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+      font-weight: 800;
+      color: var(--on-surface);
+      margin-bottom: var(--space-xs);
+    }
+
+    .card-secondary-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--tertiary);
+      min-height: 1.8em;
+    }
+
+    /* WORD LIST & RED SHEET */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: flex-end;
+      padding: var(--space-md);
+      background: var(--surface-container-low);
+      border: 2px solid var(--outline);
+      margin-bottom: var(--space-md);
+    }
+
+    .red-sheet-active {
+      background: var(--mask-bg) !important;
+      border-color: var(--mask-color) !important;
+      color: var(--mask-color) !important;
+    }
+
+    .word-table-wrapper {
+      border: 2px solid var(--outline);
+      overflow-x: auto;
+      background: var(--background);
+    }
+
+    .word-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .word-table th {
+      background: var(--surface-container);
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 700;
+      border-bottom: 2px solid var(--outline);
+      font-size: 0.8125rem;
+      letter-spacing: 0.04em;
+    }
+
+    .word-table td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      vertical-align: middle;
+    }
+
+    .word-table tr:hover {
+      background: var(--surface-container-low);
+    }
+
+    /* Masking for Red Sheet */
+    .masked-ja {
+      transition: filter var(--dur-micro) var(--ease-out);
+    }
+    .red-sheet-ja-mask .masked-ja {
+      background: var(--mask-color);
+      color: var(--mask-color);
+      user-select: none;
+      padding: 0 4px;
+      cursor: pointer;
+    }
+    .red-sheet-ja-mask .masked-ja:hover {
+      background: var(--mask-bg);
+      color: var(--mask-color);
+    }
+
+    .red-sheet-en-mask .masked-en {
+      background: var(--primary);
+      color: var(--primary);
+      user-select: none;
+      padding: 0 4px;
+      cursor: pointer;
+    }
+    .red-sheet-en-mask .masked-en:hover {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    /* Mastered word row style */
+    tr.is-mastered td {
+      opacity: 0.65;
+    }
+
+    /* Keyboard shortcuts helper */
+    .kbd-badge {
+      display: inline-block;
+      padding: 1px 5px;
+      background: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Speed Drill typing mode */
+    .typing-box {
+      border: 2px solid var(--outline);
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 700;
+      width: 100%;
+      letter-spacing: 0.05em;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-sm);
+        gap: var(--space-sm);
+      }
+      .tab-btn {
+        min-width: 45%;
+        font-size: 0.8125rem;
+        padding: var(--space-xs) var(--space-sm);
+      }
+      .quiz-card {
+        padding: var(--space-md);
+      }
+      .question-prompt {
+        font-size: 1.5rem;
+      }
+      .metric-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .flashcard {
+        min-height: 220px;
+        padding: var(--space-md);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-grid">
+    
+    <!-- Top Index & Topic Badge -->
+    <div class="index-header">
+      <div>
+        <span class="step-badge">TARGET 1900</span>
+        <span style="margin-left: var(--space-sm);">SECTION 3: ADVANCED VOCABULARY</span>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 0.8125rem;">
+        NO. 1301 〜 1800 (全500語)
+      </div>
+    </div>
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <h1 class="masthead-title">
+        英単語ターゲット1900 
+        <span style="color: var(--tertiary); font-size: 0.7em;">[No.1301-1800] 4択クイズ&amp;暗記マスター</span>
+      </h1>
+      <p class="masthead-sub">国公立・難関私大入試に頻出する最重要上級500語を完全網羅。4択テスト・暗記カード・赤シート機能で徹底反復。</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tab-nav" aria-label="学習モード切替">
+      <button type="button" id="tabBtnQuiz" class="tab-btn active" onclick="switchTab('quiz')">
+        <i data-lucide="check-circle-2" style="width: 18px; height: 18px;"></i>
+        4択クイズ
+      </button>
+      <button type="button" id="tabBtnCard" class="tab-btn" onclick="switchTab('card')">
+        <i data-lucide="layers" style="width: 18px; height: 18px;"></i>
+        暗記カード
+      </button>
+      <button type="button" id="tabBtnList" class="tab-btn" onclick="switchTab('list')">
+        <i data-lucide="book-open" style="width: 18px; height: 18px;"></i>
+        単語帳・赤シート
+      </button>
+      <button type="button" id="tabBtnStats" class="tab-btn" onclick="switchTab('stats')">
+        <i data-lucide="bar-chart-2" style="width: 18px; height: 18px;"></i>
+        弱点分析・記録
+      </button>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: 4-CHOICE QUIZ                       -->
+    <!-- ========================================== -->
+    <div id="viewQuiz" class="view-container active">
+      
+      <!-- Quiz Setup Screen -->
+      <div id="quizSetup" class="quiz-card">
+        <div class="index-header" style="border-top: 0; padding-top: 0;">
+          <span class="step-badge">STEP 1</span>
+          <span>クイズ条件の設定</span>
+        </div>
+        
+        <p style="margin-top: var(--space-xs); margin-bottom: var(--space-md); color: var(--on-surface-variant);">
+          出題範囲と形式を選択して「クイズ開始」を押してください。キーボードの <span class="kbd-badge">1</span>〜<span class="kbd-badge">4</span>、<span class="kbd-badge">Enter</span> でも解答可能です。
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: var(--space-md); margin-bottom: var(--space-lg);">
+          
+          <div class="form-group">
+            <label class="form-label" for="quizRange">出題範囲</label>
+            <select id="quizRange" class="form-select">
+              <option value="all">全500語 (No.1301 - 1800)</option>
+              <option value="part1">1301 - 1400 (動詞・名詞・形容詞)</option>
+              <option value="part2">1401 - 1500 (動詞・名詞・形容詞)</option>
+              <option value="part3">1501 - 1600 (動詞・名詞・形容詞)</option>
+              <option value="part4">1601 - 1700 (動詞・名詞・形容詞)</option>
+              <option value="part5">1701 - 1800 (動詞・名詞・形容詞)</option>
+              <option value="weak">苦手な単語のみ (誤答履歴あり)</option>
+              <option value="bookmark">ブックマーク単語のみ (★)</option>
+              <option value="unlearned">未習得単語のみ</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="quizMode">出題形式</label>
+            <select id="quizMode" class="form-select">
+              <option value="en_to_ja">英語 → 日本語 (標準4択)</option>
+              <option value="ja_to_en">日本語 → 英語 (英単語4択)</option>
+              <option value="mixed">ランダム混在 (英→日 &amp; 日→英)</option>
+              <option value="spelling">スペル入力モード (記述ドリル)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="quizCount">出題数</label>
+            <select id="quizCount" class="form-select">
+              <option value="10">10問</option>
+              <option value="20" selected>20問</option>
+              <option value="30">30問</option>
+              <option value="50">50問</option>
+              <option value="100">100問</option>
+              <option value="all">範囲内の全問</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="quizTimer">制限時間</label>
+            <select id="quizTimer" class="form-select">
+              <option value="0">なし (じっくり演習)</option>
+              <option value="5">5秒 / 問 (即答スピード特訓)</option>
+              <option value="10">10秒 / 問</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="inset-panel" style="margin-bottom: var(--space-lg); display: flex; flex-wrap: wrap; gap: var(--space-lg); align-items: center; justify-content: space-between;">
+          <label style="display: inline-flex; align-items: center; gap: var(--space-sm); cursor: pointer; font-weight: 600;">
+            <input type="checkbox" id="quizAutoAudio" checked style="width: 18px; height: 18px;">
+            <span>出題時に自動で英単語を発音する (音声読み上げ)</span>
+          </label>
+          <div style="font-size: 0.8125rem; color: var(--on-surface-variant);">
+            ※ Web Speech API 音声合成を使用しています
+          </div>
+        </div>
+
+        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+          <button type="button" class="button" onclick="startQuiz()" style="font-size: 1.0625rem; padding: var(--space-md) var(--space-xl);">
+            <i data-lucide="play" style="width: 20px; height: 20px;"></i>
+            クイズを開始する [Enter]
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Active Quiz Playing Screen -->
+      <div id="quizActive" class="quiz-card" style="display: none;">
+        
+        <!-- Progress Bar -->
+        <div class="quiz-progress-bar">
+          <div id="quizProgressFill" class="quiz-progress-fill"></div>
+        </div>
+
+        <!-- Meta bar -->
+        <div class="quiz-meta-bar">
+          <div style="display: flex; align-items: center; gap: var(--space-sm);">
+            <span class="step-badge" id="quizQuestionNum">Q. 1 / 20</span>
+            <span class="word-badge" id="quizWordIdBadge">#1301</span>
+            <span class="tag-pill" id="quizPosBadge">動詞</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-md);">
+            <div id="quizTimerBox" style="font-family: var(--font-mono); font-weight: 700; color: var(--error); display: none;">
+              残り <span id="quizTimerSec">10</span>s
+            </div>
+            <div style="font-size: 0.875rem; font-weight: 700; color: var(--on-surface-variant);">
+              正解数: <span id="quizCurrentScore" style="color: var(--positive); font-family: var(--font-mono);">0</span>
+              / 連続: <span id="quizStreak" style="color: var(--tertiary); font-family: var(--font-mono);">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question Prompt Area -->
+        <div class="question-prompt">
+          <span id="quizPromptText">assure</span>
+          
+          <button type="button" id="quizAudioBtn" class="icon-action-btn" onclick="playCurrentWordAudio()" title="音声を聴く (Sキー)">
+            <i data-lucide="volume-2" style="width: 18px; height: 18px;"></i>
+            <span>発音</span>
+          </button>
+
+          <button type="button" id="quizBookmarkBtn" class="icon-action-btn" onclick="toggleCurrentWordBookmark()" title="ブックマーク切り替え (Bキー)">
+            <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+            <span id="quizBookmarkText">ブックマーク</span>
+          </button>
+        </div>
+
+        <!-- 4-Choices Container -->
+        <div id="quizChoicesContainer" class="choices-grid">
+          <button type="button" class="choice-btn" id="choiceBtn0" onclick="handleChoiceSelect(0)">
+            <span class="choice-num">1</span>
+            <span class="choice-text" id="choiceText0">選択肢 1</span>
+          </button>
+          <button type="button" class="choice-btn" id="choiceBtn1" onclick="handleChoiceSelect(1)">
+            <span class="choice-num">2</span>
+            <span class="choice-text" id="choiceText1">選択肢 2</span>
+          </button>
+          <button type="button" class="choice-btn" id="choiceBtn2" onclick="handleChoiceSelect(2)">
+            <span class="choice-num">3</span>
+            <span class="choice-text" id="choiceText2">選択肢 3</span>
+          </button>
+          <button type="button" class="choice-btn" id="choiceBtn3" onclick="handleChoiceSelect(3)">
+            <span class="choice-num">4</span>
+            <span class="choice-text" id="choiceText3">選択肢 4</span>
+          </button>
+        </div>
+
+        <!-- Spelling Input Container (shown only in spelling mode) -->
+        <div id="quizSpellingContainer" style="display: none; margin-top: var(--space-md);">
+          <div style="margin-bottom: var(--space-sm); font-size: 0.875rem; color: var(--on-surface-variant);">
+            ヒント: <span id="spellingHint" style="font-family: var(--font-mono); font-weight: 700; color: var(--tertiary);">a _ _ _ _ e</span>
+          </div>
+          <div style="display: flex; gap: var(--space-sm);">
+            <input type="text" id="spellingInput" class="typing-box" placeholder="英単語を入力..." autocomplete="off" autocapitalize="none" spellcheck="false" onkeydown="handleSpellingKey(event)">
+            <button type="button" class="button" onclick="checkSpellingAnswer()">回答 [Enter]</button>
+          </div>
+        </div>
+
+        <!-- Feedback & Explanation Banner -->
+        <div id="quizFeedback" class="feedback-banner">
+          <div id="quizFeedbackHeader" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xs);">
+            <div style="font-weight: 800; font-size: 1.125rem;" id="quizVerdictText">正解！</div>
+            <button type="button" class="button button--secondary" onclick="playCurrentWordAudio()" style="min-height: 36px; padding: 4px 10px;">
+              <i data-lucide="volume-2" style="width: 16px; height: 16px;"></i> 再生
+            </button>
+          </div>
+          
+          <div style="font-size: 1.0625rem; font-weight: 700; margin-bottom: var(--space-xs);" id="quizDetailWordLine">
+            assure : に自信を持って言う；を保証する
+          </div>
+          <div style="font-size: 0.875rem; color: var(--on-surface-variant);" id="quizDetailNotes">
+            ターゲット1900 No.1301 (Part 3 頻出動詞)
+          </div>
+
+          <div style="margin-top: var(--space-md); display: flex; justify-content: flex-end;">
+            <button type="button" id="nextQuestionBtn" class="button" onclick="nextQuestion()">
+              次の問題へ [Enter] <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Quit / Back Button -->
+        <div style="margin-top: var(--space-lg); border-top: 1px solid var(--outline-variant); padding-top: var(--space-sm); display: flex; justify-content: space-between; align-items: center;">
+          <button type="button" class="button button--secondary" onclick="abortQuiz()" style="font-size: 0.8125rem;">
+            <i data-lucide="x" style="width: 14px; height: 14px;"></i> クイズを中断する
+          </button>
+          <div style="font-size: 0.75rem; color: var(--on-surface-variant);">
+            ショートカット: <span class="kbd-badge">1</span>〜<span class="kbd-badge">4</span> 選択 / <span class="kbd-badge">Enter</span> 次へ / <span class="kbd-badge">S</span> 発音 / <span class="kbd-badge">B</span> ★
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quiz Results Screen -->
+      <div id="quizResults" class="quiz-card" style="display: none;">
+        <div class="index-header" style="border-top: 0; padding-top: 0;">
+          <span class="step-badge">RESULT</span>
+          <span>クイズ結果発表</span>
+        </div>
+
+        <div style="text-align: center; padding: var(--space-lg) 0; border-bottom: 2px solid var(--outline);">
+          <div style="font-size: 0.9375rem; font-weight: 700; color: var(--on-surface-variant); text-transform: uppercase;">
+            Score Assessment
+          </div>
+          <div id="resultScoreDisplay" style="font-family: var(--font-mono); font-size: 3rem; font-weight: 800; color: var(--primary); margin: var(--space-xs) 0;">
+            18 / 20
+          </div>
+          <div id="resultAccuracyBadge" class="step-badge" style="font-size: 1.125rem; padding: 4px 14px;">
+            正答率 90% (ランク: S)
+          </div>
+          <p id="resultComment" style="margin-top: var(--space-sm); font-weight: 600; color: var(--on-surface-variant);">
+            素晴らしい！難関大レベル単語が確実に身についています。
+          </p>
+        </div>
+
+        <div class="metric-grid" style="margin: var(--space-lg) 0;">
+          <div class="metric-card">
+            <div class="metric-label">正解数</div>
+            <div class="metric-value" id="resultCorrectCount" style="color: var(--positive);">18</div>
+            <div class="metric-sub">問正解</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">不正解数</div>
+            <div class="metric-value" id="resultIncorrectCount" style="color: var(--error);">2</div>
+            <div class="metric-sub">問要復習</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">最大連続正解</div>
+            <div class="metric-value" id="resultMaxStreak">12</div>
+            <div class="metric-sub">問連続</div>
+          </div>
+        </div>
+
+        <!-- Result action buttons -->
+        <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg);">
+          <button type="button" id="retryMissedBtn" class="button button--positive" onclick="retryMissedWords()">
+            <i data-lucide="refresh-cw" style="width: 18px; height: 18px;"></i> 間違えた単語だけ再挑戦 (<span id="missedWordCountBadge">0</span>語)
+          </button>
+          <button type="button" class="button" onclick="startQuiz()">
+            <i data-lucide="rotate-ccw" style="width: 18px; height: 18px;"></i> 同じ条件でもう一度
+          </button>
+          <button type="button" class="button button--secondary" onclick="showQuizSetup()">
+            <i data-lucide="settings" style="width: 18px; height: 18px;"></i> 条件を変更する
+          </button>
+        </div>
+
+        <!-- Detailed Question-by-Question Review -->
+        <h3 style="font-size: 1.125rem; font-weight: 800; margin-bottom: var(--space-sm);">出題単語の振り返り</h3>
+        <div class="word-table-wrapper">
+          <table class="word-table">
+            <thead>
+              <tr>
+                <th style="width: 44px;">判定</th>
+                <th style="width: 60px;">No.</th>
+                <th>単語 (English)</th>
+                <th>意味 (Japanese)</th>
+                <th style="width: 90px;">操作</th>
+              </tr>
+            </thead>
+            <tbody id="resultTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: FLASHCARD MODE                      -->
+    <!-- ========================================== -->
+    <div id="viewCard" class="view-container">
+      
+      <div class="filter-bar">
+        <div class="form-group" style="flex: 1 1 180px;">
+          <label class="form-label" for="cardRange">学習範囲</label>
+          <select id="cardRange" class="form-select" onchange="initFlashcards()">
+            <option value="all">全500語 (No.1301 - 1800)</option>
+            <option value="part1">1301 - 1400 (Part 3-1)</option>
+            <option value="part2">1401 - 1500 (Part 3-2)</option>
+            <option value="part3">1501 - 1600 (Part 3-3)</option>
+            <option value="part4">1601 - 1700 (Part 3-4)</option>
+            <option value="part5">1701 - 1800 (Part 3-5)</option>
+            <option value="bookmark">ブックマーク単語のみ (★)</option>
+            <option value="weak">苦手な単語のみ (要復習)</option>
+            <option value="unlearned">未習得単語のみ</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="flex: 1 1 150px;">
+          <label class="form-label" for="cardFaceMode">カード表面</label>
+          <select id="cardFaceMode" class="form-select" onchange="resetCardFace()">
+            <option value="en_first">英語 → 日本語</option>
+            <option value="ja_first">日本語 → 英語</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: var(--space-sm); align-self: flex-end;">
+          <button type="button" class="button button--secondary" onclick="shuffleCards()" title="シャッフル">
+            <i data-lucide="shuffle" style="width: 16px; height: 16px;"></i> シャッフル
+          </button>
+          <button type="button" id="cardAutoPlayBtn" class="button button--secondary" onclick="toggleCardAutoPlay()" title="自動めくり">
+            <i data-lucide="play" style="width: 16px; height: 16px;"></i> <span id="cardAutoPlayText">自動再生</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Flashcard Interactive Area -->
+      <div class="flashcard-wrapper">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); font-size: 0.875rem;">
+          <span style="font-weight: 700;">CARD <span id="cardCounter" style="font-family: var(--font-mono);">1 / 500</span></span>
+          <span style="color: var(--on-surface-variant);">クリックまたは <span class="kbd-badge">Space</span> で裏返し</span>
+        </div>
+
+        <div id="flashcardBox" class="flashcard" onclick="flipCard()">
+          <div class="card-face-badge">
+            <span class="word-badge" id="cardWordNo">#1301</span>
+            <span class="tag-pill" id="cardPosTag">動詞</span>
+            <button type="button" id="cardBookmarkBtn" class="icon-action-btn" onclick="toggleCardBookmark(event)" style="min-height: 32px; padding: 2px 8px;">
+              <i data-lucide="star" style="width: 14px; height: 14px;"></i>
+              <span id="cardBookmarkLabel">★</span>
+            </button>
+          </div>
+
+          <div class="card-center-text">
+            <div id="cardMainText" class="card-primary-word">assure</div>
+            <div id="cardSubText" class="card-secondary-text">（クリックで意味を表示）</div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--outline-variant); padding-top: var(--space-sm);">
+            <button type="button" class="icon-action-btn" onclick="playCardAudio(event)">
+              <i data-lucide="volume-2" style="width: 16px; height: 16px;"></i> 発音 [S]
+            </button>
+            <span id="cardMasteredStatus" style="font-size: 0.8125rem; font-weight: 700; color: var(--positive);"></span>
+          </div>
+        </div>
+
+        <!-- Flashcard Navigation Controls -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-md); gap: var(--space-sm);">
+          <button type="button" class="button button--secondary" onclick="prevCard()" style="flex: 1;">
+            <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i> 前へ [←]
+          </button>
+
+          <button type="button" class="button button--secondary" onclick="markCardNeedsReview()" style="color: var(--error);" title="まだ覚えていない">
+            <i data-lucide="x" style="width: 16px; height: 16px;"></i> まだ [1]
+          </button>
+
+          <button type="button" class="button button--positive" onclick="markCardMastered()" title="完全に覚えた">
+            <i data-lucide="check" style="width: 16px; height: 16px;"></i> 覚えた! [2]
+          </button>
+
+          <button type="button" class="button button--secondary" onclick="nextCard()" style="flex: 1;">
+            次へ [→] <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+
+        <div class="inset-panel" style="margin-top: var(--space-lg); font-size: 0.8125rem; color: var(--on-surface-variant);">
+          <strong>暗記カードの操作ヒント:</strong><br>
+          ・<span class="kbd-badge">Space</span>: カードをめくる<br>
+          ・<span class="kbd-badge">←</span> / <span class="kbd-badge">→</span>: 前後のカードに移動<br>
+          ・<span class="kbd-badge">1</span>: まだ覚束ない (復習フラグ) / <span class="kbd-badge">2</span>: 習得済みにする<br>
+          ・<span class="kbd-badge">S</span>: 音声を再生する / <span class="kbd-badge">B</span>: ブックマークに追加
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: WORD LIST & RED SHEET FILTER        -->
+    <!-- ========================================== -->
+    <div id="viewList" class="view-container">
+      
+      <div class="filter-bar">
+        <div class="form-group" style="flex: 2 1 200px;">
+          <label class="form-label" for="listSearch">インクリメンタル検索</label>
+          <input type="text" id="listSearch" class="form-input" placeholder="英単語・日本語・No.で検索..." oninput="renderWordList()">
+        </div>
+
+        <div class="form-group" style="flex: 1 1 160px;">
+          <label class="form-label" for="listSectionFilter">セクション絞り込み</label>
+          <select id="listSectionFilter" class="form-select" onchange="renderWordList()">
+            <option value="all">全500語 (1301-1800)</option>
+            <option value="1301-1400">1301 - 1400 (Part 3-1)</option>
+            <option value="1401-1500">1401 - 1500 (Part 3-2)</option>
+            <option value="1501-1600">1501 - 1600 (Part 3-3)</option>
+            <option value="1601-1700">1601 - 1700 (Part 3-4)</option>
+            <option value="1701-1800">1701 - 1800 (Part 3-5)</option>
+            <option value="bookmark">★ ブックマーク中のみ</option>
+            <option value="weak">要復習 (誤答あり) のみ</option>
+            <option value="mastered">習得済みのみ</option>
+            <option value="unlearned">未習得のみ</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="flex: 1 1 160px;">
+          <label class="form-label" for="listMaskMode">赤シート・マスク機能</label>
+          <select id="listMaskMode" class="form-select" onchange="updateListMaskMode()">
+            <option value="none">通常表示 (すべて表示)</option>
+            <option value="mask_ja">日本語を隠す (赤シート風)</option>
+            <option value="mask_en">英語を隠す (想起テスト)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Quick status overview -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); font-size: 0.875rem;">
+        <div>
+          該当単語: <strong id="listMatchCount" style="font-family: var(--font-mono);">500</strong> 語
+        </div>
+        <div style="color: var(--on-surface-variant); font-size: 0.8125rem;">
+          ※ 赤シート適用時は、伏せられた部分をクリックまたはホバーすると意味を確認できます
+        </div>
+      </div>
+
+      <!-- Word Table -->
+      <div class="word-table-wrapper" id="wordTableWrapper">
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 44px; text-align: center;">習得</th>
+              <th style="width: 44px; text-align: center;">★</th>
+              <th style="width: 60px;">No.</th>
+              <th style="width: 140px;">英単語</th>
+              <th>日本語の意味 (ターゲット1900基準)</th>
+              <th style="width: 60px; text-align: center;">音声</th>
+            </tr>
+          </thead>
+          <tbody id="fullWordTableBody">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: WEAKNESS & LEARNING ANALYTICS       -->
+    <!-- ========================================== -->
+    <div id="viewStats" class="view-container">
+      
+      <div class="index-header" style="border-top: 0; padding-top: 0;">
+        <span class="step-badge">ANALYTICS</span>
+        <span>学習状況・弱点単語マスター</span>
+      </div>
+
+      <div class="metric-grid" style="margin: var(--space-md) 0 var(--space-lg) 0;">
+        <div class="metric-card">
+          <div class="metric-label">総単語習得率</div>
+          <div class="metric-value" id="statsMasteryRate">0%</div>
+          <div class="metric-sub"><span id="statsMasteredCount">0</span> / 500 語完了</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">要復習・苦手単語</div>
+          <div class="metric-value" id="statsWeakCount" style="color: var(--error);">0</div>
+          <div class="metric-sub">クイズで誤答した単語</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">ブックマーク単語</div>
+          <div class="metric-value" id="statsBookmarkCount" style="color: var(--star-gold);">0</div>
+          <div class="metric-sub">重要マーク登録</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">累計クイズ実施回数</div>
+          <div class="metric-value" id="statsQuizSessions">0</div>
+          <div class="metric-sub">セッション完了</div>
+        </div>
+      </div>
+
+      <!-- Section Breakdown -->
+      <div class="inset-panel">
+        <h3 style="margin-top: 0; font-size: 1.125rem; font-weight: 800;">100語セクション別 習得状況</h3>
+        
+        <div style="display: grid; gap: var(--space-sm);">
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 700; margin-bottom: 2px;">
+              <span>No.1301 〜 1400 (assure 〜 notable)</span>
+              <span id="sec1Label" style="font-family: var(--font-mono);">0 / 100</span>
+            </div>
+            <div style="height: 10px; background: var(--surface-container); border: 1px solid var(--outline);">
+              <div id="sec1Bar" style="height: 100%; background: var(--tertiary); width: 0%;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 700; margin-bottom: 2px;">
+              <span>No.1401 〜 1500 (update 〜 loyal)</span>
+              <span id="sec2Label" style="font-family: var(--font-mono);">0 / 100</span>
+            </div>
+            <div style="height: 10px; background: var(--surface-container); border: 1px solid var(--outline);">
+              <div id="sec2Bar" style="height: 100%; background: var(--tertiary); width: 0%;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 700; margin-bottom: 2px;">
+              <span>No.1501 〜 1600 (bless 〜 affluent)</span>
+              <span id="sec3Label" style="font-family: var(--font-mono);">0 / 100</span>
+            </div>
+            <div style="height: 10px; background: var(--surface-container); border: 1px solid var(--outline);">
+              <div id="sec3Bar" style="height: 100%; background: var(--tertiary); width: 0%;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 700; margin-bottom: 2px;">
+              <span>No.1601 〜 1700 (collaborate 〜 intact)</span>
+              <span id="sec4Label" style="font-family: var(--font-mono);">0 / 100</span>
+            </div>
+            <div style="height: 10px; background: var(--surface-container); border: 1px solid var(--outline);">
+              <div id="sec4Bar" style="height: 100%; background: var(--tertiary); width: 0%;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 700; margin-bottom: 2px;">
+              <span>No.1701 〜 1800 (embody 〜 ubiquitous)</span>
+              <span id="sec5Label" style="font-family: var(--font-mono);">0 / 100</span>
+            </div>
+            <div style="height: 10px; background: var(--surface-container); border: 1px solid var(--outline);">
+              <div id="sec5Bar" style="height: 100%; background: var(--tertiary); width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weakness Table -->
+      <div style="margin-top: var(--space-lg);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); flex-wrap: wrap; gap: var(--space-sm);">
+          <h3 style="margin: 0; font-size: 1.125rem; font-weight: 800;">
+            間違い頻出ワースト単語一覧 (<span id="weakTableCount">0</span>語)
+          </h3>
+          <button type="button" class="button button--positive" onclick="startWeakWordsQuiz()" id="startWeakQuizBtn">
+            <i data-lucide="play" style="width: 16px; height: 16px;"></i> 苦手単語のみで即クイズ開始
+          </button>
+        </div>
+
+        <div class="word-table-wrapper">
+          <table class="word-table">
+            <thead>
+              <tr>
+                <th style="width: 60px;">No.</th>
+                <th style="width: 140px;">英単語</th>
+                <th>意味</th>
+                <th style="width: 80px; text-align: center;">誤答回数</th>
+                <th style="width: 80px; text-align: center;">操作</th>
+              </tr>
+            </thead>
+            <tbody id="weakTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Data Management -->
+      <div style="margin-top: var(--space-xl); padding-top: var(--space-md); border-top: 1px solid var(--outline-variant); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);">
+        <div style="font-size: 0.8125rem; color: var(--on-surface-variant);">
+          学習データは自動的に保存されます。
+        </div>
+        <div style="display: flex; gap: var(--space-sm);">
+          <button type="button" class="button button--secondary" onclick="exportLearningCSV()">
+            <i data-lucide="download" style="width: 16px; height: 16px;"></i> データをCSV出力
+          </button>
+          <button type="button" class="button button--secondary" onclick="confirmResetData()" style="color: var(--error);">
+            <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i> 学習記録を初期化
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <api-shim></api-shim>
+
+  <script>
+    // -------------------------------------------------------------------------
+    // COMPLETE TARGET 1900 DATASET: NO. 1301 - 1800 (500 WORDS)
+    // Structure: [id, word, meaning]
+    // -------------------------------------------------------------------------
+    const TARGET_WORDS = [
+      [1301, `assure`, `に自信を持って言う；を保証する`],
+      [1302, `precede`, `に先行する；に優先する`],
+      [1303, `revive`, `を復活させる；復活する`],
+      [1304, `compel`, `に強いる`],
+      [1305, `blossom`, `花が咲く（≒ bloom）；発展する`],
+      [1306, `terrify`, `を怖がらせる；を脅かす`],
+      [1307, `violate`, `（法律・規則など）に違反する；を侵害する`],
+      [1308, `suppress`, `を抑える；を抑圧する`],
+      [1309, `deceive`, `をだます（≒ take in）`],
+      [1310, `manipulate`, `を（巧みに）操る；を改ざんする`],
+      [1311, `starve`, `飢える；（～を）渇望する（for）；を飢えさせる`],
+      [1312, `flee`, `（から）逃げる`],
+      [1313, `whisper`, `（を）ささやく`],
+      [1314, `yell`, `叫ぶ，どなる`],
+      [1315, `deposit`, `を置く；を預ける；を堆積させる`],
+      [1316, `confine`, `を限定する；〔通例受身形で〕閉じ込められる`],
+      [1317, `swing`, `を揺らす，振る；揺れる；（行動に）さっと移る`],
+      [1318, `prolong`, `を長引かせる`],
+      [1319, `depict`, `を描く`],
+      [1320, `outline`, `の要点を述べる；の輪郭を描く`],
+      [1321, `shed`, `を捨て去る；（光など）を放つ；（涙・血）を流す`],
+      [1322, `emit`, `（光・熱など）を出す，排出する；（信号）を送る`],
+      [1323, `renew`, `を更新する；（資源）を再生する`],
+      [1324, `utilize`, `を利用する（≒ make use of）`],
+      [1325, `assert`, `を主張する`],
+      [1326, `strain`, `に負担をかける；を緊張させる；を漉す`],
+      [1327, `strive`, `努力する；争う`],
+      [1328, `dare`, `あえて［思い切って］...する`],
+      [1329, `boast`, `を誇る；（を）自慢する`],
+      [1330, `startle`, `をびっくりさせる（≒ surprise）`],
+      [1331, `offend`, `の気分を害する；（に）違反する`],
+      [1332, `compute`, `（を）計算する；コンピューターを使う`],
+      [1333, `assemble`, `を集める；を組み立てる；集まる`],
+      [1334, `worsen`, `を悪化させる；悪化する（≒ deteriorate）`],
+      [1335, `flip`, `を（ぱっと）裏返す；を軽くはじく`],
+      [1336, `rub`, `（を）こする；（～に）を塗る（on / over）`],
+      [1337, `descend`, `（を）降りる（⇔ ascend ⇒ 1839）；受け継がれる`],
+      [1338, `compensate`, `補償する（≒ make up）；に償う`],
+      [1339, `comprise`, `から成る；を構成する`],
+      [1340, `prevail`, `普及している；支配的である；（～に）打ち勝つ（over）`],
+      [1341, `quest`, `探究`],
+      [1342, `dignity`, `尊厳；威厳`],
+      [1343, `criterion`, `（判断・評価の）基準`],
+      [1344, `paradox`, `逆説；矛盾`],
+      [1345, `parliament`, `（英国などの）議会；国会議員（団）`],
+      [1346, `legislation`, `法律；立法`],
+      [1347, `agenda`, `協議事項（リスト）；議事日程（表）；（政治上の）課題`],
+      [1348, `mainstream`, `（活動・思潮などの）主流；大勢`],
+      [1349, `troop`, `〔～s〕軍隊；集団`],
+      [1350, `epidemic`, `流行（病）；蔓延`],
+      [1351, `outbreak`, `発生，勃発`],
+      [1352, `chaos`, `混沌，大混乱`],
+      [1353, `nightmare`, `悪夢（のような状況）；不安感`],
+      [1354, `horror`, `恐怖；強い嫌悪；嫌な物［人］`],
+      [1355, `cluster`, `集団；（植物の）房，束`],
+      [1356, `pollen`, `花粉`],
+      [1357, `hive`, `ミツバチの巣（箱）；人の集まる所`],
+      [1358, `irrigation`, `灌漑`],
+      [1359, `dose`, `（薬の1回分の）服用量；放射線の1回の照射量`],
+      [1360, `suicide`, `自殺；自殺的行為`],
+      [1361, `feast`, `祝宴；大ごちそう；楽しみ`],
+      [1362, `cuisine`, `（独特の）料理，料理法`],
+      [1363, `rumor`, `うわさ`],
+      [1364, `proverb`, `ことわざ（≒ saying）`],
+      [1365, `signature`, `署名；特徴`],
+      [1366, `formula`, `方法，解決策；公式`],
+      [1367, `tuition`, `【主に米】 授業料（＝ 【英】tuition fees）；（個人）指導`],
+      [1368, `intake`, `摂取量；受け入れ数；取り入れること`],
+      [1369, `spectrum`, `スペクトル；（波動・変動の）範囲`],
+      [1370, `kidney`, `腎臓`],
+      [1371, `gear`, `用具（一式），器具；歯車；ギア`],
+      [1372, `aisle`, `（座席間などの）通路`],
+      [1373, `grief`, `深い悲しみ`],
+      [1374, `destiny`, `運命`],
+      [1375, `skull`, `頭骨，頭蓋骨；頭脳`],
+      [1376, `tomb`, `墓`],
+      [1377, `monk`, `修道士，僧（⇔ nun 修道女，尼）`],
+      [1378, `worship`, `崇拝，礼拝（式）；賛美`],
+      [1379, `outstanding`, `際立った；未払いの；未解決の`],
+      [1380, `unprecedented`, `前例のない；空前の`],
+      [1381, `infinite`, `無限の（⇔ finite 有限の）；無数の`],
+      [1382, `worthwhile`, `価値がある；立派な`],
+      [1383, `indispensable`, `不可欠な（⇔ dispensable なくてもすむ）`],
+      [1384, `compulsory`, `義務的な，強制的な（⇔ voluntary ⇒ 1199）`],
+      [1385, `probable`, `十分にありそうな`],
+      [1386, `ambiguous`, `あいまいな；多義的な`],
+      [1387, `obscure`, `（世に）知られていない；不明瞭な`],
+      [1388, `skeptical`, `（～に）懐疑的な（of ⇒ about）`],
+      [1389, `fragile`, `壊れやすい；虚弱な`],
+      [1390, `static`, `静的な（⇔ dynamic ⇒ 1083）；動きのない`],
+      [1391, `gradual`, `徐々の，緩やかな`],
+      [1392, `vocal`, `声の，発声の；はっきりものを言う`],
+      [1393, `vivid`, `鮮やかな；生き生きとした`],
+      [1394, `imperial`, `帝国の；皇帝の`],
+      [1395, `hostile`, `敵意のある（⇔friendly 友好的な）`],
+      [1396, `superficial`, `表面的な`],
+      [1397, `scarce`, `乏しい；珍しい`],
+      [1398, `gross`, `総計の；甚だしい；粗野な`],
+      [1399, `inherent`, `生来の，本来的に備わっている`],
+      [1400, `notable`, `注目に値する；著名な`],
+      [1401, `update`, `を最新のものにする；をアップデートする`],
+      [1402, `refresh`, `（気分）をさわやかにする；（記憶など）を新たにする；を最新のものにする`],
+      [1403, `bloom`, `花が咲く；栄える`],
+      [1404, `conquer`, `を征服する；を克服する`],
+      [1405, `induce`, `を引き起こす；を説得する`],
+      [1406, `attain`, `を獲得する，達成する；に達する`],
+      [1407, `spray`, `を吹きかける，に吹きつける`],
+      [1408, `retrieve`, `（情報）を検索する；を取り戻す；を回復する`],
+      [1409, `portray`, `を描く；（の役）を演じる`],
+      [1410, `scratch`, `を引っかく；を取り消す，削除する`],
+      [1411, `designate`, `を指定する；を任命する`],
+      [1412, `contradict`, `と矛盾する；に反対意見を言う`],
+      [1413, `sigh`, `ため息をつく`],
+      [1414, `disrupt`, `を混乱させる；を分裂させる`],
+      [1415, `depart`, `出発する；（～から）それる（from）`],
+      [1416, `navigate`, `（を）誘導する；（を）操縦する；（を）航行する`],
+      [1417, `beg`, `に（～を）切に頼む（for）；（を）懇願する`],
+      [1418, `inhabit`, `に住んでいる；に宿る，存する`],
+      [1419, `diagnose`, `（を）診断する`],
+      [1420, `comprehend`, `を理解する`],
+      [1421, `oblige`, `に義務づける；に恩恵を施す`],
+      [1422, `cram`, `に詰め込む；詰め込み勉強をする`],
+      [1423, `flock`, `群がる，集まる`],
+      [1424, `underestimate`, `（を）過小評価する（⇔ overestimate （を）過大評価する）；（を）軽く見る；を少なく見積もる`],
+      [1425, `clarify`, `を明確にする`],
+      [1426, `spark`, `を引き起こす；を刺激する；スパークする`],
+      [1427, `seize`, `をつかむ；を奪い取る；を没収する`],
+      [1428, `soar`, `急上昇する；空高く飛ぶ`],
+      [1429, `glow`, `光り［照り］輝く；赤く燃える；紅潮する`],
+      [1430, `disguise`, `を（～に）変装させる（as）；を偽る`],
+      [1431, `distort`, `を歪める；歪む`],
+      [1432, `undermine`, `を徐々にむしばむ；を侵食する`],
+      [1433, `abolish`, `を廃止する（≒ do away with）`],
+      [1434, `strip`, `を［から］取り去る；を裸にする`],
+      [1435, `dispose`, `〔dispose ofで〕を処分する；を（...する）気にさせる（to do）；を配置する`],
+      [1436, `dump`, `を投棄する；をどさっと落とす`],
+      [1437, `weave`, `を織る；（計画・物語など）を作り上げる`],
+      [1438, `refine`, `を洗練する；を精製する`],
+      [1439, `enrich`, `を豊かにする；（物質）を濃縮化する`],
+      [1440, `coordinate`, `を調整する；を組織する；（服など）をコーディネートする`],
+      [1441, `headline`, `（新聞などの）見出し`],
+      [1442, `internship`, `【米】 実務［医学］研修；研修期間`],
+      [1443, `outlet`, `直売店，特売店；はけ口；【米】（電気の）コンセント（≒ 【英】socket）`],
+      [1444, `remedy`, `治療（法）；治療薬；解決法`],
+      [1445, `pill`, `錠剤，丸薬；〔the ～〕ピル，経口避妊薬`],
+      [1446, `reception`, `反応；宴会；受付；受信（状態）`],
+      [1447, `transaction`, `（商）取引；（人と人との）交流`],
+      [1448, `mutation`, `突然変異（体）；変化`],
+      [1449, `dairy`, `〔集合的に〕乳製品；乳製品加工所［販売者］`],
+      [1450, `compassion`, `同情`],
+      [1451, `posture`, `姿勢；心構え`],
+      [1452, `curse`, `悪態，ののしりの言葉；呪い；〔通例a ～〕災い`],
+      [1453, `funeral`, `葬式`],
+      [1454, `census`, `国勢調査；交通調査`],
+      [1455, `encyclopedia`, `百科事典`],
+      [1456, `cereal`, `〔通例～s〕穀物；シリアル（穀物加工食品）`],
+      [1457, `fragment`, `断片`],
+      [1458, `patch`, `（～の）部分，斑点；継ぎ；貼り薬`],
+      [1459, `rubbish`, `【英】 ごみ（≒ 【米】garbage）；つまらないもの`],
+      [1460, `maze`, `迷路（≒ labyrinth）；複雑に込み入ったもの`],
+      [1461, `outlook`, `見解；見通し；眺め`],
+      [1462, `breakthrough`, `大発見，飛躍的進歩`],
+      [1463, `triumph`, `勝利；勝利の喜び；偉業`],
+      [1464, `ally`, `同盟国；提携者；援助者；盟友`],
+      [1465, `spectator`, `（試合などの）観客`],
+      [1466, `sphere`, `領域；球体；天体`],
+      [1467, `county`, `【米】 郡；【英】州`],
+      [1468, `behalf`, `利益，味方`],
+      [1469, `interval`, `（時間の）間隔；合間；隔たり；小休止`],
+      [1470, `circulation`, `循環；流通；（新聞・雑誌の）発行部数`],
+      [1471, `blade`, `刃；（プロペラなどの）羽根；（草などの）葉`],
+      [1472, `theft`, `窃盗（罪）`],
+      [1473, `vacuum`, `真空；空虚`],
+      [1474, `collision`, `衝突；対立`],
+      [1475, `bargain`, `買い得品；取引；契約`],
+      [1476, `landmark`, `（ある場所の）目印；画期的な出来事`],
+      [1477, `revenue`, `歳入（⇔ expenditure 歳出）；収益`],
+      [1478, `treaty`, `（国家間の）条約；協定`],
+      [1479, `supreme`, `最高の`],
+      [1480, `thorough`, `徹底的な；まったくの`],
+      [1481, `naked`, `裸の`],
+      [1482, `sincere`, `心からの；誠実な`],
+      [1483, `tame`, `飼いならされた，人に慣れた；退屈な`],
+      [1484, `insufficient`, `不十分な；不適当な`],
+      [1485, `dim`, `薄暗い；ぼんやりした`],
+      [1486, `acute`, `（痛み・感情などが）激しい；（知覚などが）鋭い；急性の（⇔ chronic ⇒ 1198）`],
+      [1487, `disabled`, `障害のある；障害者用の`],
+      [1488, `metropolitan`, `大都市の，首都圏の`],
+      [1489, `monetary`, `金銭的な；金融の`],
+      [1490, `alternate`, `代わりの（≒ alternative）；交互の`],
+      [1491, `partial`, `部分的な；不公平な（⇔impartial 公平な）`],
+      [1492, `divine`, `神の；神にささげる`],
+      [1493, `drastic`, `徹底的な，抜本的な；極端な`],
+      [1494, `fierce`, `猛烈な；どう猛な`],
+      [1495, `sole`, `唯一の；単独の；独占的な`],
+      [1496, `spontaneous`, `自然発生的な；自発的な`],
+      [1497, `spatial`, `空間の`],
+      [1498, `neat`, `きちんとした；見事な`],
+      [1499, `tidy`, `きちんとした，整頓された；相当の`],
+      [1500, `loyal`, `（～に）忠実な（to）；誠実な`],
+      [1501, `bless`, `に恩恵を与える；に感謝する`],
+      [1502, `regain`, `を取り戻す`],
+      [1503, `conform`, `順応する；一致する`],
+      [1504, `enroll`, `登録する，入会する；を登録させる`],
+      [1505, `entitle`, `に権利を与える；に題名をつける`],
+      [1506, `halt`, `を止める；止まる`],
+      [1507, `provoke`, `（感情・行動など）を引き起こす；を挑発する`],
+      [1508, `invade`, `を侵略する；を侵害する；（場所）に殺到する`],
+      [1509, `squeeze`, `押し入る；を押し込む；（を）搾る；（を）強く押す`],
+      [1510, `crawl`, `はう；ゆっくり進む`],
+      [1511, `digest`, `を消化する；を理解する；を要約する`],
+      [1512, `utter`, `（声）を発する；（考えなど）を述べる`],
+      [1513, `refrain`, `控える`],
+      [1514, `populate`, `に住む，の住民である；に人を住まわせる`],
+      [1515, `accommodate`, `を収容する；を（～に）適応させる（to）`],
+      [1516, `steer`, `（を）操縦する；を（～へ）向ける（to）`],
+      [1517, `drown`, `溺死する；を水浸しにする`],
+      [1518, `dip`, `を浸す；（手など）を（～に）突っ込む（into / in）；下がる`],
+      [1519, `soak`, `を浸す；をずぶぬれにする；浸る`],
+      [1520, `stir`, `をかき回す；を揺り動かす`],
+      [1521, `transplant`, `を移植する；を移住させる`],
+      [1522, `reassure`, `を安心させる`],
+      [1523, `resume`, `（を）再開する；を取り戻す`],
+      [1524, `speculate`, `（と）推測する；投機する`],
+      [1525, `surpass`, `を上回る`],
+      [1526, `appoint`, `を任命する；（日時・場所など）を指定する`],
+      [1527, `intrigue`, `に興味を持たせる；陰謀を企てる`],
+      [1528, `decay`, `腐敗する（≒ rot）；（徐々に）衰える`],
+      [1529, `contaminate`, `を汚染する；を堕落させる`],
+      [1530, `swell`, `膨張する，腫れる；を膨らませる`],
+      [1531, `delete`, `を削除する，消す`],
+      [1532, `tolerate`, `を許容する，我慢する（≒ put up with）`],
+      [1533, `envy`, `をうらやむ`],
+      [1534, `pray`, `（を）祈る`],
+      [1535, `confess`, `（を）告白する`],
+      [1536, `resign`, `（を）辞任する；を放棄する`],
+      [1537, `dissolve`, `（を）溶かす；（議会など）を解散する；（契約など）を解消する；溶ける`],
+      [1538, `unfold`, `（閉じたもの）を開く；を明らかにする；開く；明らかになる`],
+      [1539, `awaken`, `を目覚めさせる；（～から）覚める（from）`],
+      [1540, `conceive`, `（を）思いつく；と想像する；（を）妊娠する`],
+      [1541, `entrepreneur`, `起業家，事業家`],
+      [1542, `stake`, `利害関係；〔通例～s〕賭け金；杭`],
+      [1543, `surplus`, `余剰（⇔ shortage 不足），過剰；黒字`],
+      [1544, `inflation`, `インフレ（ーション）；（物価の）高騰`],
+      [1545, `sweatshop`, `搾取工場`],
+      [1546, `clash`, `衝突；対立；かち合うこと；ガチャンという音`],
+      [1547, `sociology`, `社会学`],
+      [1548, `ideology`, `イデオロギー，思想傾向`],
+      [1549, `margin`, `余白；差；利ざや`],
+      [1550, `realm`, `領域；領土`],
+      [1551, `domain`, `分野；領域；ドメイン（＝ domain name）`],
+      [1552, `algorithm`, `アルゴリズム；問題解決の手順`],
+      [1553, `prairie`, `大草原`],
+      [1554, `frontier`, `〔通例the ～s〕最先端；〔the ～〕 【米】辺境地；国境`],
+      [1555, `bullet`, `銃弾`],
+      [1556, `shield`, `盾，防御物`],
+      [1557, `despair`, `絶望`],
+      [1558, `radiation`, `放射能，放射線`],
+      [1559, `placebo`, `偽薬，プラシーボ；気休め`],
+      [1560, `nursery`, `託児所；苗床`],
+      [1561, `spouse`, `配偶者`],
+      [1562, `makeup`, `化粧；化粧品；構成；性質`],
+      [1563, `mummy`, `ミイラ；【英】ママ，お母さん（＝ 【米】mommy）`],
+      [1564, `flesh`, `（人・動物の）肉；果肉`],
+      [1565, `limb`, `手足`],
+      [1566, `odor`, `におい；気配`],
+      [1567, `laundry`, `洗濯（物）；クリーニング店`],
+      [1568, `tide`, `潮（の干満）；動向`],
+      [1569, `questionnaire`, `アンケート`],
+      [1570, `nonsense`, `ばかげた物［話，考え］；無意味な言葉`],
+      [1571, `revenge`, `復讐`],
+      [1572, `intellect`, `知性；〔the ～（s）〕知識人`],
+      [1573, `hospitality`, `親切なもてなし，歓待；受容性`],
+      [1574, `librarian`, `司書，図書館員`],
+      [1575, `manuscript`, `（手書きの）原稿；写本`],
+      [1576, `obsession`, `（考えなどに）取りつかれること；妄想；強迫観念`],
+      [1577, `hygiene`, `衛生（状態）；健康法`],
+      [1578, `paradigm`, `理論的枠組み，パラダイム；模範`],
+      [1579, `legitimate`, `合法的な；妥当な`],
+      [1580, `authentic`, `本物の；信頼できる`],
+      [1581, `empirical`, `経験的な；経験主義の`],
+      [1582, `immense`, `膨大な`],
+      [1583, `absurd`, `ばかげた；不合理な`],
+      [1584, `weird`, `異様な（≒ bizarre），奇妙な`],
+      [1585, `accidental`, `偶然の；過失による`],
+      [1586, `uneasy`, `不安な；落ち着かない；ぎこちない`],
+      [1587, `jealous`, `嫉妬深い；用心深い`],
+      [1588, `feminine`, `女らしい（⇔ masculine ⇒ 1681）`],
+      [1589, `swift`, `素早い`],
+      [1590, `hollow`, `空洞の；空虚な；うわべだけの`],
+      [1591, `crude`, `大まかな；粗野な；未精製の`],
+      [1592, `sore`, `痛い；腹が立って`],
+      [1593, `pessimistic`, `悲観的な（⇔ optimistic ⇒ 882）`],
+      [1594, `vain`, `無駄な；うぬぼれた`],
+      [1595, `susceptible`, `（～の）影響を受けやすい（to）；感染しやすい`],
+      [1596, `edible`, `食用の，食べられる`],
+      [1597, `sheer`, `純然たる，真の；すごい；（布が）薄地の`],
+      [1598, `explicit`, `明白な（⇔ implicit ⇒ 1795）；率直な`],
+      [1599, `prone`, `（～に）なりやすい（to）；（...する）傾向がある（to do）`],
+      [1600, `affluent`, `裕福な；豊富な`],
+      [1601, `collaborate`, `共同して働く；（～に）協力する（with）`],
+      [1602, `exert`, `を及ぼす；（力など）を行使する`],
+      [1603, `excel`, `（～で）秀でている（in / at）；に勝る`],
+      [1604, `prosper`, `栄える，成功する；繁殖する`],
+      [1605, `surge`, `殺到する；（感情が）こみ上げる；急騰する`],
+      [1606, `intervene`, `（～に）介入する（in）；介在する`],
+      [1607, `insert`, `を挿入する`],
+      [1608, `overtake`, `を追い抜く；に追いつく（≒ catch up with）；（災難・強い感情などが）を襲う`],
+      [1609, `snap`, `をパチンと鳴らす；をポキッと折る；ポキッと折れる；パチンと音を立てる`],
+      [1610, `carve`, `を彫る；を切り開く；（肉）を切り分ける`],
+      [1611, `addict`, `〔受身形で〕（～の）中毒になる（to）；（～に）凝る`],
+      [1612, `condemn`, `を非難する；〔受身形で〕（～の刑を）宣告される（to）`],
+      [1613, `convict`, `に有罪を宣告する`],
+      [1614, `dictate`, `を指図する；を書き取らせる；を規定する`],
+      [1615, `prescribe`, `（薬など）を処方する；を規定する`],
+      [1616, `inhibit`, `を抑制する；を妨げる`],
+      [1617, `stray`, `はぐれる，（道に）迷う`],
+      [1618, `roam`, `（を）歩き回る；放浪する`],
+      [1619, `enclose`, `を同封する；を取り囲む`],
+      [1620, `execute`, `を実行する；を処刑する`],
+      [1621, `coincide`, `同時に起こる；一致する`],
+      [1622, `lag`, `遅れる；徐々に弱まる`],
+      [1623, `cling`, `しがみつく；くっつく`],
+      [1624, `erase`, `を消す`],
+      [1625, `grind`, `（穀物など）をひく`],
+      [1626, `knit`, `を編む；を結合する；編み物をする`],
+      [1627, `inquire`, `（を）尋ねる`],
+      [1628, `betray`, `をうっかり表す；を裏切る`],
+      [1629, `leak`, `漏れる；を漏らす`],
+      [1630, `smash`, `を粉砕する；を強打する；粉々に壊れる；激突する`],
+      [1631, `bounce`, `跳ねる；反射する；を弾ませる；（Ｅメールが）（宛先不明で）返送される`],
+      [1632, `sprawl`, `（都市などが）不規則に広がる；だらしなく手足を伸ばす`],
+      [1633, `converse`, `（～と）会話をする（with）`],
+      [1634, `recite`, `を暗唱する；を詳述する`],
+      [1635, `disregard`, `を無視する；を軽視する`],
+      [1636, `frown`, `眉をひそめる`],
+      [1637, `evoke`, `を呼び起こす`],
+      [1638, `pledge`, `を誓う，約束する；を与えることを約束する`],
+      [1639, `aspire`, `（～を）熱望する（to）`],
+      [1640, `contemplate`, `（を）熟考する；を予想する`],
+      [1641, `grace`, `優美，優雅；分別；（神の）恩寵`],
+      [1642, `enlightenment`, `啓蒙，啓発`],
+      [1643, `commerce`, `商業；貿易`],
+      [1644, `draft`, `下書き；為替手形；隙間風`],
+      [1645, `barrel`, `バレル（液量の単位）；たる`],
+      [1646, `timber`, `【英】 木材（≒ 【米】lumber）；樹木`],
+      [1647, `garment`, `衣服`],
+      [1648, `thread`, `糸；（議論などの）筋道`],
+      [1649, `cabinet`, `〔しばしばthe C-〕内閣；戸棚`],
+      [1650, `bureau`, `（官庁の）局；事務局；案内所`],
+      [1651, `autonomy`, `（個人の）自律；自治（権）；自治体`],
+      [1652, `toll`, `損害（の程度）；死傷者数；通行料`],
+      [1653, `discourse`, `話し合い，会話；講演；論説`],
+      [1654, `superstition`, `迷信`],
+      [1655, `glimpse`, `ちらりと見えること`],
+      [1656, `arithmetic`, `計算；算数`],
+      [1657, `glossary`, `用語小辞典；用語集`],
+      [1658, `archive`, `〔しばしば～s〕記録文書，公文書；公文書保管所；（コンピューターの）アーカイブ`],
+      [1659, `legacy`, `遺産`],
+      [1660, `anthropology`, `人類学`],
+      [1661, `rage`, `激怒；猛威`],
+      [1662, `sorrow`, `悲しみ`],
+      [1663, `psychiatrist`, `精神科医`],
+      [1664, `ward`, `行政区；病棟`],
+      [1665, `stall`, `露店；エンスト；失速`],
+      [1666, `flame`, `炎；情熱`],
+      [1667, `moisture`, `水分；湿気`],
+      [1668, `irony`, `皮肉`],
+      [1669, `warrior`, `戦士`],
+      [1670, `astronomy`, `天文学`],
+      [1671, `probe`, `（無人）宇宙探査機；（～の）精査（into）；探り針`],
+      [1672, `altitude`, `高度，標高`],
+      [1673, `tumor`, `腫瘍；腫れ物`],
+      [1674, `defect`, `欠陥；不足`],
+      [1675, `sanitation`, `公衆衛生（学）；下水［衛生］設備`],
+      [1676, `longevity`, `長寿；寿命；長年勤続`],
+      [1677, `scope`, `（活動・能力などの）範囲；余地`],
+      [1678, `sentiment`, `感情；感想；感傷`],
+      [1679, `plausible`, `もっともらしい`],
+      [1680, `vigorous`, `精力的な；激しい；活力のある`],
+      [1681, `masculine`, `男らしい（⇔ feminine ⇒ 1588）`],
+      [1682, `rigid`, `厳しい；硬直した`],
+      [1683, `adverse`, `不都合な；逆の`],
+      [1684, `coherent`, `一貫した，筋の通った；結束した`],
+      [1685, `literal`, `文字どおりの；逐語的な；散文的な`],
+      [1686, `arbitrary`, `恣意的な；独断的な`],
+      [1687, `anonymous`, `匿名の`],
+      [1688, `antique`, `骨董の，アンティークの；古風な`],
+      [1689, `eternal`, `永遠の；不変の`],
+      [1690, `intermediate`, `中級の；中間の`],
+      [1691, `subordinate`, `（～より）下位の（to）；副次的な`],
+      [1692, `gloomy`, `陰気な；薄暗い；悲観的な`],
+      [1693, `thermal`, `熱の，熱による；保温用の`],
+      [1694, `faint`, `かすかな；めまいがする；弱々しい`],
+      [1695, `naive`, `お人よしの，愚直な；純朴な`],
+      [1696, `apt`, `（...する）傾向がある（to do）；適切な；利発な`],
+      [1697, `arrogant`, `横柄な，傲慢な`],
+      [1698, `extrovert`, `外向的な；社交的な`],
+      [1699, `conspicuous`, `目立つ`],
+      [1700, `intact`, `損なわれていない，手つかずの`],
+      [1701, `embody`, `を具現する；を包含する`],
+      [1702, `illuminate`, `を照らす；を解明する`],
+      [1703, `console`, `を慰める`],
+      [1704, `verify`, `の正しさを証明［確認］する`],
+      [1705, `disclose`, `を公表する，暴く`],
+      [1706, `stack`, `を積む，積み重ねる；〔～ upで〕（車が）渋滞する`],
+      [1707, `rotate`, `回転する；循環する；を回転させる`],
+      [1708, `constrain`, `に（...することを）強いる（to do）；を抑える`],
+      [1709, `hinder`, `を妨げる`],
+      [1710, `withstand`, `に耐える`],
+      [1711, `tweet`, `（を）ツイートする，つぶやく`],
+      [1712, `sneeze`, `くしゃみをする`],
+      [1713, `erupt`, `（火山が）噴火する；勃発する`],
+      [1714, `blur`, `をぼかす；を曇らせる；をあいまいにする`],
+      [1715, `overlap`, `（一部）重なる；（と）重複［共通］する`],
+      [1716, `embed`, `〔通例受身形で〕埋め込まれる，はめ込まれる`],
+      [1717, `displace`, `に取って代わる（≒ replace）；を移動させる`],
+      [1718, `render`, `を（ある状態に）する；（援助など）を与える`],
+      [1719, `plunge`, `（～に）（を）突っ込む（into）；没頭する；陥る`],
+      [1720, `surrender`, `を放棄する，引き渡す；（～に）屈する（to）`],
+      [1721, `plug`, `〔plug inで〕のプラグを電源に差し込む；を（～で）ふさぐ（with）`],
+      [1722, `suck`, `（を）吸う；（を）しゃぶる`],
+      [1723, `mock`, `をばかにする（≒ make fun of）；のまねをしてからかう`],
+      [1724, `tease`, `（を）からかう；をいじめる`],
+      [1725, `soothe`, `をなだめる；を和らげる`],
+      [1726, `stain`, `を汚す；に着色する`],
+      [1727, `shun`, `を避ける`],
+      [1728, `stumble`, `よろけながら歩く；（～に）つまずく（on / over）`],
+      [1729, `flush`, `を紅潮させる；を水で流す；紅潮する`],
+      [1730, `impair`, `を損なう`],
+      [1731, `presume`, `と思う；と推定する；を前提とする`],
+      [1732, `contend`, `と主張する；競う`],
+      [1733, `roar`, `うなる，ほえる；大笑いする`],
+      [1734, `haunt`, `（記憶・考えなどが）につきまとう；（幽霊などが）に出る；によく行く`],
+      [1735, `divert`, `（注意など）をそらす；を迂回させる；（資金など）を転用する`],
+      [1736, `await`, `を待つ（≒ wait for）`],
+      [1737, `fetch`, `を（行って）持って［連れて］くる`],
+      [1738, `unify`, `を統合［統一］する；統一される`],
+      [1739, `inspect`, `を点検する；を視察する`],
+      [1740, `entail`, `を伴う，引き起こす；（...すること）を含む（doing）`],
+      [1741, `tactics`, `作戦，方策；戦術，戦法`],
+      [1742, `feat`, `偉業，功績；妙技`],
+      [1743, `prestige`, `名声；〔形容詞的に〕名声のある`],
+      [1744, `analogy`, `類推；類似`],
+      [1745, `conscience`, `良心；分別`],
+      [1746, `textile`, `織物；繊維（産業）`],
+      [1747, `deficit`, `赤字，不足；欠陥`],
+      [1748, `plague`, `疫病；（害虫などの）異常発生`],
+      [1749, `hazard`, `危険（要素）；偶然`],
+      [1750, `metabolism`, `（新陳）代謝，代謝作用`],
+      [1751, `paralysis`, `麻痺；〔比喩的に〕麻痺（状態）`],
+      [1752, `grid`, `（電気などの）供給網；格子（模様）；碁盤目`],
+      [1753, `carriage`, `馬車；車両（＝ 【米】car）；立ち居振舞い；【英】輸送`],
+      [1754, `friction`, `不和；摩擦`],
+      [1755, `rebel`, `反逆者`],
+      [1756, `regime`, `政権，政体；体制`],
+      [1757, `monopoly`, `独占（権）`],
+      [1758, `staple`, `必需食品；主要産物`],
+      [1759, `merchandise`, `商品`],
+      [1760, `vendor`, `物売り，行商人；自動販売機`],
+      [1761, `supervisor`, `監督者；指導教員`],
+      [1762, `predecessor`, `前任者（⇔ successor 後継者）；前のもの`],
+      [1763, `personnel`, `〔集合的に〕職員，社員`],
+      [1764, `vessel`, `船舶；容器；（体液が通る）脈管`],
+      [1765, `liver`, `肝臓`],
+      [1766, `duration`, `（時間の）継続，持続（時間）`],
+      [1767, `certificate`, `証明書；免許状`],
+      [1768, `geometry`, `幾何学`],
+      [1769, `symmetry`, `（左右）対称（⇔ asymmetry 非対称）；調和`],
+      [1770, `biography`, `伝記`],
+      [1771, `masterpiece`, `傑作`],
+      [1772, `rhyme`, `押韻詩；韻；〔通例～s〕詩歌`],
+      [1773, `premium`, `保険料；プレミア；景品`],
+      [1774, `breakdown`, `崩壊；（神経）衰弱；故障；内訳`],
+      [1775, `courtesy`, `礼儀正しさ；好意；優遇`],
+      [1776, `protocol`, `（条約）議定書；外交儀礼；プロトコル`],
+      [1777, `specimen`, `標本；実例`],
+      [1778, `thesis`, `論文；命題，テーゼ`],
+      [1779, `eligible`, `適格の，資格のある；（結婚相手として）望ましい`],
+      [1780, `intrinsic`, `固有の，本質的な（⇔ extrinsic 非本質的な）`],
+      [1781, `diligent`, `勤勉な；入念な`],
+      [1782, `vocational`, `職業の，職業訓練の（ための）`],
+      [1783, `bankrupt`, `破産宣告を受けた；破綻している`],
+      [1784, `stern`, `厳しい；いかめしい`],
+      [1785, `stubborn`, `頑固な，強情な（≒ obstinate）；手に負えない`],
+      [1786, `maternal`, `母の，母親らしい（⇔ paternal 父の）；妊婦の`],
+      [1787, `fertile`, `肥沃な（⇔ barren 不毛の）；多産の`],
+      [1788, `ripe`, `熟した；成熟した`],
+      [1789, `stiff`, `硬直した，凝った；堅い`],
+      [1790, `obsolete`, `廃れた，使われなくなった；古くなった`],
+      [1791, `vacant`, `空いている`],
+      [1792, `acoustic`, `音響の；聴覚の；（楽器が）アコースティックの`],
+      [1793, `preliminary`, `予備の，準備の`],
+      [1794, `approximate`, `おおよその`],
+      [1795, `implicit`, `暗黙の（⇔ explicit ⇒ 1598）；内在する`],
+      [1796, `punctual`, `時間を守る`],
+      [1797, `compatible`, `矛盾しない；互換性のある；気が合う`],
+      [1798, `ample`, `十分すぎるほどの；広い`],
+      [1799, `pervasive`, `隅々に広がった；浸透する；充満する`],
+      [1800, `ubiquitous`, `至る所にある`]
+    ];
+
+    // Helper map by word ID
+    const WORDS_MAP = {};
+    TARGET_WORDS.forEach(function(item) {
+      const id = item[0];
+      const word = item[1];
+      const meaning = item[2];
+      const rem = id % 100;
+      let pos = 'a';
+      if (rem >= 1 && rem <= 40) pos = 'v';
+      else if (rem >= 41 && rem <= 78) pos = 'n';
+      
+      WORDS_MAP[id] = {
+        id: id,
+        word: word,
+        meaning: meaning,
+        pos: pos,
+        posLabel: pos === 'v' ? '動詞' : (pos === 'n' ? '名詞' : '形容詞/他')
+      };
+    });
+
+    // -------------------------------------------------------------------------
+    // APPLICATION STATE (Persisted via NotebookAppApi)
+    // -------------------------------------------------------------------------
+    let userState = {
+      mastered: {},      // { id: true }
+      bookmarked: {},    // { id: true }
+      wrongCounts: {},   // { id: count }
+      quizSessions: 0,
+      recentHistory: []
+    };
+
+    // Active Quiz Session Variables
+    let currentQuizQueue = [];
+    let currentQuizIndex = 0;
+    let currentQuizScore = 0;
+    let currentStreak = 0;
+    let maxStreak = 0;
+    let quizActiveMode = 'en_to_ja';
+    let currentQuestionData = null;
+    let isQuestionAnswered = false;
+    let quizTimerInterval = null;
+    let quizTimeLeft = 0;
+    let quizSessionResults = [];
+
+    // Flashcard Session Variables
+    let cardQueue = [];
+    let cardCurrentIndex = 0;
+    let isCardFlipped = false;
+    let cardAutoPlayTimer = null;
+
+    // Speech Synthesis
+    let speechVoice = null;
+    function initSpeech() {
+      if ('speechSynthesis' in window) {
+        function pickVoice() {
+          const voices = window.speechSynthesis.getVoices();
+          speechVoice = voices.find(function(v) { return v.lang && v.lang.startsWith('en'); }) || null;
+        }
+        pickVoice();
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+          window.speechSynthesis.onvoiceschanged = pickVoice;
+        }
+      }
+    }
+
+    function speakWord(text) {
+      if (!('speechSynthesis' in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'en-US';
+        utter.rate = 0.95;
+        if (speechVoice) utter.voice = speechVoice;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {
+        console.warn('SpeechSynthesis error:', e);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // STATE PERSISTENCE (Shim API)
+    // -------------------------------------------------------------------------
+    async function loadSavedState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === 'object') {
+            if (saved.mastered) userState.mastered = saved.mastered;
+            if (saved.bookmarked) userState.bookmarked = saved.bookmarked;
+            if (saved.wrongCounts) userState.wrongCounts = saved.wrongCounts;
+            if (typeof saved.quizSessions === 'number') userState.quizSessions = saved.quizSessions;
+            if (Array.isArray(saved.recentHistory)) userState.recentHistory = saved.recentHistory;
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to load state from notebookAppApi:', err);
+      }
+    }
+
+    async function persistState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+          await window.notebookAppApi.setAppState({
+            mastered: userState.mastered,
+            bookmarked: userState.bookmarked,
+            wrongCounts: userState.wrongCounts,
+            quizSessions: userState.quizSessions,
+            recentHistory: userState.recentHistory.slice(-20)
+          });
+        }
+      } catch (err) {
+        console.warn('Failed to persist state:', err);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // VIEW NAVIGATION
+    // -------------------------------------------------------------------------
+    function switchTab(tabId) {
+      const tabs = ['quiz', 'card', 'list', 'stats'];
+      tabs.forEach(function(t) {
+        const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+        const view = document.getElementById('view' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (btn) btn.classList.toggle('active', t === tabId);
+        if (view) view.classList.toggle('active', t === tabId);
+      });
+
+      // Stop any card auto-play or quiz timer when leaving tab
+      if (tabId !== 'card' && cardAutoPlayTimer) {
+        toggleCardAutoPlay();
+      }
+
+      if (tabId === 'card') {
+        initFlashcards();
+      } else if (tabId === 'list') {
+        renderWordList();
+      } else if (tabId === 'stats') {
+        renderAnalyticsView();
+      }
+
+      // Re-trigger icon rendering
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // -------------------------------------------------------------------------
+    // FILTER UTILITIES
+    // -------------------------------------------------------------------------
+    function getWordsByRangeKey(rangeKey) {
+      let list = TARGET_WORDS.map(function(item) { return WORDS_MAP[item[0]]; });
+      if (rangeKey === 'part1') {
+        list = list.filter(function(w) { return w.id >= 1301 && w.id <= 1400; });
+      } else if (rangeKey === 'part2') {
+        list = list.filter(function(w) { return w.id >= 1401 && w.id <= 1500; });
+      } else if (rangeKey === 'part3') {
+        list = list.filter(function(w) { return w.id >= 1501 && w.id <= 1600; });
+      } else if (rangeKey === 'part4') {
+        list = list.filter(function(w) { return w.id >= 1601 && w.id <= 1700; });
+      } else if (rangeKey === 'part5') {
+        list = list.filter(function(w) { return w.id >= 1701 && w.id <= 1800; });
+      } else if (rangeKey === 'bookmark') {
+        list = list.filter(function(w) { return !!userState.bookmarked[w.id]; });
+      } else if (rangeKey === 'weak') {
+        list = list.filter(function(w) { return (userState.wrongCounts[w.id] || 0) > 0; });
+      } else if (rangeKey === 'unlearned') {
+        list = list.filter(function(w) { return !userState.mastered[w.id]; });
+      } else if (rangeKey === 'mastered') {
+        list = list.filter(function(w) { return !!userState.mastered[w.id]; });
+      }
+      return list;
+    }
+
+    function shuffleArray(arr) {
+      const copy = arr.slice();
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = tmp;
+      }
+      return copy;
+    }
+
+    // -------------------------------------------------------------------------
+    // QUIZ CONTROLLER
+    // -------------------------------------------------------------------------
+    function startQuiz() {
+      const rangeSelect = document.getElementById('quizRange');
+      const modeSelect = document.getElementById('quizMode');
+      const countSelect = document.getElementById('quizCount');
+      const timerSelect = document.getElementById('quizTimer');
+
+      const rangeKey = rangeSelect ? rangeSelect.value : 'all';
+      quizActiveMode = modeSelect ? modeSelect.value : 'en_to_ja';
+      const countVal = countSelect ? countSelect.value : '20';
+      quizTimeLeft = timerSelect ? parseInt(timerSelect.value, 10) : 0;
+
+      let pool = getWordsByRangeKey(rangeKey);
+      if (pool.length === 0) {
+        if (rangeKey === 'weak') {
+          alert('現在、苦手な単語（間違えた単語）はありません！通常範囲を選択してください。');
+        } else if (rangeKey === 'bookmark') {
+          alert('現在ブックマークされた単語はありません。★をつけてから挑戦してください。');
+        } else {
+          alert('該当する単語がありません。別の範囲を選択してください。');
+        }
+        return;
+      }
+
+      pool = shuffleArray(pool);
+      let targetCount = pool.length;
+      if (countVal !== 'all') {
+        const parsed = parseInt(countVal, 10);
+        if (!isNaN(parsed) && parsed > 0) targetCount = Math.min(parsed, pool.length);
+      }
+      currentQuizQueue = pool.slice(0, targetCount);
+
+      currentQuizIndex = 0;
+      currentQuizScore = 0;
+      currentStreak = 0;
+      maxStreak = 0;
+      quizSessionResults = [];
+
+      const setupCard = document.getElementById('quizSetup');
+      const activeCard = document.getElementById('quizActive');
+      const resultsCard = document.getElementById('quizResults');
+      if (setupCard) setupCard.style.display = 'none';
+      if (resultsCard) resultsCard.style.display = 'none';
+      if (activeCard) activeCard.style.display = 'block';
+
+      loadQuizQuestion();
+    }
+
+    function showQuizSetup() {
+      if (quizTimerInterval) clearInterval(quizTimerInterval);
+      const setupCard = document.getElementById('quizSetup');
+      const activeCard = document.getElementById('quizActive');
+      const resultsCard = document.getElementById('quizResults');
+      if (setupCard) setupCard.style.display = 'block';
+      if (activeCard) activeCard.style.display = 'none';
+      if (resultsCard) resultsCard.style.display = 'none';
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function abortQuiz() {
+      if (confirm('クイズを中断して設定画面に戻りますか？')) {
+        showQuizSetup();
+      }
+    }
+
+    function loadQuizQuestion() {
+      if (currentQuizIndex >= currentQuizQueue.length) {
+        finishQuiz();
+        return;
+      }
+
+      isQuestionAnswered = false;
+      const targetWord = currentQuizQueue[currentQuizIndex];
+      const totalQ = currentQuizQueue.length;
+
+      // Update progress & header
+      const progressFill = document.getElementById('quizProgressFill');
+      if (progressFill) {
+        const pct = (currentQuizIndex / totalQ) * 100;
+        progressFill.style.width = pct + '%';
+      }
+
+      const qNumEl = document.getElementById('quizQuestionNum');
+      if (qNumEl) qNumEl.textContent = 'Q. ' + (currentQuizIndex + 1) + ' / ' + totalQ;
+
+      const idBadge = document.getElementById('quizWordIdBadge');
+      if (idBadge) idBadge.textContent = '#' + targetWord.id;
+
+      const posBadge = document.getElementById('quizPosBadge');
+      if (posBadge) posBadge.textContent = targetWord.posLabel;
+
+      const scoreEl = document.getElementById('quizCurrentScore');
+      if (scoreEl) scoreEl.textContent = currentQuizScore;
+
+      const streakEl = document.getElementById('quizStreak');
+      if (streakEl) streakEl.textContent = currentStreak;
+
+      // Bookmark button state
+      updateQuizBookmarkBtn(targetWord.id);
+
+      // Hide feedback banner
+      const feedbackBanner = document.getElementById('quizFeedback');
+      if (feedbackBanner) feedbackBanner.classList.remove('show');
+
+      // Determine current mode (if mixed, randomly choose en_to_ja or ja_to_en)
+      let resolvedMode = quizActiveMode;
+      if (quizActiveMode === 'mixed') {
+        resolvedMode = Math.random() < 0.5 ? 'en_to_ja' : 'ja_to_en';
+      }
+
+      currentQuestionData = {
+        word: targetWord,
+        mode: resolvedMode,
+        choices: [],
+        correctChoiceIndex: -1
+      };
+
+      const promptEl = document.getElementById('quizPromptText');
+      const choicesContainer = document.getElementById('quizChoicesContainer');
+      const spellingContainer = document.getElementById('quizSpellingContainer');
+
+      if (resolvedMode === 'spelling') {
+        if (choicesContainer) choicesContainer.style.display = 'none';
+        if (spellingContainer) spellingContainer.style.display = 'block';
+
+        if (promptEl) promptEl.textContent = targetWord.meaning;
+        const hintEl = document.getElementById('spellingHint');
+        if (hintEl) {
+          const w = targetWord.word;
+          if (w.length <= 3) {
+            hintEl.textContent = w.charAt(0) + ' _ ' + ' [' + w.length + '文字]';
+          } else {
+            hintEl.textContent = w.charAt(0) + ' ' + '_ '.repeat(w.length - 2) + w.charAt(w.length - 1) + ' [' + w.length + '文字]';
+          }
+        }
+        const spellInput = document.getElementById('spellingInput');
+        if (spellInput) {
+          spellInput.value = '';
+          spellInput.disabled = false;
+          setTimeout(function() { spellInput.focus(); }, 50);
+        }
+      } else {
+        if (choicesContainer) choicesContainer.style.display = 'grid';
+        if (spellingContainer) spellingContainer.style.display = 'none';
+
+        if (resolvedMode === 'en_to_ja') {
+          if (promptEl) promptEl.textContent = targetWord.word;
+        } else {
+          if (promptEl) promptEl.textContent = targetWord.meaning;
+        }
+
+        // Generate 3 distractors from same POS pool
+        const distractors = pickDistractors(targetWord, resolvedMode);
+        const choices = [
+          { text: resolvedMode === 'en_to_ja' ? targetWord.meaning : targetWord.word, isCorrect: true },
+          { text: distractors[0], isCorrect: false },
+          { text: distractors[1], isCorrect: false },
+          { text: distractors[2], isCorrect: false }
+        ];
+
+        const shuffledChoices = shuffleArray(choices);
+        currentQuestionData.choices = shuffledChoices;
+        currentQuestionData.correctChoiceIndex = shuffledChoices.findIndex(function(c) { return c.isCorrect; });
+
+        for (let i = 0; i < 4; i++) {
+          const btn = document.getElementById('choiceBtn' + i);
+          const txt = document.getElementById('choiceText' + i);
+          if (btn && txt) {
+            btn.className = 'choice-btn';
+            btn.disabled = false;
+            txt.textContent = shuffledChoices[i].text;
+          }
+        }
+      }
+
+      // Auto play audio if enabled and prompt is English
+      const autoAudio = document.getElementById('quizAutoAudio');
+      if (autoAudio && autoAudio.checked && resolvedMode === 'en_to_ja') {
+        speakWord(targetWord.word);
+      }
+
+      // Handle Timer
+      startQuizTimer();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function pickDistractors(correctWord, mode) {
+      // Filter other words with same POS for confusing/realistic distractors
+      let candidates = TARGET_WORDS.filter(function(item) {
+        return item[0] !== correctWord.id;
+      }).map(function(item) { return WORDS_MAP[item[0]]; });
+
+      const samePosCandidates = candidates.filter(function(w) { return w.pos === correctWord.pos; });
+      if (samePosCandidates.length >= 3) {
+        candidates = samePosCandidates;
+      }
+
+      const shuffled = shuffleArray(candidates);
+      const picked = [];
+      for (let i = 0; i < shuffled.length && picked.length < 3; i++) {
+        const val = mode === 'en_to_ja' ? shuffled[i].meaning : shuffled[i].word;
+        if (!picked.includes(val)) {
+          picked.push(val);
+        }
+      }
+      return picked;
+    }
+
+    function startQuizTimer() {
+      if (quizTimerInterval) clearInterval(quizTimerInterval);
+      const timerBox = document.getElementById('quizTimerBox');
+      const timerSec = document.getElementById('quizTimerSec');
+      const timerSelect = document.getElementById('quizTimer');
+      const limit = timerSelect ? parseInt(timerSelect.value, 10) : 0;
+
+      if (limit > 0) {
+        if (timerBox) timerBox.style.display = 'block';
+        let remaining = limit;
+        if (timerSec) timerSec.textContent = remaining;
+
+        quizTimerInterval = setInterval(function() {
+          remaining--;
+          if (timerSec) timerSec.textContent = remaining;
+          if (remaining <= 0) {
+            clearInterval(quizTimerInterval);
+            handleTimeUp();
+          }
+        }, 1000);
+      } else {
+        if (timerBox) timerBox.style.display = 'none';
+      }
+    }
+
+    function handleTimeUp() {
+      if (isQuestionAnswered) return;
+      if (currentQuestionData.mode === 'spelling') {
+        evaluateAnswer(false, '時間切れ！');
+      } else {
+        handleChoiceSelect(-1); // -1 = time expired
+      }
+    }
+
+    function handleChoiceSelect(selectedIndex) {
+      if (isQuestionAnswered) return;
+      isQuestionAnswered = true;
+      if (quizTimerInterval) clearInterval(quizTimerInterval);
+
+      const isCorrect = (selectedIndex >= 0 && selectedIndex === currentQuestionData.correctChoiceIndex);
+      
+      // Disable choice buttons and style them
+      for (let i = 0; i < 4; i++) {
+        const btn = document.getElementById('choiceBtn' + i);
+        if (btn) {
+          btn.disabled = true;
+          if (i === currentQuestionData.correctChoiceIndex) {
+            btn.classList.add('correct');
+          } else if (i === selectedIndex && !isCorrect) {
+            btn.classList.add('incorrect');
+          }
+        }
+      }
+
+      evaluateAnswer(isCorrect, selectedIndex === -1 ? '時間切れ！' : null);
+    }
+
+    function handleSpellingKey(e) {
+      if (e.key === 'Enter') {
+        checkSpellingAnswer();
+      }
+    }
+
+    function checkSpellingAnswer() {
+      if (isQuestionAnswered) return;
+      const input = document.getElementById('spellingInput');
+      if (!input) return;
+      const val = input.value.trim().toLowerCase();
+      const target = currentQuestionData.word.word.trim().toLowerCase();
+      isQuestionAnswered = true;
+      if (quizTimerInterval) clearInterval(quizTimerInterval);
+      input.disabled = true;
+
+      const isCorrect = (val === target);
+      evaluateAnswer(isCorrect, null);
+    }
+
+    function evaluateAnswer(isCorrect, customMessage) {
+      const targetWord = currentQuestionData.word;
+
+      // Update streaks and user record
+      if (isCorrect) {
+        currentQuizScore++;
+        currentStreak++;
+        if (currentStreak > maxStreak) maxStreak = currentStreak;
+      } else {
+        currentStreak = 0;
+        userState.wrongCounts[targetWord.id] = (userState.wrongCounts[targetWord.id] || 0) + 1;
+      }
+
+      // Record for review
+      quizSessionResults.push({
+        word: targetWord,
+        isCorrect: isCorrect,
+        userAnswer: currentQuestionData.mode === 'spelling' ? (document.getElementById('spellingInput') ? document.getElementById('spellingInput').value : '') : ''
+      });
+
+      // Show Feedback Banner
+      const banner = document.getElementById('quizFeedback');
+      const verdict = document.getElementById('quizVerdictText');
+      const line = document.getElementById('quizDetailWordLine');
+      const notes = document.getElementById('quizDetailNotes');
+
+      if (banner && verdict && line && notes) {
+        banner.className = 'feedback-banner show ' + (isCorrect ? 'inset-panel--positive' : 'inset-panel--error');
+        if (isCorrect) {
+          verdict.innerHTML = '<span style="color: var(--positive); display: flex; align-items: center; gap: 6px;"><i data-lucide="check-circle" style="width: 20px; height: 20px;"></i> 正解！</span>';
+        } else {
+          const reason = customMessage || '不正解';
+          verdict.innerHTML = '<span style="color: var(--error); display: flex; align-items: center; gap: 6px;"><i data-lucide="x-circle" style="width: 20px; height: 20px;"></i> ' + reason + '</span>';
+        }
+
+        line.textContent = targetWord.word + ' : ' + targetWord.meaning;
+        notes.textContent = 'ターゲット1900 No.' + targetWord.id + ' [' + targetWord.posLabel + ']';
+      }
+
+      // Auto pronounce on reveal if wasn't spoken yet
+      speakWord(targetWord.word);
+
+      // Focus on Next button
+      const nextBtn = document.getElementById('nextQuestionBtn');
+      if (nextBtn) {
+        setTimeout(function() { nextBtn.focus(); }, 100);
+      }
+
+      persistState();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function nextQuestion() {
+      currentQuizIndex++;
+      loadQuizQuestion();
+    }
+
+    function finishQuiz() {
+      if (quizTimerInterval) clearInterval(quizTimerInterval);
+      userState.quizSessions++;
+
+      const activeCard = document.getElementById('quizActive');
+      const resultsCard = document.getElementById('quizResults');
+      if (activeCard) activeCard.style.display = 'none';
+      if (resultsCard) resultsCard.style.display = 'block';
+
+      const total = currentQuizQueue.length;
+      const score = currentQuizScore;
+      const pct = Math.round((score / total) * 100);
+
+      const scoreEl = document.getElementById('resultScoreDisplay');
+      if (scoreEl) scoreEl.textContent = score + ' / ' + total;
+
+      let rank = 'C';
+      let comment = '基礎固めが必要です。単語帳と暗記カードで繰り返し確認しましょう。';
+      if (pct === 100) {
+        rank = 'S+';
+        comment = '満点達成！完璧です！この範囲の難関英単語を完全にマスターしています。';
+      } else if (pct >= 90) {
+        rank = 'S';
+        comment = '素晴らしいスコアです！難関大突破に必要な語彙力が定着しています。';
+      } else if (pct >= 80) {
+        rank = 'A';
+        comment = '合格水準クリア！間違えた単語を重点的に復習して完全習得を目指しましょう。';
+      } else if (pct >= 60) {
+        rank = 'B';
+        comment = 'あと少しで定着レベルです。苦手単語の復習ボタンを活用してください。';
+      }
+
+      const rankBadge = document.getElementById('resultAccuracyBadge');
+      if (rankBadge) {
+        rankBadge.textContent = '正答率 ' + pct + '% (ランク: ' + rank + ')';
+      }
+
+      const commentEl = document.getElementById('resultComment');
+      if (commentEl) commentEl.textContent = comment;
+
+      const corCount = document.getElementById('resultCorrectCount');
+      if (corCount) corCount.textContent = score;
+
+      const incorCount = document.getElementById('resultIncorrectCount');
+      if (incorCount) incorCount.textContent = (total - score);
+
+      const maxStreakEl = document.getElementById('resultMaxStreak');
+      if (maxStreakEl) maxStreakEl.textContent = maxStreak;
+
+      // Missed words retry button
+      const missed = quizSessionResults.filter(function(r) { return !r.isCorrect; });
+      const retryBtn = document.getElementById('retryMissedBtn');
+      const missedBadge = document.getElementById('missedWordCountBadge');
+      if (missedBadge) missedBadge.textContent = missed.length;
+      if (retryBtn) {
+        retryBtn.style.display = missed.length > 0 ? 'inline-flex' : 'none';
+      }
+
+      // Populate review table
+      const tbody = document.getElementById('resultTableBody');
+      if (tbody) {
+        tbody.innerHTML = '';
+        quizSessionResults.forEach(function(item) {
+          const w = item.word;
+          const tr = document.createElement('tr');
+          
+          const iconTd = document.createElement('td');
+          iconTd.style.textAlign = 'center';
+          iconTd.innerHTML = item.isCorrect 
+            ? '<span style="color: var(--positive); font-weight: 800;">○</span>' 
+            : '<span style="color: var(--error); font-weight: 800;">✕</span>';
+          
+          const noTd = document.createElement('td');
+          noTd.style.fontFamily = 'var(--font-mono)';
+          noTd.textContent = '#' + w.id;
+
+          const wordTd = document.createElement('td');
+          wordTd.style.fontWeight = '700';
+          wordTd.textContent = w.word;
+
+          const meanTd = document.createElement('td');
+          meanTd.textContent = w.meaning;
+
+          const actionTd = document.createElement('td');
+          actionTd.style.display = 'flex';
+          actionTd.style.gap = '4px';
+
+          const audioBtn = document.createElement('button');
+          audioBtn.className = 'icon-action-btn';
+          audioBtn.innerHTML = '<i data-lucide="volume-2" style="width: 14px; height: 14px;"></i>';
+          audioBtn.onclick = function() { speakWord(w.word); };
+
+          const starBtn = document.createElement('button');
+          starBtn.className = 'icon-action-btn' + (userState.bookmarked[w.id] ? ' starred' : '');
+          starBtn.innerHTML = '<i data-lucide="star" style="width: 14px; height: 14px;"></i>';
+          starBtn.onclick = function() {
+            toggleBookmarkById(w.id);
+            starBtn.className = 'icon-action-btn' + (userState.bookmarked[w.id] ? ' starred' : '');
+          };
+
+          actionTd.appendChild(audioBtn);
+          actionTd.appendChild(starBtn);
+
+          tr.appendChild(iconTd);
+          tr.appendChild(noTd);
+          tr.appendChild(wordTd);
+          tr.appendChild(meanTd);
+          tr.appendChild(actionTd);
+          tbody.appendChild(tr);
+        });
+      }
+
+      persistState();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function retryMissedWords() {
+      const missed = quizSessionResults.filter(function(r) { return !r.isCorrect; }).map(function(r) { return r.word; });
+      if (missed.length === 0) return;
+
+      currentQuizQueue = shuffleArray(missed);
+      currentQuizIndex = 0;
+      currentQuizScore = 0;
+      currentStreak = 0;
+      maxStreak = 0;
+      quizSessionResults = [];
+
+      const resultsCard = document.getElementById('quizResults');
+      const activeCard = document.getElementById('quizActive');
+      if (resultsCard) resultsCard.style.display = 'none';
+      if (activeCard) activeCard.style.display = 'block';
+
+      loadQuizQuestion();
+    }
+
+    function playCurrentWordAudio() {
+      if (currentQuestionData && currentQuestionData.word) {
+        speakWord(currentQuestionData.word.word);
+      }
+    }
+
+    function toggleCurrentWordBookmark() {
+      if (currentQuestionData && currentQuestionData.word) {
+        toggleBookmarkById(currentQuestionData.word.id);
+        updateQuizBookmarkBtn(currentQuestionData.word.id);
+      }
+    }
+
+    function toggleBookmarkById(id) {
+      if (userState.bookmarked[id]) {
+        delete userState.bookmarked[id];
+      } else {
+        userState.bookmarked[id] = true;
+      }
+      persistState();
+    }
+
+    function updateQuizBookmarkBtn(id) {
+      const btn = document.getElementById('quizBookmarkBtn');
+      const label = document.getElementById('quizBookmarkText');
+      if (btn && label) {
+        const isStarred = !!userState.bookmarked[id];
+        btn.classList.toggle('starred', isStarred);
+        label.textContent = isStarred ? '★ 保存済' : '★ 保存';
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // FLASHCARD CONTROLLER
+    // -------------------------------------------------------------------------
+    function initFlashcards() {
+      const rangeSelect = document.getElementById('cardRange');
+      const rangeKey = rangeSelect ? rangeSelect.value : 'all';
+      cardQueue = getWordsByRangeKey(rangeKey);
+      if (cardQueue.length === 0) {
+        cardQueue = TARGET_WORDS.map(function(item) { return WORDS_MAP[item[0]]; });
+      }
+      cardCurrentIndex = 0;
+      isCardFlipped = false;
+      renderCurrentFlashcard();
+    }
+
+    function resetCardFace() {
+      isCardFlipped = false;
+      renderCurrentFlashcard();
+    }
+
+    function shuffleCards() {
+      cardQueue = shuffleArray(cardQueue);
+      cardCurrentIndex = 0;
+      isCardFlipped = false;
+      renderCurrentFlashcard();
+    }
+
+    function renderCurrentFlashcard() {
+      if (cardQueue.length === 0) return;
+      if (cardCurrentIndex < 0) cardCurrentIndex = 0;
+      if (cardCurrentIndex >= cardQueue.length) cardCurrentIndex = cardQueue.length - 1;
+
+      const w = cardQueue[cardCurrentIndex];
+      const modeSelect = document.getElementById('cardFaceMode');
+      const isEnFirst = !modeSelect || modeSelect.value === 'en_first';
+
+      const counter = document.getElementById('cardCounter');
+      if (counter) counter.textContent = (cardCurrentIndex + 1) + ' / ' + cardQueue.length;
+
+      const noBadge = document.getElementById('cardWordNo');
+      if (noBadge) noBadge.textContent = '#' + w.id;
+
+      const posTag = document.getElementById('cardPosTag');
+      if (posTag) posTag.textContent = w.posLabel;
+
+      const starBtn = document.getElementById('cardBookmarkBtn');
+      const starLabel = document.getElementById('cardBookmarkLabel');
+      if (starBtn && starLabel) {
+        const isStarred = !!userState.bookmarked[w.id];
+        starBtn.classList.toggle('starred', isStarred);
+        starLabel.textContent = isStarred ? '★ 保存中' : '★ 保存';
+      }
+
+      const mainText = document.getElementById('cardMainText');
+      const subText = document.getElementById('cardSubText');
+      const statusText = document.getElementById('cardMasteredStatus');
+
+      if (isEnFirst) {
+        if (!isCardFlipped) {
+          if (mainText) mainText.textContent = w.word;
+          if (subText) subText.textContent = '（クリックまたは [Space] で日本語を表示）';
+        } else {
+          if (mainText) mainText.textContent = w.meaning;
+          if (subText) subText.textContent = w.word;
+        }
+      } else {
+        if (!isCardFlipped) {
+          if (mainText) mainText.textContent = w.meaning;
+          if (subText) subText.textContent = '（クリックまたは [Space] で英単語を表示）';
+        } else {
+          if (mainText) mainText.textContent = w.word;
+          if (subText) subText.textContent = w.meaning;
+        }
+      }
+
+      if (statusText) {
+        statusText.textContent = userState.mastered[w.id] ? '✓ 習得済み' : '';
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function flipCard() {
+      isCardFlipped = !isCardFlipped;
+      renderCurrentFlashcard();
+      if (isCardFlipped && cardQueue[cardCurrentIndex]) {
+        speakWord(cardQueue[cardCurrentIndex].word);
+      }
+    }
+
+    function prevCard() {
+      if (cardCurrentIndex > 0) {
+        cardCurrentIndex--;
+        isCardFlipped = false;
+        renderCurrentFlashcard();
+      }
+    }
+
+    function nextCard() {
+      if (cardCurrentIndex < cardQueue.length - 1) {
+        cardCurrentIndex++;
+        isCardFlipped = false;
+        renderCurrentFlashcard();
+      }
+    }
+
+    function markCardMastered() {
+      if (cardQueue[cardCurrentIndex]) {
+        const id = cardQueue[cardCurrentIndex].id;
+        userState.mastered[id] = true;
+        persistState();
+        renderCurrentFlashcard();
+        nextCard();
+      }
+    }
+
+    function markCardNeedsReview() {
+      if (cardQueue[cardCurrentIndex]) {
+        const id = cardQueue[cardCurrentIndex].id;
+        delete userState.mastered[id];
+        userState.wrongCounts[id] = (userState.wrongCounts[id] || 0) + 1;
+        persistState();
+        renderCurrentFlashcard();
+        nextCard();
+      }
+    }
+
+    function toggleCardBookmark(e) {
+      if (e) e.stopPropagation();
+      if (cardQueue[cardCurrentIndex]) {
+        const id = cardQueue[cardCurrentIndex].id;
+        toggleBookmarkById(id);
+        renderCurrentFlashcard();
+      }
+    }
+
+    function playCardAudio(e) {
+      if (e) e.stopPropagation();
+      if (cardQueue[cardCurrentIndex]) {
+        speakWord(cardQueue[cardCurrentIndex].word);
+      }
+    }
+
+    function toggleCardAutoPlay() {
+      const btn = document.getElementById('cardAutoPlayBtn');
+      const label = document.getElementById('cardAutoPlayText');
+      if (cardAutoPlayTimer) {
+        clearInterval(cardAutoPlayTimer);
+        cardAutoPlayTimer = null;
+        if (btn) btn.className = 'button button--secondary';
+        if (label) label.textContent = '自動再生';
+      } else {
+        if (btn) btn.className = 'button button--positive';
+        if (label) label.textContent = '停止';
+        cardAutoPlayTimer = setInterval(function() {
+          if (!isCardFlipped) {
+            flipCard();
+          } else {
+            if (cardCurrentIndex >= cardQueue.length - 1) {
+              cardCurrentIndex = 0;
+            } else {
+              cardCurrentIndex++;
+            }
+            isCardFlipped = false;
+            renderCurrentFlashcard();
+          }
+        }, 2200);
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // -------------------------------------------------------------------------
+    // WORD LIST & RED SHEET CONTROLLER
+    // -------------------------------------------------------------------------
+    function renderWordList() {
+      const searchInput = document.getElementById('listSearch');
+      const sectionFilter = document.getElementById('listSectionFilter');
+      const q = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      const filterKey = sectionFilter ? sectionFilter.value : 'all';
+
+      let list = getWordsByRangeKey(filterKey);
+      if (q) {
+        list = list.filter(function(w) {
+          return w.word.toLowerCase().includes(q) ||
+                 w.meaning.toLowerCase().includes(q) ||
+                 String(w.id).includes(q);
+        });
+      }
+
+      const matchCountEl = document.getElementById('listMatchCount');
+      if (matchCountEl) matchCountEl.textContent = list.length;
+
+      const tbody = document.getElementById('fullWordTableBody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      list.forEach(function(w) {
+        const tr = document.createElement('tr');
+        if (userState.mastered[w.id]) tr.classList.add('is-mastered');
+
+        // Checkbox: Mastered
+        const tdCheck = document.createElement('td');
+        tdCheck.style.textAlign = 'center';
+        const chk = document.createElement('input');
+        chk.type = 'checkbox';
+        chk.checked = !!userState.mastered[w.id];
+        chk.title = '習得済みにする';
+        chk.onchange = function() {
+          if (chk.checked) userState.mastered[w.id] = true;
+          else delete userState.mastered[w.id];
+          tr.classList.toggle('is-mastered', chk.checked);
+          persistState();
+        };
+        tdCheck.appendChild(chk);
+
+        // Star Bookmark
+        const tdStar = document.createElement('td');
+        tdStar.style.textAlign = 'center';
+        const starBtn = document.createElement('button');
+        starBtn.className = 'icon-action-btn' + (userState.bookmarked[w.id] ? ' starred' : '');
+        starBtn.style.padding = '2px 6px';
+        starBtn.style.minHeight = '30px';
+        starBtn.innerHTML = '<i data-lucide="star" style="width: 14px; height: 14px;"></i>';
+        starBtn.onclick = function() {
+          toggleBookmarkById(w.id);
+          starBtn.className = 'icon-action-btn' + (userState.bookmarked[w.id] ? ' starred' : '');
+        };
+        tdStar.appendChild(starBtn);
+
+        // No.
+        const tdNo = document.createElement('td');
+        tdNo.style.fontFamily = 'var(--font-mono)';
+        tdNo.textContent = '#' + w.id;
+
+        // Word (English)
+        const tdWord = document.createElement('td');
+        tdWord.innerHTML = '<strong class="masked-en">' + w.word + '</strong>';
+
+        // Meaning (Japanese)
+        const tdMean = document.createElement('td');
+        tdMean.innerHTML = '<span class="masked-ja">' + w.meaning + '</span>';
+
+        // Audio
+        const tdAudio = document.createElement('td');
+        tdAudio.style.textAlign = 'center';
+        const audioBtn = document.createElement('button');
+        audioBtn.className = 'icon-action-btn';
+        audioBtn.style.padding = '2px 6px';
+        audioBtn.style.minHeight = '30px';
+        audioBtn.innerHTML = '<i data-lucide="volume-2" style="width: 14px; height: 14px;"></i>';
+        audioBtn.onclick = function() { speakWord(w.word); };
+        tdAudio.appendChild(audioBtn);
+
+        tr.appendChild(tdCheck);
+        tr.appendChild(tdStar);
+        tr.appendChild(tdNo);
+        tr.appendChild(tdWord);
+        tr.appendChild(tdMean);
+        tr.appendChild(tdAudio);
+        tbody.appendChild(tr);
+      });
+
+      updateListMaskMode();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function updateListMaskMode() {
+      const modeSelect = document.getElementById('listMaskMode');
+      const tableWrapper = document.getElementById('wordTableWrapper');
+      if (!modeSelect || !tableWrapper) return;
+
+      tableWrapper.classList.remove('red-sheet-ja-mask', 'red-sheet-en-mask');
+      if (modeSelect.value === 'mask_ja') {
+        tableWrapper.classList.add('red-sheet-ja-mask');
+      } else if (modeSelect.value === 'mask_en') {
+        tableWrapper.classList.add('red-sheet-en-mask');
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // ANALYTICS & WEAKNESS CONTROLLER
+    // -------------------------------------------------------------------------
+    function renderAnalyticsView() {
+      const masteredKeys = Object.keys(userState.mastered);
+      const masteredCount = masteredKeys.length;
+      const ratePct = Math.round((masteredCount / 500) * 100);
+
+      const weakIds = Object.keys(userState.wrongCounts).filter(function(id) {
+        return (userState.wrongCounts[id] || 0) > 0;
+      });
+      const weakCount = weakIds.length;
+
+      const starCount = Object.keys(userState.bookmarked).length;
+
+      const rateEl = document.getElementById('statsMasteryRate');
+      if (rateEl) rateEl.textContent = ratePct + '%';
+
+      const countEl = document.getElementById('statsMasteredCount');
+      if (countEl) countEl.textContent = masteredCount;
+
+      const weakEl = document.getElementById('statsWeakCount');
+      if (weakEl) weakEl.textContent = weakCount;
+
+      const starEl = document.getElementById('statsBookmarkCount');
+      if (starEl) starEl.textContent = starCount;
+
+      const sessEl = document.getElementById('statsQuizSessions');
+      if (sessEl) sessEl.textContent = userState.quizSessions;
+
+      // Section Breakdowns
+      const sections = [
+        { id: 1, min: 1301, max: 1400 },
+        { id: 2, min: 1401, max: 1500 },
+        { id: 3, min: 1501, max: 1600 },
+        { id: 4, min: 1601, max: 1700 },
+        { id: 5, min: 1701, max: 1800 }
+      ];
+
+      sections.forEach(function(sec) {
+        let secMastered = 0;
+        for (let i = sec.min; i <= sec.max; i++) {
+          if (userState.mastered[i]) secMastered++;
+        }
+        const label = document.getElementById('sec' + sec.id + 'Label');
+        const bar = document.getElementById('sec' + sec.id + 'Bar');
+        if (label) label.textContent = secMastered + ' / 100 (' + secMastered + '%)';
+        if (bar) bar.style.width = secMastered + '%';
+      });
+
+      // Weak Words Table
+      const weakList = weakIds.map(function(id) {
+        return {
+          word: WORDS_MAP[id],
+          count: userState.wrongCounts[id]
+        };
+      }).sort(function(a, b) {
+        return b.count - a.count;
+      });
+
+      const weakTableCount = document.getElementById('weakTableCount');
+      if (weakTableCount) weakTableCount.textContent = weakList.length;
+
+      const startWeakQuizBtn = document.getElementById('startWeakQuizBtn');
+      if (startWeakQuizBtn) startWeakQuizBtn.disabled = (weakList.length === 0);
+
+      const tbody = document.getElementById('weakTableBody');
+      if (tbody) {
+        tbody.innerHTML = '';
+        if (weakList.length === 0) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = '<td colspan="5" style="text-align: center; padding: var(--space-md); color: var(--on-surface-variant);">現在、誤答履歴のある苦手単語はありません！素晴らしい状態です。</td>';
+          tbody.appendChild(tr);
+        } else {
+          weakList.forEach(function(item) {
+            const w = item.word;
+            if (!w) return;
+            const tr = document.createElement('tr');
+
+            const noTd = document.createElement('td');
+            noTd.style.fontFamily = 'var(--font-mono)';
+            noTd.textContent = '#' + w.id;
+
+            const wordTd = document.createElement('td');
+            wordTd.style.fontWeight = '700';
+            wordTd.textContent = w.word;
+
+            const meanTd = document.createElement('td');
+            meanTd.textContent = w.meaning;
+
+            const countTd = document.createElement('td');
+            countTd.style.textAlign = 'center';
+            countTd.style.fontFamily = 'var(--font-mono)';
+            countTd.style.fontWeight = '700';
+            countTd.style.color = 'var(--error)';
+            countTd.textContent = item.count + '回';
+
+            const actionTd = document.createElement('td');
+            actionTd.style.textAlign = 'center';
+            const speakBtn = document.createElement('button');
+            speakBtn.className = 'icon-action-btn';
+            speakBtn.style.padding = '2px 8px';
+            speakBtn.innerHTML = '<i data-lucide="volume-2" style="width: 14px; height: 14px;"></i>';
+            speakBtn.onclick = function() { speakWord(w.word); };
+            actionTd.appendChild(speakBtn);
+
+            tr.appendChild(noTd);
+            tr.appendChild(wordTd);
+            tr.appendChild(meanTd);
+            tr.appendChild(countTd);
+            tr.appendChild(actionTd);
+            tbody.appendChild(tr);
+          });
+        }
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function startWeakWordsQuiz() {
+      switchTab('quiz');
+      const rangeSelect = document.getElementById('quizRange');
+      if (rangeSelect) rangeSelect.value = 'weak';
+      startQuiz();
+    }
+
+    function confirmResetData() {
+      if (confirm('すべての学習履歴（習得チェック、誤答回数、ブックマーク）を初期化しますか？この操作は元に戻せません。')) {
+        userState = {
+          mastered: {},
+          bookmarked: {},
+          wrongCounts: {},
+          quizSessions: 0,
+          recentHistory: []
+        };
+        persistState();
+        renderAnalyticsView();
+        alert('学習記録を初期化しました。');
+      }
+    }
+
+    function exportLearningCSV() {
+      let csv = 'No,Word,Meaning,POS,Mastered,WrongCount,Bookmarked\n';
+      TARGET_WORDS.forEach(function(item) {
+        const id = item[0];
+        const w = WORDS_MAP[id];
+        const isM = userState.mastered[id] ? 1 : 0;
+        const wCount = userState.wrongCounts[id] || 0;
+        const isB = userState.bookmarked[id] ? 1 : 0;
+        const cleanMeaning = '"' + w.meaning.replace(/"/g, '""') + '"';
+        csv += id + ',' + w.word + ',' + cleanMeaning + ',' + w.pos + ',' + isM + ',' + wCount + ',' + isB + '\n';
+      });
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+        window.notebookAppApi.triggerFileDownload({
+          content: csv,
+          contentType: 'text/csv',
+          encoding: 'UTF-8',
+          filename: 'target1900_1301_1800_progress.csv'
+        });
+      } else {
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'target1900_1301_1800_progress.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // KEYBOARD SHORTCUTS
+    // -------------------------------------------------------------------------
+    window.addEventListener('keydown', function(e) {
+      // Don't trigger if user is typing in search or spelling field
+      const activeEl = document.activeElement;
+      if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'SELECT')) {
+        if (activeEl.id !== 'spellingInput' || e.key !== 'Enter') {
+          return;
+        }
+      }
+
+      const quizView = document.getElementById('viewQuiz');
+      const cardView = document.getElementById('viewCard');
+
+      // In Quiz Mode
+      if (quizView && quizView.classList.contains('active')) {
+        const quizActive = document.getElementById('quizActive');
+        if (quizActive && quizActive.style.display !== 'none') {
+          if (!isQuestionAnswered) {
+            if (e.key === '1') handleChoiceSelect(0);
+            else if (e.key === '2') handleChoiceSelect(1);
+            else if (e.key === '3') handleChoiceSelect(2);
+            else if (e.key === '4') handleChoiceSelect(3);
+          } else {
+            if (e.key === 'Enter') {
+              nextQuestion();
+            }
+          }
+          if (e.key === 's' || e.key === 'S') {
+            playCurrentWordAudio();
+          }
+          if (e.key === 'b' || e.key === 'B') {
+            toggleCurrentWordBookmark();
+          }
+        } else {
+          const quizSetup = document.getElementById('quizSetup');
+          if (quizSetup && quizSetup.style.display !== 'none' && e.key === 'Enter') {
+            startQuiz();
+          }
+        }
+      }
+
+      // In Flashcard Mode
+      if (cardView && cardView.classList.contains('active')) {
+        if (e.key === ' ' || e.code === 'Space') {
+          e.preventDefault();
+          flipCard();
+        } else if (e.key === 'ArrowLeft') {
+          prevCard();
+        } else if (e.key === 'ArrowRight') {
+          nextCard();
+        } else if (e.key === '1') {
+          markCardNeedsReview();
+        } else if (e.key === '2') {
+          markCardMastered();
+        } else if (e.key === 's' || e.key === 'S') {
+          playCardAudio();
+        } else if (e.key === 'b' || e.key === 'B') {
+          toggleCardBookmark();
+        }
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // APP INITIALIZATION
+    // -------------------------------------------------------------------------
+    async function initializeApp() {
+      initSpeech();
+      await loadSavedState();
+      initFlashcards();
+      renderWordList();
+      renderAnalyticsView();
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', initializeApp);
+  </script>
+</body>
+</html>

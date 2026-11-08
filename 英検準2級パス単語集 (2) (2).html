@@ -1,0 +1,3157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="handbook">
+  <title>英検準2級 でる順パス単 完全制覇 1500マスター</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Public+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces - Handbook style */
+      --background: #ffffff;
+      --surface-container-low: #f3f2f1;
+      --surface-container: #e8e7e5;
+      --surface-container-high: #dbdad9;
+
+      /* Ink */
+      --on-surface: #0b0c0c;
+      --on-surface-variant: #505a5f;
+
+      /* Rules */
+      --outline: #0b0c0c;
+      --outline-variant: #b1b4b6;
+
+      /* Accents */
+      --primary: #162e51;
+      --on-primary: #ffffff;
+      --primary-container: #d2e2f1;
+      --on-primary-container: #0c2d4a;
+      --secondary: #4c2c92;
+      --tertiary: #1a569e;
+      --error: #d4351c;
+      --on-error: #ffffff;
+
+      /* Semantic tokens */
+      --positive: #00703c;
+      --on-positive: #ffffff;
+      --positive-container: #d4e8d8;
+      --on-positive-container: #004d25;
+      --warning: #f47738;
+      --warning-container: #fde8dc;
+      --on-warning-container: #802e00;
+
+      /* Data series */
+      --data-1: #1a569e;
+      --data-2: #c75a0a;
+      --data-3: #28a197;
+      --data-4: #4c2c92;
+      --data-context: #b1b4b6;
+
+      /* Handbook style effects */
+      --top-index-rule: 6px solid var(--primary);
+      --inset-rule: 5px solid var(--tertiary);
+      --button-ground: 0 2px 0 #091526;
+      --button-ground-secondary: 0 2px 0 #858686;
+      --button-ground-positive: 0 2px 0 #004324;
+      --focus-yellow: #ffdd00;
+      --focus-ring: 3px solid var(--focus-yellow);
+      --focus-bar: inset 0 0 0 2px var(--on-surface);
+      --focus-underline: 0 -2px var(--focus-yellow), 0 4px var(--on-surface);
+
+      /* Shape */
+      --rounded: 0;
+      --rounded-lg: 0;
+      --rounded-full: 0;
+
+      /* Typography scale (Tool mode) */
+      --font-headline: 'Public Sans', 'Noto Sans JP', sans-serif;
+      --font-body: 'Public Sans', 'Noto Sans JP', sans-serif;
+      --font-label: 'Public Sans', 'Noto Sans JP', sans-serif;
+
+      --display-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);
+      --headline-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem);
+      --subhead-size: clamp(1.0rem, 0.95rem + 0.25vw, 1.15rem);
+      --body-size: clamp(0.92rem, 0.88rem + 0.15vw, 0.98rem);
+      --label-size: 0.75rem;
+
+      /* Spacing */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1160px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Top Masthead & Index */
+    .top-masthead {
+      border-top: var(--top-index-rule);
+      border-bottom: 2px solid var(--outline);
+      padding-top: var(--space-sm);
+      padding-bottom: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .top-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 2px 8px;
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 700;
+      font-size: 0.75rem;
+      border: 1px solid var(--outline-variant);
+    }
+    .badge-weak {
+      background: var(--warning-container);
+      color: var(--on-warning-container);
+      border-color: var(--warning);
+    }
+    .badge-mastered {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      border-color: var(--positive);
+    }
+    .top-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    .app-title {
+      margin: 0;
+      font-size: var(--display-size);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .app-subtitle {
+      margin: 2px 0 0 0;
+      font-size: var(--body-size);
+      color: var(--on-surface-variant);
+    }
+
+    /* KPI Summary Tiles */
+    .stats-tiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--space-md);
+    }
+    .stat-tile {
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-tile-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      margin-bottom: 2px;
+    }
+    .stat-tile-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface);
+    }
+    .stat-tile-desc {
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+      margin-top: 3px;
+    }
+
+    /* Mode Navigation Bar */
+    .mode-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      background: var(--surface-container-high);
+      border: 2px solid var(--outline);
+      padding: 2px;
+    }
+    .nav-btn {
+      flex: 1 1 auto;
+      min-width: 140px;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 0;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out);
+      text-align: center;
+    }
+    .nav-btn:hover {
+      background: var(--surface-container);
+    }
+    .nav-btn.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--button-ground);
+    }
+    .nav-btn:focus-visible {
+      outline: var(--focus-ring);
+      box-shadow: var(--focus-bar);
+      z-index: 2;
+    }
+
+    /* Section Control & Scope Configuration Bar */
+    .scope-panel {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .scope-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+      padding-bottom: var(--space-xs);
+    }
+    .scope-title {
+      font-size: var(--subhead-size);
+      font-weight: 800;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .scope-current-badge {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-container);
+      padding: 3px 8px;
+      border: 1px solid var(--outline-variant);
+    }
+    .scope-controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .control-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+    .select-input, .text-input {
+      font-family: inherit;
+      font-size: 0.92rem;
+      padding: 8px 10px;
+      border: 2px solid var(--outline);
+      background: var(--background);
+      color: var(--on-surface);
+      width: 100%;
+      height: 42px;
+    }
+    .select-input:focus-visible, .text-input:focus-visible {
+      outline: var(--focus-ring);
+      box-shadow: var(--focus-bar);
+    }
+    .range-inputs-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .range-inputs-row input {
+      width: 80px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+    }
+
+    /* Common Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 9px 16px;
+      border: 0;
+      cursor: pointer;
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--button-ground);
+      height: 42px;
+      transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+      white-space: nowrap;
+    }
+    .btn:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+    .btn:focus-visible {
+      outline: var(--focus-ring);
+      box-shadow: var(--focus-bar);
+    }
+    .btn--secondary {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      box-shadow: var(--button-ground-secondary);
+      border: 1px solid var(--outline-variant);
+    }
+    .btn--positive {
+      background: var(--positive);
+      color: var(--on-positive);
+      box-shadow: var(--button-ground-positive);
+    }
+    .btn--error {
+      background: var(--error);
+      color: var(--on-error);
+      box-shadow: 0 2px 0 #7a1d0f;
+    }
+    .btn--sm {
+      height: 32px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+    }
+
+    /* App Views */
+    .app-view {
+      display: none;
+      animation: fadeIn var(--dur-short) var(--ease-out);
+    }
+    .app-view.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* QUIZ VIEW */
+    .quiz-card-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .quiz-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .quiz-timer-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-variant-numeric: tabular-nums;
+    }
+    .timer-bar-outer {
+      width: 120px;
+      height: 10px;
+      background: var(--surface-container-high);
+      border: 1px solid var(--outline);
+      position: relative;
+      overflow: hidden;
+    }
+    .timer-bar-inner {
+      height: 100%;
+      background: var(--tertiary);
+      width: 100%;
+      transition: width 0.1s linear, background-color 0.3s ease;
+    }
+    .timer-bar-inner.warning { background: var(--warning); }
+    .timer-bar-inner.danger { background: var(--error); }
+
+    .quiz-question-box {
+      background: var(--background);
+      border: 2px solid var(--outline);
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+      position: relative;
+    }
+    .quiz-badge-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+    .quiz-prompt-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-xs);
+    }
+    .quiz-question-word {
+      font-size: clamp(1.8rem, 1.4rem + 2vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0;
+      word-break: break-word;
+    }
+    .quiz-speak-btn {
+      margin-top: var(--space-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .quiz-speak-btn:hover {
+      background: var(--surface-container);
+    }
+
+    .quiz-options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+    @media (min-width: 600px) {
+      .quiz-options-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .quiz-option-btn {
+      padding: var(--space-md);
+      border: 2px solid var(--outline);
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+      position: relative;
+      min-height: 64px;
+    }
+    .quiz-option-btn:hover:not(:disabled) {
+      background: var(--surface-container-low);
+      border-color: var(--tertiary);
+    }
+    .quiz-option-btn:focus-visible {
+      outline: var(--focus-ring);
+      box-shadow: var(--focus-bar);
+    }
+    .opt-number-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      border: 1px solid var(--outline);
+    }
+    .quiz-option-btn.correct {
+      background: var(--positive-container) !important;
+      border-color: var(--positive) !important;
+      color: var(--on-positive-container) !important;
+    }
+    .quiz-option-btn.correct .opt-number-badge {
+      background: var(--positive);
+      color: var(--on-positive);
+    }
+    .quiz-option-btn.incorrect {
+      background: var(--surface-container) !important;
+      border-color: var(--error) !important;
+      color: var(--error) !important;
+      text-decoration: line-through;
+    }
+    .quiz-option-btn.incorrect .opt-number-badge {
+      background: var(--error);
+      color: var(--on-error);
+    }
+
+    .quiz-feedback-box {
+      display: none;
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md);
+      margin-top: var(--space-xs);
+    }
+    .quiz-feedback-box.show {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .quiz-feedback-text {
+      font-size: 1.05rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .quiz-feedback-text.is-correct { color: var(--positive); }
+    .quiz-feedback-text.is-incorrect { color: var(--error); }
+
+    /* Results Screen */
+    .quiz-results-card {
+      border: 2px solid var(--outline);
+      background: var(--background);
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .results-score-big {
+      font-size: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      margin: var(--space-xs) 0;
+    }
+    .results-stats-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+      padding: var(--space-md) 0;
+      border-top: 1px solid var(--outline-variant);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .results-stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .results-stat-lbl {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+    }
+    .results-stat-num {
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+    .results-actions-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    /* FLASHCARD VIEW */
+    .flashcard-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .card-settings-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .card-toggle-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .flip-card-stage {
+      perspective: 1000px;
+      cursor: pointer;
+      min-height: 280px;
+      user-select: none;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 280px;
+      text-align: center;
+      transition: transform 0.4s var(--ease-out);
+      transform-style: preserve-3d;
+      border: 3px solid var(--outline);
+      background: var(--background);
+      box-shadow: 0 4px 0 #091526;
+    }
+    .flip-card-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-xl) var(--space-lg);
+      gap: var(--space-sm);
+      box-sizing: border-box;
+      background: var(--background);
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: var(--surface-container-low);
+    }
+    .card-num-badge {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--on-surface-variant);
+      letter-spacing: 0.05em;
+    }
+    .card-main-text {
+      font-size: clamp(2rem, 1.6rem + 2.5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: var(--space-xs) 0;
+      word-break: break-word;
+    }
+    .card-sub-text {
+      font-size: clamp(1.4rem, 1.2rem + 1.2vw, 2.0rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin: var(--space-xs) 0;
+    }
+    .card-hint {
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+      margin-top: var(--space-xs);
+    }
+
+    .card-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .card-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    /* DIRECTORY / SEARCH & LIST VIEW */
+    .directory-panel {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .search-filter-box {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .search-row {
+      display: flex;
+      gap: var(--space-sm);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1 1 260px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 10px 14px;
+      border: 2px solid var(--outline);
+      background: var(--background);
+    }
+    .filter-tabs-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      align-items: center;
+    }
+    .filter-chip {
+      padding: 5px 12px;
+      background: var(--background);
+      border: 1px solid var(--outline);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .filter-chip.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: 0 1px 0 #091526;
+    }
+    .section-jumps-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .sec-jump-btn {
+      padding: 3px 6px;
+      background: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .sec-jump-btn:hover {
+      background: var(--surface-container-high);
+    }
+
+    /* Words Table */
+    .table-container {
+      border: 2px solid var(--outline);
+      background: var(--background);
+      overflow-x: auto;
+    }
+    .words-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-variant-numeric: tabular-nums;
+      font-size: 0.92rem;
+    }
+    .words-table th {
+      background: var(--surface-container-low);
+      border-bottom: 2px solid var(--outline);
+      padding: 10px 12px;
+      text-align: left;
+      font-size: var(--label-size);
+      font-weight: 800;
+      color: var(--on-surface);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .words-table td {
+      border-bottom: 1px solid var(--outline-variant);
+      padding: 10px 12px;
+      vertical-align: middle;
+    }
+    .words-table tr:hover {
+      background: #faf9f8;
+    }
+    .col-num {
+      width: 70px;
+      font-weight: 800;
+      color: var(--on-surface-variant);
+    }
+    .col-sec {
+      width: 90px;
+    }
+    .col-word {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--on-surface);
+    }
+    .col-meaning {
+      font-weight: 500;
+    }
+    .col-actions {
+      width: 140px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .table-pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      padding: var(--space-sm) 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Icon Buttons */
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--outline);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
+    }
+    .icon-btn:hover {
+      background: var(--surface-container);
+    }
+    .icon-btn.active-star {
+      background: var(--warning-container);
+      color: var(--on-warning-container);
+      border-color: var(--warning);
+    }
+    .icon-btn.active-check {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      border-color: var(--positive);
+    }
+
+    /* WEAKNESS OVERVIEW VIEW */
+    .weakness-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .weakness-hero {
+      border-left: 6px solid var(--warning);
+      background: var(--surface-container-low);
+      padding: var(--space-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    .weakness-info h3 {
+      margin: 0 0 4px 0;
+      font-size: var(--headline-size);
+      font-weight: 800;
+    }
+    .weakness-info p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      font-size: 0.92rem;
+    }
+    .weakness-action-btns {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    /* Keyboard hint bar */
+    .kbd-hints-bar {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+    }
+    .kbd-key {
+      display: inline-block;
+      padding: 2px 6px;
+      background: var(--background);
+      border: 1px solid var(--outline);
+      font-weight: 800;
+      color: var(--on-surface);
+    }
+
+    /* Modal / Toast feedback */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--primary);
+      color: var(--on-primary);
+      padding: 10px 18px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 9999;
+      display: none;
+      border: 1px solid var(--outline);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-sm);
+        gap: var(--space-md);
+      }
+      .nav-btn {
+        min-width: 48%;
+      }
+      .flip-card-stage {
+        min-height: 240px;
+      }
+      .flip-card-inner {
+        min-height: 240px;
+      }
+      .card-actions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <!-- Top Header in Handbook Style -->
+    <header class="top-masthead">
+      <div class="top-meta-row">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="badge-pill">英検® 準2級 完全対応</span>
+          <span class="badge-pill">単語 1〜1100 ＋ 熟語 1101〜1500 (全1500語)</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <label style="display:flex; align-items:center; gap:6px; font-size:0.78rem; cursor:pointer;">
+            <input type="checkbox" id="toggleSound" checked onchange="toggleSoundSetting(this.checked)">
+            <span>効果音</span>
+          </label>
+          <label style="display:flex; align-items:center; gap:6px; font-size:0.78rem;">
+            <span>発音速度:</span>
+            <select id="speechRateSelect" onchange="changeSpeechRate(this.value)" style="font-family:inherit; font-size:0.75rem; border:1px solid var(--outline); padding:1px 4px;">
+              <option value="0.8">0.8x (ゆっくり)</option>
+              <option value="1.0" selected>1.0x (標準)</option>
+              <option value="1.2">1.2x (速め)</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="top-title-row">
+        <div>
+          <h1 class="app-title">英検準2級 でる順パス単 1500マスター</h1>
+          <p class="app-subtitle">書籍掲載順（1番〜1500番）完全連動・多機能インタラクティブ学習システム</p>
+        </div>
+        <div style="display:flex; gap:var(--space-sm);">
+          <button class="btn btn--secondary btn--sm" onclick="exportUserData()">データ書出</button>
+          <button class="btn btn--secondary btn--sm" onclick="resetUserData()">進捗初期化</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- KPI Summary Tiles -->
+    <section class="stats-tiles-grid" aria-label="学習統計サマリー">
+      <div class="stat-tile">
+        <span class="stat-tile-label">総収録語数</span>
+        <span class="stat-tile-val">1,500<span style="font-size:0.9rem; font-weight:600; margin-left:4px;">語</span></span>
+        <span class="stat-tile-desc">単語: 1,100 / 熟語: 400</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-tile-label">覚えた単語 (マスター)</span>
+        <span class="stat-tile-val" id="statMasteredCount">0<span style="font-size:0.9rem; font-weight:600; margin-left:4px;">語</span></span>
+        <span class="stat-tile-desc" id="statMasteredPct">達成率: 0.0%</span>
+      </div>
+      <div class="stat-tile" style="border-left-color: var(--warning);">
+        <span class="stat-tile-label">要復習・弱点リスト</span>
+        <span class="stat-tile-val" id="statWeakCount" style="color:var(--on-surface);">0<span style="font-size:0.9rem; font-weight:600; margin-left:4px;">語</span></span>
+        <span class="stat-tile-desc">間違い・チェック単語</span>
+      </div>
+      <div class="stat-tile" style="border-left-color: var(--positive);">
+        <span class="stat-tile-label">クイズ総合正解率</span>
+        <span class="stat-tile-val" id="statQuizAccuracy">--<span style="font-size:0.9rem; font-weight:600; margin-left:4px;">%</span></span>
+        <span class="stat-tile-desc" id="statQuizTotal">挑戦数: 0問</span>
+      </div>
+    </section>
+
+    <!-- Mode Selector Navigation Tabs -->
+    <nav class="mode-nav" role="tablist" aria-label="学習モード切替">
+      <button class="nav-btn active" id="tabBtnQuizEJ" onclick="switchMode('quizEJ')" role="tab" aria-selected="true">
+        <span>英→日 4択クイズ</span>
+      </button>
+      <button class="nav-btn" id="tabBtnQuizJE" onclick="switchMode('quizJE')" role="tab" aria-selected="false">
+        <span>日→英 4択クイズ</span>
+      </button>
+      <button class="nav-btn" id="tabBtnCards" onclick="switchMode('cards')" role="tab" aria-selected="false">
+        <span>暗記フラッシュカード</span>
+      </button>
+      <button class="nav-btn" id="tabBtnWeak" onclick="switchMode('weakness')" role="tab" aria-selected="false">
+        <span>弱点克服特訓 (<span id="tabWeakBadge">0</span>)</span>
+      </button>
+      <button class="nav-btn" id="tabBtnList" onclick="switchMode('list')" role="tab" aria-selected="false">
+        <span>全1500語リスト・検索</span>
+      </button>
+    </nav>
+
+    <!-- Scope / Range Configuration Panel -->
+    <section class="scope-panel" aria-label="出題範囲・学習設定">
+      <div class="scope-header">
+        <h2 class="scope-title">
+          <span>出題範囲・学習設定</span>
+        </h2>
+        <span class="scope-current-badge" id="currentScopeSummary">現在の対象: Section 1 (No. 1〜100 / 100語)</span>
+      </div>
+
+      <div class="scope-controls-grid">
+        <!-- Preset Dropdown -->
+        <div class="control-group">
+          <label class="control-label" for="scopePresetSelect">範囲プリセット:</label>
+          <select id="scopePresetSelect" class="select-input" onchange="handlePresetChange(this.value)">
+            <option value="sec1" selected>Section 1 (No. 1〜100)</option>
+            <option value="sec2">Section 2 (No. 101〜200)</option>
+            <option value="sec3">Section 3 (No. 201〜300)</option>
+            <option value="sec4">Section 4 (No. 301〜400)</option>
+            <option value="sec5">Section 5 (No. 401〜500)</option>
+            <option value="sec6">Section 6 (No. 501〜600)</option>
+            <option value="sec7">Section 7 (No. 601〜700)</option>
+            <option value="sec8">Section 8 (No. 701〜800)</option>
+            <option value="sec9">Section 9 (No. 801〜900)</option>
+            <option value="sec10">Section 10 (No. 901〜1000)</option>
+            <option value="sec11">Section 11 (No. 1001〜1100)</option>
+            <option value="sec12">Section 12 (熟語 No. 1101〜1200)</option>
+            <option value="sec13">Section 13 (熟語 No. 1201〜1300)</option>
+            <option value="sec14">Section 14 (熟語 No. 1301〜1400)</option>
+            <option value="sec15">Section 15 (熟語 No. 1401〜1500)</option>
+            <option value="allWords">全単語 (No. 1〜1100)</option>
+            <option value="allIdioms">全熟語 (No. 1101〜1500)</option>
+            <option value="all">全1500語 完全範囲 (No. 1〜1500)</option>
+            <option value="weakOnly">弱点・要復習語のみ</option>
+            <option value="custom">カスタム範囲指定 (任意番号)</option>
+          </select>
+        </div>
+
+        <!-- Custom Range Inputs (From - To) -->
+        <div class="control-group">
+          <label class="control-label">出題番号範囲 (1〜1500):</label>
+          <div class="range-inputs-row">
+            <input type="number" id="rangeStartInput" class="text-input" min="1" max="1500" value="1" onchange="handleRangeInputChange()">
+            <span style="font-weight:800;">〜</span>
+            <input type="number" id="rangeEndInput" class="text-input" min="1" max="1500" value="100" onchange="handleRangeInputChange()">
+            <button class="btn btn--secondary btn--sm" onclick="applyCustomRange()">適用</button>
+          </div>
+        </div>
+
+        <!-- Question Count Setting -->
+        <div class="control-group">
+          <label class="control-label" for="quizCountSelect">出題問題数:</label>
+          <select id="quizCountSelect" class="select-input" onchange="updateQuizCountSetting(this.value)">
+            <option value="10" selected>10問 (手軽に特訓)</option>
+            <option value="20">20問 (標準)</option>
+            <option value="50">50問 (じっくり演習)</option>
+            <option value="all">範囲内の全単語</option>
+          </select>
+        </div>
+
+        <!-- Quiz Timer Setting -->
+        <div class="control-group">
+          <label class="control-label" for="quizTimerSelect">制限時間タイマー:</label>
+          <select id="quizTimerSelect" class="select-input" onchange="updateTimerSetting(this.value)">
+            <option value="0">制限なし (無制限)</option>
+            <option value="15">15秒 (じっくり)</option>
+            <option value="10" selected>10秒 (標準)</option>
+            <option value="5">5秒 (速答特訓)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 1 & 2: QUIZ VIEW (英→日 / 日→英) ==================== -->
+    <main id="quizView" class="app-view active" aria-label="4択クイズ">
+      <div class="quiz-card-container">
+        <!-- Quiz Playing State -->
+        <div id="quizPlayingArea">
+          <!-- Quiz Status Bar -->
+          <div class="quiz-status-bar">
+            <div>
+              <span id="quizModeBadge" style="font-size:0.8rem; background:var(--primary); color:white; padding:2px 6px; margin-right:6px;">英→日</span>
+              <span style="font-weight:800;">第 <span id="quizCurrentQ">1</span> / <span id="quizTotalQ">10</span> 問</span>
+            </div>
+
+            <!-- Timer Display -->
+            <div class="quiz-timer-wrap" id="quizTimerWrap">
+              <span style="font-size:0.8rem; color:var(--on-surface-variant);">残り:</span>
+              <div class="timer-bar-outer">
+                <div class="timer-bar-inner" id="quizTimerBar"></div>
+              </div>
+              <span id="quizTimerSecText" style="font-weight:800; min-width:24px;">10s</span>
+            </div>
+
+            <div>
+              <span style="color:var(--positive); font-weight:800;">正解: <span id="quizScoreCount">0</span></span>
+            </div>
+          </div>
+
+          <!-- Question Box -->
+          <div class="quiz-question-box">
+            <div class="quiz-badge-row">
+              <span class="badge-pill" id="quizWordNoBadge">No. 0001</span>
+              <span class="badge-pill" id="quizWordSecBadge">Section 1</span>
+              <span class="badge-pill" id="quizWordTypeBadge">単語</span>
+            </div>
+
+            <div class="quiz-prompt-label" id="quizPromptLabel">この英単語の意味を選択してください</div>
+            <h2 class="quiz-question-word" id="quizQuestionWord">let</h2>
+
+            <button class="quiz-speak-btn" id="quizSpeakBtn" onclick="speakCurrentQuizWord()" title="英語の発音を聞く (音声再生)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+              <span>発音を聞く</span>
+            </button>
+          </div>
+
+          <!-- 4 Options Grid -->
+          <div class="quiz-options-grid" id="quizOptionsGrid" style="margin-top:var(--space-md);">
+            <button class="quiz-option-btn" id="quizOpt0" onclick="handleQuizAnswer(0)">
+              <span class="opt-number-badge">1</span>
+              <span class="opt-text" id="quizOptText0">選択肢 1</span>
+            </button>
+            <button class="quiz-option-btn" id="quizOpt1" onclick="handleQuizAnswer(1)">
+              <span class="opt-number-badge">2</span>
+              <span class="opt-text" id="quizOptText1">選択肢 2</span>
+            </button>
+            <button class="quiz-option-btn" id="quizOpt2" onclick="handleQuizAnswer(2)">
+              <span class="opt-number-badge">3</span>
+              <span class="opt-text" id="quizOptText2">選択肢 3</span>
+            </button>
+            <button class="quiz-option-btn" id="quizOpt3" onclick="handleQuizAnswer(3)">
+              <span class="opt-number-badge">4</span>
+              <span class="opt-text" id="quizOptText3">選択肢 4</span>
+            </button>
+          </div>
+
+          <!-- Feedback & Next Button -->
+          <div class="quiz-feedback-box" id="quizFeedbackBox">
+            <div class="quiz-feedback-text" id="quizFeedbackText">正解！</div>
+            <button class="btn" id="quizNextBtn" onclick="nextQuizQuestion()">
+              <span>次の問題へ →</span>
+            </button>
+          </div>
+
+          <!-- Keyboard shortcut guide -->
+          <div class="kbd-hints-bar" style="margin-top:var(--space-md);">
+            <span>ショートカット:</span>
+            <span><span class="kbd-key">1</span>〜<span class="kbd-key">4</span> 回答選択</span>
+            <span><span class="kbd-key">Enter</span> 次へ</span>
+            <span><span class="kbd-key">A</span> 音声再生</span>
+          </div>
+        </div>
+
+        <!-- Quiz Results State (Shown upon quiz end) -->
+        <div id="quizResultsArea" style="display:none;">
+          <div class="quiz-results-card">
+            <div>
+              <span class="badge-pill" style="font-size:0.85rem;">クイズ完了</span>
+              <h2 style="font-size:var(--headline-size); margin:var(--space-xs) 0;">演習結果サマリー</h2>
+              <div class="results-score-big" id="resultsScoreDisplay">8 / 10</div>
+              <p id="resultsEvaluationText" style="font-size:1.1rem; font-weight:700; color:var(--primary); margin:0;">見事な正解率です！</p>
+            </div>
+
+            <div class="results-stats-row">
+              <div class="results-stat-item">
+                <span class="results-stat-lbl">正解率</span>
+                <span class="results-stat-num" id="resultsPctDisplay">80%</span>
+              </div>
+              <div class="results-stat-item">
+                <span class="results-stat-lbl">所要時間</span>
+                <span class="results-stat-num" id="resultsTimeDisplay">1分15秒</span>
+              </div>
+              <div class="results-stat-item">
+                <span class="results-stat-lbl">新規弱点登録</span>
+                <span class="results-stat-num" id="resultsMistakeCount" style="color:var(--error);">2語</span>
+              </div>
+            </div>
+
+            <!-- Review of Missed Questions -->
+            <div id="resultsMissedSection" style="text-align:left;">
+              <h3 style="font-size:1.0rem; font-weight:800; border-bottom:2px solid var(--outline); padding-bottom:4px; margin-bottom:var(--space-sm);">
+                今回間違えた単語の復習
+              </h3>
+              <div class="table-container">
+                <table class="words-table" id="resultsMissedTable">
+                  <thead>
+                    <tr>
+                      <th style="width:70px;">No.</th>
+                      <th>英単語・熟語</th>
+                      <th>正解の日本語</th>
+                      <th style="width:90px; text-align:right;">発音</th>
+                    </tr>
+                  </thead>
+                  <tbody id="resultsMissedTbody">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="results-actions-row">
+              <button class="btn btn--positive" id="retryMissedOnlyBtn" onclick="retryMissedWordsOnly()">
+                <span>間違えた問題だけを再出題 (弱点特訓)</span>
+              </button>
+              <button class="btn" onclick="startQuizWithCurrentScope()">
+                <span>同じ範囲でもう一度</span>
+              </button>
+              <button class="btn btn--secondary" onclick="switchMode('cards')">
+                <span>フラッシュカードで復習</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== VIEW 3: FLASHCARDS VIEW ==================== -->
+    <main id="cardsView" class="app-view" aria-label="暗記用フラッシュカード">
+      <div class="flashcard-wrap">
+        <!-- Settings row -->
+        <div class="card-settings-bar">
+          <div class="card-toggle-group">
+            <label style="display:flex; align-items:center; gap:4px; cursor:pointer;">
+              <input type="checkbox" id="cardShuffleCheck" onchange="toggleCardShuffle(this.checked)">
+              <span>シャッフル出題</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:4px; cursor:pointer;">
+              <input type="checkbox" id="cardAutoSpeakCheck" checked>
+              <span>めくり時に自動発音</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:4px; cursor:pointer;">
+              <input type="checkbox" id="cardReverseSideCheck" onchange="toggleCardSideReverse(this.checked)">
+              <span>表を日本語にする</span>
+            </label>
+          </div>
+          <div>
+            <span style="font-weight:800;">カード <span id="cardCurIndex">1</span> / <span id="cardTotalCount">100</span></span>
+          </div>
+        </div>
+
+        <!-- 3D Interactive Flip Card -->
+        <div class="flip-card-stage" onclick="flipCurrentCard()" tabindex="0" id="flashcardElement" role="button" aria-label="フラッシュカード（クリックまたはSpaceキーで裏返す）">
+          <div class="flip-card-inner" id="cardInner">
+            <!-- Front Face -->
+            <div class="flip-card-front">
+              <div style="display:flex; justify-content:space-between; width:100%;">
+                <span class="card-num-badge" id="cardFrontNoBadge">No. 0001</span>
+                <span class="badge-pill" id="cardFrontSecBadge">Section 1</span>
+              </div>
+              <div class="card-main-text" id="cardFrontWord">let</div>
+              <button class="icon-btn" onclick="event.stopPropagation(); speakCardWord();" title="発音を聞く" style="width:40px; height:40px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </button>
+              <span class="card-hint">クリックまたは [Space] キーで裏返す</span>
+            </div>
+
+            <!-- Back Face -->
+            <div class="flip-card-back">
+              <div style="display:flex; justify-content:space-between; width:100%;">
+                <span class="card-num-badge" id="cardBackNoBadge">No. 0001</span>
+                <span class="badge-pill" id="cardBackSecBadge">Section 1</span>
+              </div>
+              <div class="card-sub-text" id="cardBackWordSub">let</div>
+              <div class="card-main-text" id="cardBackMeaning" style="font-size:clamp(1.8rem, 1.4rem + 1.8vw, 2.6rem); color:var(--on-surface);">〜させる</div>
+              <button class="icon-btn" onclick="event.stopPropagation(); speakCardWord();" title="発音を聞く" style="width:36px; height:36px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </button>
+              <span class="card-hint">覚えたか、まだかを下部ボタンで記録</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mastery Check & Navigation Actions -->
+        <div class="card-actions-grid">
+          <button class="btn btn--secondary" onclick="markCardWeakAndNext()" style="border-left:4px solid var(--warning); height:54px;">
+            <span style="font-size:1.1rem; color:var(--warning); font-weight:800;">✕</span>
+            <span>まだ / 苦手 (要復習に追加) [1]</span>
+          </button>
+          <button class="btn btn--positive" onclick="markCardMasteredAndNext()" style="border-left:4px solid var(--on-primary); height:54px;">
+            <span style="font-size:1.1rem; font-weight:800;">✓</span>
+            <span>覚えた！ (マスター済みに設定) [2]</span>
+          </button>
+        </div>
+
+        <div class="card-nav-row">
+          <button class="btn btn--secondary" onclick="prevCard()" style="min-width:110px;">
+            <span>← 前の単語 [←]</span>
+          </button>
+          <button class="btn btn--secondary" onclick="flipCurrentCard()">
+            <span>裏返す [Space]</span>
+          </button>
+          <button class="btn btn--secondary" onclick="nextCard()" style="min-width:110px;">
+            <span>次の単語 [→] →</span>
+          </button>
+        </div>
+
+        <!-- Keyboard hints -->
+        <div class="kbd-hints-bar">
+          <span>操作方法:</span>
+          <span><span class="kbd-key">Space</span> 裏返し</span>
+          <span><span class="kbd-key">←</span> 前へ</span>
+          <span><span class="kbd-key">→</span> 次へ</span>
+          <span><span class="kbd-key">1</span> まだ</span>
+          <span><span class="kbd-key">2</span> 覚えた</span>
+          <span><span class="kbd-key">A</span> 音声再生</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== VIEW 4: WEAKNESS MASTERY VIEW ==================== -->
+    <main id="weaknessView" class="app-view" aria-label="弱点克服特訓モード">
+      <div class="weakness-container">
+        <div class="weakness-hero">
+          <div class="weakness-info">
+            <h3>弱点克服・集中復習モード</h3>
+            <p>クイズで間違えた問題や、フラッシュカード・リストで「要復習」にチェックした単語がここに自動集約されます。</p>
+            <div style="margin-top:var(--space-sm); font-size:1.1rem; font-weight:800;">
+              現在登録されている弱点単語: <span id="weakHeroCount" style="color:var(--error); font-size:1.4rem;">0</span> 語
+            </div>
+          </div>
+          <div class="weakness-action-btns">
+            <button class="btn" onclick="startWeakQuizEJ()" id="btnStartWeakQuizEJ">
+              <span>弱点4択クイズ (英→日) 開始</span>
+            </button>
+            <button class="btn" onclick="startWeakQuizJE()" id="btnStartWeakQuizJE">
+              <span>弱点4択クイズ (日→英) 開始</span>
+            </button>
+            <button class="btn btn--secondary" onclick="startWeakCards()" id="btnStartWeakCards">
+              <span>弱点フラッシュカード開始</span>
+            </button>
+            <button class="btn btn--secondary" onclick="clearWeakList()" style="color:var(--error); border-color:var(--error);">
+              <span>弱点リストを一括クリア</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Weakness Words Table -->
+        <div class="table-container">
+          <table class="words-table">
+            <thead>
+              <tr>
+                <th style="width:70px;">No.</th>
+                <th style="width:100px;">区分</th>
+                <th>英単語・英熟語</th>
+                <th>日本語の意味</th>
+                <th style="width:180px; text-align:right;">アクション</th>
+              </tr>
+            </thead>
+            <tbody id="weakTableTbody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== VIEW 5: FULL 1500 WORDS DIRECTORY & SEARCH ==================== -->
+    <main id="listView" class="app-view" aria-label="全1500語リスト・単語番号検索">
+      <div class="directory-panel">
+        <div class="search-filter-box">
+          <!-- Search Bar -->
+          <div class="search-row">
+            <input type="text" id="dirSearchInput" class="search-input" placeholder="単語番号 (例: 45, 1105) または 英単語・日本語意味で即時検索..." oninput="handleDirectorySearch(this.value)">
+            <button class="btn btn--secondary btn--sm" onclick="clearSearchInput()">クリア</button>
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="filter-tabs-row">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--on-surface-variant); margin-right:4px;">絞り込み:</span>
+            <button class="filter-chip active" id="filterChipAll" onclick="setDirectoryFilter('all')">全1500語</button>
+            <button class="filter-chip" id="filterChipWords" onclick="setDirectoryFilter('words')">単語 (1〜1100)</button>
+            <button class="filter-chip" id="filterChipIdioms" onclick="setDirectoryFilter('idioms')">熟語 (1101〜1500)</button>
+            <button class="filter-chip" id="filterChipMastered" onclick="setDirectoryFilter('mastered')">覚えた語のみ</button>
+            <button class="filter-chip" id="filterChipUnmastered" onclick="setDirectoryFilter('unmastered')">未暗記のみ</button>
+            <button class="filter-chip" id="filterChipWeak" onclick="setDirectoryFilter('weak')">要復習・弱点のみ</button>
+          </div>
+
+          <!-- Section Jump Buttons -->
+          <div class="section-jumps-row">
+            <span style="font-weight:700; color:var(--on-surface-variant); margin-right:4px;">セクション早見:</span>
+            <button class="sec-jump-btn" onclick="jumpToSection(1)">Sec 1</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(2)">Sec 2</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(3)">Sec 3</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(4)">Sec 4</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(5)">Sec 5</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(6)">Sec 6</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(7)">Sec 7</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(8)">Sec 8</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(9)">Sec 9</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(10)">Sec 10</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(11)">Sec 11</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(12)" style="background:var(--primary-container);">Sec 12(熟)</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(13)" style="background:var(--primary-container);">Sec 13(熟)</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(14)" style="background:var(--primary-container);">Sec 14(熟)</button>
+            <button class="sec-jump-btn" onclick="jumpToSection(15)" style="background:var(--primary-container);">Sec 15(熟)</button>
+          </div>
+        </div>
+
+        <!-- Table Count & Pagination Controls -->
+        <div class="table-pagination-bar">
+          <div>
+            表示中: <span id="tableShowingCount" style="font-weight:800;">1〜50</span> 件 / 該当 <span id="tableTotalFilteredCount" style="font-weight:800;">1,500</span> 語
+          </div>
+          <div style="display:flex; align-items:center; gap:var(--space-xs);">
+            <button class="btn btn--secondary btn--sm" onclick="changeDirPage(-1)" id="dirPrevPageBtn">← 前の50件</button>
+            <span style="font-weight:800; padding:0 8px;">ページ <span id="dirCurrentPageText">1</span> / <span id="dirTotalPagesText">30</span></span>
+            <button class="btn btn--secondary btn--sm" onclick="changeDirPage(1)" id="dirNextPageBtn">次の50件 →</button>
+          </div>
+        </div>
+
+        <!-- Words Table -->
+        <div class="table-container">
+          <table class="words-table" id="directoryWordsTable">
+            <thead>
+              <tr>
+                <th style="width:70px;">No.</th>
+                <th style="width:100px;">セクション</th>
+                <th style="width:240px;">英単語・英熟語</th>
+                <th>日本語の意味</th>
+                <th style="width:170px; text-align:right;">暗記 / 弱点</th>
+              </tr>
+            </thead>
+            <tbody id="directoryTbody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toastMessage" class="toast-msg"></div>
+
+  <!-- State persistence shim placeholder -->
+  <api-shim></api-shim>
+
+  <script>
+    /* ==========================================================================
+       ALL 1500 WORDS & IDIOMS (EIKEN PRE-2 PASSTAN 1 TO 1500 COMPLETE DATA)
+       Section 1 to 11: Single words (1-1100)
+       Section 12 to 15: Idioms (1101-1500)
+       ========================================================================== */
+    const WORDS_DATA = [
+      // Section 1 (1-100)
+      ["let","〜させる"],["decide","〜を決心する"],["train","〜を訓練する"],["travel","〜を旅行する"],["leave","〜を置き忘れる"],
+      ["park","〜を駐車する"],["order","〜を注文する"],["lose","〜を失う"],["move","〜を動かす"],["pay","〜を支払う"],
+      ["wait","待つ"],["change","〜を変える"],["check","〜を確かめる"],["build","〜を建てる"],["worry","心配する"],
+      ["plant","〜を植える"],["practice","〜を練習する"],["care","気にかける"],["describe","〜を描写する"],["cost","費用がかかる"],
+      ["turn","〜を曲げる"],["join","〜に加わる"],["grow","成長する"],["save","〜を救う"],["win","〜に勝つ"],
+      ["pick","〜を選ぶ"],["believe","〜を信じる"],["report","〜を報告する"],["forget","〜を忘れる"],["hurt","〜を傷つける"],
+      ["borrow","〜を借りる"],["surprise","〜を驚かせる"],["volunteer","ボランティアをする"],["carry","〜を運ぶ"],["set","〜を置く"],
+      ["invite","〜を招待する"],["happen","偶然起こる"],["choose","〜を選ぶ"],["guide","〜を案内する"],["arrive","到着する"],
+      ["offer","〜を提供する"],["remember","〜を覚えている"],["cancel","〜を中止する"],["repair","〜を修理する"],["excuse","言い訳"],
+      ["internet","インターネット"],["idea","考え"],["information","情報"],["honey","あなた"],["fire","火"],
+      ["vegetable","野菜"],["situation","状況"],["passage","一節"],["event","出来事"],["ma'am","奥様"],
+      ["avocado","アボカド"],["type","型"],["bakery","パン屋"],["future","将来"],["exercise","運動"],
+      ["bottle","ピン"],["sign","合図"],["service","サービス"],["garbage","生ゴミ"],["customer","顧客"],
+      ["business","職業"],["trouble","トラブル"],["tour","周遊旅行"],["race","競走"],["environment","環境"],
+      ["activity","活動"],["other","他の"],["different","違った"],["important","重要な"],["special","特別な"],
+      ["enough","十分な"],["expensive","高価な"],["difficult","困難な"],["few","ほとんど〜ない"],["another","別の"],
+      ["close","接近した"],["own","自分自身の"],["local","地元の"],["delicious","おいしい"],["foreign","外国の"],
+      ["however","しかしながら"],["even","〜でさえ"],["online","オンラインで"],["outside","屋外に"],["instead","その代わりに"],
+      ["far","遠くに"],["probably","たぶん"],["though","でも"],["actually","実際に"],["later","あとで"],
+      ["yet","もう / まだ"],["quickly","すぐに"],["inside","屋内に"],["anyway","とにかく"],["while","〜している間に"],
+
+      // Section 2 (101-200)
+      ["taste","〜の味がする"],["fix","〜を修理する"],["hold","〜を開催する"],["collect","〜を集める"],["paint","〜にペンキを塗る"],
+      ["copy","の写しをとる"],["guess","〜を推測する"],["create","〜を創造する"],["allow","〜が…するのを許す"],["return","帰る"],
+      ["suggest","〜を提案する"],["relax","くつろぐ"],["add","〜を加える"],["reserve","〜を予約する"],["design","〜をデザインする"],
+      ["follow","〜についていく"],["attract","の心をとらえる"],["pass","〜に合格する"],["miss","〜がいなくてさびしく思う"],["recommend","〜を推薦する"],
+      ["serve","〜を出す"],["rent","〜を借りる"],["wake","目を覚ます"],["bake","〜を焼く"],["prepare","〜を準備する"],
+      ["damage","〜に損傷を与える"],["bear","〜を我慢する"],["seem","〜のようだ"],["explain","〜を説明する"],["cause","〜を引き起こす"],
+      ["fill","〜を満たす"],["kill","〜を殺す"],["dress","服を着る"],["throw","〜を投げる"],["notice","〜に気づく"],
+      ["result","結果"],["front","最前部"],["recipe","調理法"],["area","地域"],["visitor","訪問者"],
+      ["clothes","衣服"],["plastic","プラスチック"],["chance","機会"],["sale","販売"],["skill","技術"],
+      ["presentation","発表"],["flight","定期航空便"],["wheel","車輪"],["product","製品"],["meal","食事"],
+      ["seed","種"],["land","陸地"],["medicine","薬"],["reservation","予約"],["space","宇宙"],
+      ["apartment","アパート"],["insect","虫"],["mall","ショッピングモール"],["smartphone","スマートフォン"],["grade","成績"],
+      ["police","警察"],["prize","賞"],["market","市場"],["fair","見本市"],["section","欄"],
+      ["price","価格"],["fact","事実"],["department","部"],["rule","規則"],["nature","自然"],
+      ["island","島"],["goods","商品"],["firefighter","消防隊員"],["person","人"],["husband","夫"],
+      ["item","品目"],["neighbor","隣人"],["orchestra","オーケストラ"],["gate","門"],["healthy","健康に良い"],
+      ["true","本当の"],["afraid","〜ではないかと心配して"],["dangerous","危険な"],["wild","野生の"],["safe","安全な"],
+      ["past","過去の"],["available","入手できる"],["successful","成功した"],["perfect","完全な"],["less","より少なく"],
+      ["easily","簡単に"],["else","その他に"],["abroad","海外で"],["recently","最近"],["nowadays","今日（こんにち）では"],
+      ["somewhere","どこかに"],["forward","先へ"],["although","〜だけれども"],["without","〜なしで"],["through","〜を通って"],
+
+      // Section 3 (201-300)
+      ["exchange","〜を交換する"],["drop","〜を落とす"],["climb","〜を登る"],["smell","〜のにおいがする"],["date","〜とデートする"],
+      ["introduce","〜を紹介する"],["recycle","〜を再生利用する"],["perform","〜を上演する"],["wish","〜を願う"],["marry","〜と結婚する"],
+      ["express","〜を表現する"],["hide","隠れる"],["protect","〜を保護する"],["receive","〜を受け取る"],["steal","〜を盗む"],
+      ["interview","〜と面接する"],["feed","〜に食べ物を与える"],["spread","広がる"],["deliver","〜を配達する"],["search","〜を探す"],
+      ["bite","〜を噛む"],["trade","〜を交換する"],["announce","〜を発表する"],["produce","〜を生産する"],["share","〜を共有する"],
+      ["draw","〜を描く"],["wood","木材"],["reason","理由"],["experience","経験"],["bill","請求書"],
+      ["discount","割引"],["form","用紙"],["owner","所有者"],["side","片側"],["community","地域社会"],
+      ["guest","客"],["performance","演技"],["tool","道具"],["century","1世紀"],["dessert","デザート"],
+      ["poem","詩"],["government","政府"],["novel","小説"],["professor","教授"],["project","計画"],
+      ["charity","慈善事業"],["million","100万"],["instrument","器具"],["mistake","間違い"],["earth","地球"],
+      ["address","住所"],["co-worker","同僚"],["cleaner","クリーニング店"],["match","試合"],["fan","ファン"],
+      ["grandparent","祖父／祖母"],["president","大統領"],["wallpaper","壁紙"],["health","健康なこと"],["Europe","ヨーロッパ"],
+      ["technology","科学技術"],["suit","スーツ"],["note","覚え書き"],["score","得点"],["gift","才能"],
+      ["rest","休み"],["view","眺め"],["crowd","群集"],["jazz","ジャズ"],["direction","方向"],
+      ["topic","話題"],["wallet","財布"],["piece","1片"],["package","小さな包み"],["teammate","チームメート"],
+      ["playground","遊び場"],["planet","惑星"],["salon","高級店"],["accident","事故"],["actor","俳優"],
+      ["traditional","伝統的な"],["Russian","ロシアの"],["human","人間の"],["cheap","安い"],["either","どちらか一方の"],
+      ["professional","プロの"],["similar","類似した"],["part-time","パートタイムの"],["whole","全体の"],["frozen","凍った"],
+      ["central","中心部の"],["loud","大きい"],["magic","奇術の"],["pretty","なかなか"],["certainly","確かに"],
+      ["finally","ついに"],["alone","1人で"],["therefore","それゆえに"],["lately","最近"],["might","もしかすると〜かもしれない"],
+
+      // Section 4 (301-400)
+      ["stand","〜を我慢する"],["reach","〜に到着する"],["promise","〜を約束する"],["film","〜を撮影する"],["fit","〜にサイズがぴったり合う"],
+      ["celebrate","〜を祝う"],["stretch","ストレッチをする"],["cover","〜を覆う"],["develop","〜を開発する"],["solve","〜を解決する"],
+      ["discover","〜を発見する"],["continue","〜を続ける"],["face","〜に直面する"],["shape","〜を形作る"],["print","〜を印刷する"],
+      ["lend","貸す"],["realize","〜を実現する"],["wonder","〜かなと思う"],["die","死ぬ"],["pull","〜を引く"],
+      ["push","〜を押す"],["shake","〜を振る"],["agree","賛成する"],["mean","〜を意味する"],["mind","〜を気にする"],
+      ["improve","〜を改良する"],["include","〜を含む"],["enter","〜に入る"],["communicate","意思を通じ合う"],["tourist","観光客"],
+      ["center","中心"],["attention","注目"],["couple","カップル"],["license","免許証"],["kid","子ども"],
+      ["desert","砂漠"],["invention","発明品"],["chemistry","化学"],["neighborhood","近所"],["officer","警官"],
+      ["moment","瞬間"],["rock","岩"],["cart","ショッピングカート"],["grass","芝生"],["traffic","交通量"],
+      ["staff","スタッフ"],["snake","ヘビ"],["grocery","食糧雑貨"],["fee","料金"],["clothing","衣服"],
+      ["training","訓練"],["yoga","ヨガ"],["truck","トラック"],["forest","森林地帯"],["flavor","味"],
+      ["weight","重さ"],["subway","地下鉄"],["discovery","発見"],["oven","オーブン"],["ID","身分証明書"],
+      ["beginner","初心者"],["cough","せき"],["firework","花火"],["flag","旗"],["housework","家事"],
+      ["ant","アリ"],["ground","地面"],["schedule","予定表"],["noise","騒音"],["storm","嵐"],
+      ["shelf","棚"],["elevator","エレベーター"],["Pacific","太平洋沿岸の"],["careful","注意深い"],["public","公共の"],
+      ["British","英国の"],["friendly","友好的な"],["native","生まれた土地の"],["excellent","優れた"],["nearby","近くの"],
+      ["huge","巨大な"],["main","主な"],["fresh","新鮮な"],["usual","いつもの"],["boring","退屈な"],
+      ["colorful","色彩豊かな"],["scary","恐ろしい"],["spicy","ピリッとした"],["nervous","緊張している"],["convenient","便利な"],
+      ["wide","幅が広い"],["elementary","初等教育の"],["once","1度"],["anymore","これ以上"],["almost","ほとんど"],
+      ["carefully","注意して"],["luckily","運よく"],["outdoors","屋外で"],["clearly","はっきりと"],["against","〜に反対して"],
+
+      // Section 5 (401-500)
+      ["connect","〜をつなぐ"],["suppose","〜することになっている"],["fail","失敗する"],["display","〜を展示する"],["compete","競争する"],
+      ["explore","〜を探検する"],["raise","〜を上げる"],["contact","〜と連絡をとる"],["attend","出席する"],["remove","〜を取り除く"],
+      ["complete","〜を達成する"],["gain","〜を得る"],["balance","バランスをとる"],["decorate","〜を飾る"],["gather","〜を集める"],
+      ["bother","〜に迷惑をかける"],["retire","引退する"],["hate","〜を憎む"],["hug","〜を抱きしめる"],["support","〜を支持する"],
+      ["touch","触れる"],["scare","〜を怯えさせる"],["hire","〜を雇う"],["expect","〜を予期する"],["publish","〜を出版する"],
+      ["attack","〜を攻撃する"],["measure","〜を測定する"],["discuss","議論する"],["examination","試験"],["research","調査"],
+      ["amount","量"],["announcement","発表"],["screen","画面"],["advice","助言"],["distance","距離"],
+      ["shopper","買い物客"],["director","監督"],["technique","技術"],["average","平均"],["gallery","美術館"],
+      ["convenience","便利"],["application","申し込み"],["state","国家"],["amusement","娯楽"],["sight","光景"],
+      ["matter","問題"],["sauce","ソース"],["bottom","底"],["corner","角"],["principal","校長"],
+      ["homestay","ホームステイ"],["jellyfish","クラゲ"],["percent","パーセント"],["lifestyle","ライフスタイル"],["career","職業"],
+      ["goal","目標"],["chef","シェフ"],["fashion","流行"],["relative","親戚"],["credit","信用"],
+      ["challenge","課題"],["luck","幸運"],["backyard","裏庭"],["emergency","緊急事態"],["favor","好意"],
+      ["Olympics","国際オリンピック大会"],["fever","熱"],["campus","構内"],["photographer","写真家"],["bar","棒"],
+      ["laundry","洗濯物"],["refrigerator","冷蔵庫"],["modern","現代の"],["common","共通の"],["extra","余分の"],
+      ["national","国民の"],["real","本当の"],["comfortable","快適な"],["possible","可能な"],["recent","最近の"],
+      ["least","最も少ない"],["normal","普通の"],["international","国際的な"],["asleep","眠って"],["active","活動的な"],
+      ["lonely","寂しい"],["regular","通常の"],["bright","明るい"],["correct","正しい"],["relaxing","くつろがせる"],
+      ["unfortunately","不幸にも"],["downtown","街の中心部へ"],["mostly","大部分は"],["nearly","ほとんど"],["heavily","激しく"],
+      ["anytime","いつでも"],["except","〜を除いては"],["behind","〜の後ろに"],["neither","どちらも〜ない"],["none","誰も〜ない"],
+
+      // Section 6 (501-600)
+      ["lay","〜を横たえる"],["block","〜を邪魔する"],["hunt","探し求める"],["grill","〜を焼く"],["count","〜を数える"],
+      ["guard","〜を守る"],["lift","〜を持ち上げる"],["hit","〜を打つ"],["pour","〜を注ぐ"],["confuse","〜を混同する"],
+      ["press","〜を押す"],["broadcast","〜を放送する"],["lie","うそをつく"],["review","〜を復習する"],["quit","〜をやめる"],
+      ["remind","思い出させる"],["separate","〜を分ける"],["wipe","〜をふく"],["rescue","〜を救助する"],["translate","〜を翻訳する"],
+      ["fight","戦う"],["invitation","招待"],["trash","ゴミ"],["success","成功"],["safety","安全"],
+      ["tradition","伝統"],["tournament","トーナメント"],["spot","小さな点"],["title","題名"],["science fiction","空想科学小説"],
+      ["weekday","平日"],["spider","クモ"],["sausage","ソーセージ"],["seafood","シーフード"],["boyfriend","男性恋人"],
+      ["diver","ダイバー"],["trick","いたずら"],["memory","思い出"],["article","記事"],["membership","会員であること"],
+      ["factory","工場"],["coupon","クーポン"],["coach","コーチ"],["battery","電池"],["interest","興味"],
+      ["knee","膝"],["character","登場人物"],["detail","詳細"],["effort","努力"],["climate","気候"],
+      ["middle","真ん中"],["purpose","目的"],["danger","危険"],["knowledge","知識"],["brand","ブランド"],
+      ["importance","重要性"],["instruction","指示"],["network","ネットワーク"],["championship","選手権大会"],["closet","クローゼット"],
+      ["audience","観客"],["cash","現金"],["photography","写真撮影"],["headphone","ヘッドフォン"],["journey","旅行"],
+      ["debate","討論"],["heater","暖房装置"],["dentist","歯科医"],["platform","プラットフォーム"],["flour","小麦粉"],
+      ["hero","英雄"],["lobster","ロブスター"],["makeup","化粧"],["nut","木の実"],["path","進路"],
+      ["several","いくつかの"],["valuable","貴重な"],["scared","怖がっている"],["ancient","古代の"],["electronic","電子の"],
+      ["elderly","年輩の"],["certain","確信して"],["harmful","有害な"],["electric","電気の"],["female","女性の"],
+      ["daily","日常の"],["cute","かわいい"],["helpful","助けになる"],["private","個人的な"],["basic","基本的な"],
+      ["Atlantic","大西洋の"],["male","男性の"],["advanced","進歩した"],["additional","追加の"],["especially","特に"],
+      ["nicely","上手に"],["indoors","屋内で"],["afterward","後で"],["deeply","深く"],["whenever","〜するときはいつでも"],
+
+      // Section 7 (601-700)
+      ["control","〜を制御する"],["belong","所属する"],["destroy","〜を破壊する"],["accept","〜を受け入れる"],["disappoint","〜を失望させる"],
+      ["greet","あいさつする"],["disturb","〜を妨害する"],["advise","忠告する"],["breathe","呼吸する"],["combine","〜を結びつける"],
+      ["crash","衝突する"],["earn","〜を稼ぐ"],["hang","〜をつるす"],["cheer","〜を励ます"],["escape","逃げる"],
+      ["waste","〜を浪費する"],["lead","〜を導く"],["replace","〜を取り替える"],["require","〜を必要とする"],["invent","〜を発明する"],
+      ["organize","〜を組織する"],["pack","〜を詰め込む"],["upset","〜を動転させる"],["respect","〜を尊敬する"],["select","〜を選ぶ"],
+      ["phrase","句"],["sense","感覚"],["stair","階段"],["scarf","スカーフ"],["risk","危険"],
+      ["teenager","ティーンエイジャー"],["strength","強さ"],["semester","学期"],["teamwork","チームワーク"],["secret","秘密"],
+      ["sunshine","日光"],["silence","沈黙"],["value","価値"],["employee","従業員"],["expert","専門家"],
+      ["energy","エネルギー"],["adult","大人"],["author","著者"],["athlete","運動選手"],["Egypt","エジプト"],
+      ["boss","上司"],["equipment","設備"],["advantage","利益"],["airline","航空会社"],["engine","エンジン"],
+      ["ability","能力"],["aisle","通路"],["entrance","入り口"],["conversation","会話"],["custom","慣習"],
+      ["button","ボタン"],["choice","選択"],["counter","カウンター"],["discussion","討論"],["adventure","冒険"],
+      ["anniversary","記念日"],["avenue","大通り"],["explorer","冒険家"],["essay","作文"],["fitness","フィットネス"],
+      ["aquarium","水族館"],["headache","頭痛"],["channel","チャンネル"],["harvest","収穫"],["bonus","ボーナス"],
+      ["electronics","電子工学"],["file","ファイル"],["herb","ハーブ"],["serious","重大な"],["wealthy","裕福な"],
+      ["terrible","恐ろしい"],["quiet","静かな"],["round","丸い"],["crowded","混雑した"],["amazing","驚くべき"],
+      ["double","2倍の"],["dental","歯の"],["classical","古典の"],["awake","目を覚まして"],["equal","平等の"],
+      ["alive","生きている"],["audio","音声の"],["brand-new","真新しい"],["Christian","キリスト教の"],["giant","巨大な"],
+      ["rather","かなり"],["twice","2回"],["quite","かなり"],["sometime","いつか"],["ahead","前方に"],
+      ["completely","完全にする"],["exactly","正確に"],["forever","永久に"],["whatever","〜するものは何でも"],["whoever","〜する人は誰でも"],
+
+      // Section 8 (701-800)
+      ["trust","〜を信頼する"],["warn","〜に警告する"],["weigh","〜の重さがある"],["judge","〜を判断する"],["ring","鳴る"],
+      ["memorize","〜を暗記する"],["reply","返事をする"],["sail","航海する"],["wave","手を振る"],["imagine","〜を想像する"],
+      ["shoot","〜を撃つ"],["skip","〜を抜かす"],["spell","〜をつづる"],["swing","〜を揺らす"],["wrap","〜を包む"],
+      ["ignore","〜を無視する"],["paste","〜を貼りつける"],["knock","ノックする"],["encourage","〜を励ます"],["decrease","減少する"],
+      ["access","〜にアクセスする"],["avoid","〜を避ける"],["concern","〜に関係する"],["contain","〜を含む"],["manage","〜を経営する"],
+      ["approach","〜に接近する"],["beat","〜を負かす"],["depend","頼る"],["disappear","姿を消す"],["act","〜を演じる"],
+      ["castle","城"],["salmon","サケ"],["method","方法"],["site","ウェブサイト"],["tablet","タブレット"],
+      ["opinion","意見"],["instance","例"],["instructor","指導者"],["roll","ロールパン"],["scene","場面"],
+      ["style","様式"],["policy","政策"],["rush","突進"],["sample","試供品"],["partner","パートナー"],
+      ["keyboard","キーボード"],["tutor","家庭教師"],["position","位置"],["puzzle","パズル"],["nation","国家"],
+      ["scenery","風景"],["highway","幹線道路"],["lime","ライム"],["objection","反対"],["ketchup","ケチャップ"],
+      ["rainbow","虹"],["imagination","想像"],["puppy","子犬"],["row","列"],["horn","角"],
+      ["impression","印象"],["leather","革"],["lifeguard","監視員"],["palace","宮殿"],["photocopy","コピー"],
+      ["pole","棒"],["politician","政治家"],["residence","住居"],["spice","スパイス"],["total","合計"],
+      ["version","バージョン"],["nephew","おい"],["statue","像"],["soldier","兵士"],["patient","忍耐強い"],
+      ["various","さまざまな"],["laptop","ノートパソコンの"],["violent","乱暴な"],["noisy","騒々しい"],["personal","個人の"],
+      ["unique","独特の"],["tight","きつい"],["mixed","混じりあった"],["typical","典型的な"],["independent","自立した"],
+      ["nonsmoking","禁煙の"],["wooden"," wooden"],["narrow","狭い"],["absent","欠席の"],["sincerely","心から"],
+      ["originally","最初は"],["suddenly","突然"],["poorly","下手に"],["straight","まっすぐに"],["upstairs","階上へ"],
+      ["hopefully","願わくば"],["physically","身体的に"],["anywhere","どこにも〜ない"],["beyond","〜を超えて"],["below","〜より下に"],
+
+      // Section 9 (801-900)
+      ["chat","おしゃべりする"],["advertise","〜を宣伝する"],["appreciate","〜を感謝する"],["exhibit","〜を展示する"],["arrange","〜を取り決める"],
+      ["freeze","凍る"],["download","〜をダウンロードする"],["handle","〜を扱う"],["apologize","謝る"],["cycle","自転車に乗る"],
+      ["dislike","〜を嫌う"],["exist","存在する"],["float","浮かぶ"],["flow","流れる"],["arrest","〜を逮捕する"],
+      ["bark","ほえる"],["dig","〜を掘る"],["divide","〜を分ける"],["flash","ぴかっと光る"],["babysit","子供を世話する"],
+      ["force","〜することを強いる"],["increase","増加する"],["reduce","〜を減らす"],["prevent","〜を防ぐ"],["lower","〜を下げる"],
+      ["rise","昇る"],["limit","〜を制限する"],["recognize","〜を認める"],["remain","〜のままである"],["promote","〜を促進する"],
+      ["request","〜を要請する"],["observe","〜を観察する"],["overcome","〜を克服する"],["astronaut","宇宙飛行士"],["disease","病気"],
+      ["chemical","化学製品"],["education","教育"],["biology","生物学"],["ballet","バレエ"],["generation","世代"],
+      ["blanket","毛布"],["gasoline","ガソリン"],["clinic","診療所"],["clerk","店員"],["engineer","エンジニア"],
+      ["boarding","搭乗"],["document","文書"],["emotion","感情"],["congratulation","祝いの言葉"],["ceremony","儀式"],
+      ["billion","10億"],["assistant","助手"],["habit","癖"],["fisherman","漁師"],["atmosphere","雰囲気"],
+      ["commercial","コマーシャル"],["designer","デザイナー"],["envelope","封筒"],["figure","図"],["beauty","美"],
+      ["branch","枝"],["diet","日常の食事"],["edge","ふち"],["enemy","敵"],["graduation","卒業"],
+      ["calculator","計算機"],["attitude","態度"],["disaster","災害"],["forecast","予報"],["furniture","家具"],
+      ["angle","角度"],["beetle","カブトムシ"],["bookshelf","本棚"],["comment","コメント"],["happiness","幸福"],
+      ["nationality","国籍"],["fat","太った"],["empty","空の"],["confident","自信のある"],["exact","正確な"],
+      ["dead","死んだ"],["curious","好奇心の強い"],["familiar","よく知られた"],["fantastic","素晴らしい"],["alike","似ている"],
+      ["calm","落ち着いた"],["delicate","繊細な"],["flat","平らな"],["following","次の"],["handsome","ハンサムな"],
+      ["balanced","バランスの取れた"],["brave","勇敢な"],["careless","不注意な"],["foolish","愚かな"],["freezing","凍てつくように寒い"],
+      ["gradually","徐々に"],["eventually","結局"],["besides","さらに"],["apart","〜から離れて"],["hardly","ほとんど〜ない"],
+
+      // Section 10 (901-1000)
+      ["insist","強く主張する"],["refresh","〜の気分をさわやかにする"],["melt","溶ける"],["seek","〜を探す"],["slide","〜を滑らせる"],
+      ["knit","〜を編む"],["resemble","〜に似ている"],["suffer","苦しむ"],["surf","〜を見て回る"],["stick","くっつく"],
+      ["trap","〜を罠でとらえる"],["switch","〜を切り替える"],["specialize","専門とする"],["supply","〜を供給する"],["survive","生き残る"],
+      ["succeed","成功する"],["tear","〜を裂く"],["vote","投票する"],["lock","〜に鍵をかける"],["harm","〜を傷つける"],
+      ["award","〜を与える"],["consider","〜についてよく考える"],["release","〜を解放する"],["appear","出現する"],["researcher","調査員"],
+      ["metal","金属"],["manager","管理者"],["organization","組織"],["mystery","ミステリー"],["passenger","乗客"],
+      ["population","人口"],["image","イメージ"],["level","レベル"],["opportunity","機会"],["mayor","市長"],
+      ["quality","質"],["signal","信号"],["liquid","液体"],["majority","大多数"],["location","場所"],
+      ["pain","苦痛"],["reality","現実"],["rental","レンタル料"],["midnight","真夜中"],["influence","影響"],
+      ["restroom","トイレ"],["shelter","避難所"],["sheet","1枚"],["operation","手術"],["photograph","写真"],
+      ["printer","プリンター"],["rhythm","リズム"],["shrimp","小エビ"],["souvenir","記念品"],["receipt","レシート"],
+      ["lecture","講義"],["rank","ランク"],["horizon","地平線"],["purse","ハンドバッグ"],["harmony","調和"],
+      ["lawyer","弁護士"],["origin","起源"],["pause","休止"],["popularity","人気"],["praise","称賛"],
+      ["pride","プライド"],["reaction","反応"],["rumor","うわさ"],["shadow","影"],["smoker","喫煙者"],
+      ["laughter","笑い"],["miracle","奇跡"],["niece","めい"],["oyster","カキ"],["pace","ペース"],
+      ["penalty","罰"],["prayer","祈り"],["projector","プロジェクター"],["sketch","スケッチ"],["particular","特定の"],
+      ["necessary","必要な"],["natural","自然の"],["smart","頭の良い"],["negative","消極的な"],["ordinary","普通の"],
+      ["simple","簡単な"],["salty","塩気のある"],["polite","礼儀正しい"],["pure","純粋な"],["shy","恥ずかしがり屋の"],
+      ["honest","正直な"],["instant","即時の"],["mad","狂気の"],["hidden","隠された"],["roast","焼いた"],
+      ["immediately","直ちに"],["naturally","自然に"],["rarely","めったに〜しない"],["shortly","まもなく"],["seldom","めったに〜ない"],
+
+      // Section 11 (1001-1100)
+      ["argue","〜と主張する"],["concentrate","集中する"],["delay","〜を遅らせる"],["major","専攻する"],["achieve","〜を達成する"],
+      ["lack","欠けている"],["refer","言及する"],["burn","燃える"],["sink","沈む"],["consist","成る"],
+      ["spill","〜をこぼす"],["mention","〜に言及する"],["admit","〜を認める"],["blow","吹く"],["pretend","〜のふりをする"],
+      ["regret","〜を後悔する"],["treatment","治療"],["survey","調査"],["temple","寺"],["uniform","ユニフォーム"],
+      ["agency","代理店"],["temperature","気温"],["trend","流行"],["surface","表面"],["throat","のど"],
+      ["profit","利益"],["workplace","職場"],["symbol","シンボル"],["web","ウェブ"],["track","走路"],
+      ["task","仕事"],["spelling","つづり"],["summary","要約"],["thunderstorm","雷を伴う暴風雨"],["diamond","ダイヤモンド"],
+      ["manual","マニュアル"],["stomach","胃"],["theme","テーマ"],["thought","考え"],["victory","勝利"],
+      ["sword","剣"],["volume","音量"],["effect","影響"],["material","材料"],["statement","声明"],
+      ["coast","海岸"],["fear","恐れ"],["countryside","田舎"],["issue","発行"],["condition","状況"],
+      ["crime","犯罪"],["degree","度"],["sunlight","日光"],["capital","首都"],["behavior","行動"],
+      ["childhood","子供の頃"],["rate","割合"],["ancestor","祖先"],["earthquake","地震"],["freedom","自由"],
+      ["citizen","市民"],["entertainment","娯楽"],["frame","枠"],["fare","料金"],["fault","欠点"],
+      ["feature","特徴"],["honor","光栄"],["role","役"],["stressful","ストレスの原因となる"],["thin","薄い"],
+      ["worth","価値がある"],["tough","堅い"],["well-known","よく知られている"],["thick","太い"],["suitable","適した"],
+      ["square","正方形の"],["full-time","常勤の"],["unfriendly","不親切な"],["likely","〜しそうである"],["official","公式の"],
+      ["clear","はっきりとした"],["ill","病気で"],["unusual","異常な"],["specific","特定の"],["opposite","反対の"],
+      ["pleasant","快い"],["awful","ひどい"],["direct","直接の"],["raw","生の"],["totally","完全にする"],
+      ["surprisingly","驚くほど"],["wrongly","間違って"],["further","さらに"],["indeed","実は"],["extremely","極端に"],
+      ["perhaps","もしかすると"],["unless","〜でない限り"],["unlike","〜らしくない"],["within","〜以内に"],["toward","〜の方へ"],
+
+      // Section 12 (1101-1200, 熟語)
+      ["take care of 〜","〜を世話する"],["take care","気をつける"],["a few 〜","少数の〜"],["used to do","以前は〜であった"],["be used to doing","〜するのに慣れている"],
+      ["these days","このごろ"],["too 〜 to do","…するには〜すぎる"],["the way 〜","〜のやり方"],["because of 〜","〜の理由で"],["get 〜 to do","〜に…させる"],
+      ["help 〜 to do","〜に…するのを助ける"],["pick up 〜","〜を取りに行く"],["pay for 〜","〜の費用を払う"],["such as 〜","〜のような"],["so 〜 that …","とても〜なので…"],
+      ["each other","お互い"],["at first","元は"],["do 〜 good","〜の役に立つ"],["thank 〜 for …","〜に…を感謝する"],["be worried about 〜","〜を心配する"],
+      ["in the past","昔は"],["live on 〜","〜を収入源として生活する"],["put out 〜","〜を消す"],["far away","遠くに"],["look like 〜","〜であるように見える"],
+      ["in fact","実際は"],["find out 〜","〜を見つけ出す"],["look up 〜","〜を調べる"],["clean up","すっかりきれいにする"],["take part in 〜","〜に参加する"],
+      ["keep on doing","〜し続ける"],["put on 〜","〜を着用する"],["get married to 〜","〜と結婚する"],["be afraid of 〜","〜を恐れる"],["have time to do","〜する時間を持つ"],
+      ["have enough 〜 to do","…するのに十分な〜を持っている"],["work for 〜","〜で働く"],["work on 〜","〜に取り組む"],["pick 〜 up","〜を車で迎えに行く"],["the first time 〜","初めて〜するとき"],
+      ["right away","直ちに"],["in order to 〜","〜するために"],["on time","時間通りに"],["see to it that 〜","必ず〜するように取り計らう"],["happen to do","たまたま〜する"],
+      ["far from 〜","〜から遠い"],["be ready for 〜","〜の用意ができている"],["make a reservation","予約する"],["help 〜 with …","〜の…を手伝う"],["get lost","道に迷う"],
+      ["have a baby","赤ちゃんができる"],["what to do","何を〜すべきか"],["the last 〜 to do","最も…しそうにない〜"],["instead of 〜","〜の代わりに"],["take 〜 for …","〜を…と間違える"],
+      ["as well","もまた"],["turn off 〜","〜を消す"],["come out","出る"],["next to 〜","〜の隣に"],["have fun","楽しむ"],
+      ["a piece of 〜","1個の〜"],["so that 〜 can do","〜が…できるように"],["on sale","売り出し中で"],["get better","上手になる"],["throw away 〜","〜を捨てる"],
+      ["do well","うまくいく"],["even if 〜","たとえ〜でも"],["one of the 〜 …","最も〜な…のうちの1つ"],["where to do","どこへ〜すべきか"],["search 〜 for …","…を求めて〜を探す"],
+      ["thanks to 〜","〜のおかげで"],["be different from 〜","〜と異なる"],["sound like 〜","〜ようだ"],["on foot","徒歩で"],["except for 〜","〜を除いては"],
+      ["take off 〜","〜を脱ぐ"],["get ready for 〜","〜の準備をする"],["think about doing","〜しようかなと思う"],["for free","無料で"],["a number of 〜","たくさんの〜"],
+      ["ask for 〜","〜を求める"],["set up 〜","〜を設計する"],["come up with 〜","〜を思いつく"],["at least","少なくとも"],["a variety of 〜","さまざまな〜"],
+      ["look after 〜","〜の世話をする"],["along with 〜","〜と一緒に"],["go into 〜","〜の中に入る"],["take place","行われる"],["give up 〜","〜をあきらめる"],
+      ["a couple of 〜","2、3の〜"],["translate 〜 into …","〜を…に翻訳する"],["on earth","一体全体"],["be in the hospital","入院している"],["decide on 〜","〜に決める"],
+      ["by oneself","独力で"],["try on 〜","〜を試着する"],["show 〜 how to do","〜に…する方法を教える"],["on one's way to 〜","〜へ行く途中で"],["spend 〜 on …","…に〜を使う"],
+
+      // Section 13 (1201-1300, 熟語)
+      ["than usual","いつもより"],["walk around 〜","〜を歩き回る"],["up to 〜","〜次第である"],["be similar to 〜","〜と似ている"],["fall asleep","寝入る"],
+      ["so far","今までのところ"],["〜 as well as …","…はもちろんのこと〜も"],["be sure to do","必ず〜する"],["graduate from 〜","〜を卒業する"],["be popular with 〜","〜に人気がある"],
+      ["in the end","結局"],["not 〜 but …","〜ではなく…"],["together with 〜","〜と一緒に"],["for the first time","初めて"],["feel like doing","〜したい気がする"],
+      ["apply for 〜","〜に応募する"],["due to 〜","〜が原因で"],["make out 〜","〜を理解する"],["by the time 〜","〜するときまでに"],["check in","チェックインする"],
+      ["look over 〜","〜をざっと調べる"],["keep up with 〜","〜に遅れないでついていく"],["on the average","平均して"],["come down","降りてくる"],["go over 〜","〜を見直す"],
+      ["run after 〜","〜を追いかける"],["turn down 〜","〜を断る"],["introduce 〜 to …","〜を…に紹介する"],["get on 〜","〜に乗る"],["add 〜 to …","〜を…に加える"],
+      ["complain about 〜","〜について不平を言う"],["have time for 〜","〜のための時間を持つ"],["hear from 〜","〜から便りをもらう"],["line up","列を作る"],["take over 〜","〜を引き継ぐ"],
+      ["as soon as 〜","〜するとすぐに"],["call back","電話をかけ直す"],["go to the doctor","医者に診てもらう"],["in a group","グループで"],["not only 〜 but also …","〜ばかりではなく…もまた"],
+      ["shake hands","握手をする"],["tell 〜 how to do","〜に…する方法を教える"],["see if 〜","〜かどうか確かめる"],["for instance","例えば"],["fill out 〜","〜に書き込む"],
+      ["would like 〜 to do","〜に…してもらいたい"],["grow up to be 〜","成長して〜になる"],["by mistake","間違って"],["take a break","休憩する"],["as 〜 as possible","できるだけ〜"],
+      ["make sure that 〜","〜であることを確実にする"],["〜 enough to do","…するのに十分〜"],["prefer 〜 to …","…より〜を好む"],["go ahead","先に行く"],["the same 〜 as …","…と同じ〜"],
+      ["for fun","遊びで"],["stop by 〜","〜に立ち寄る"],["cut down 〜","〜を切り倒す"],["at a time","一度に"],["before long","まもなく"],
+      ["by chance","偶然に"],["exchange 〜 for …","〜と…を交換する"],["in addition to 〜","〜に加えて"],["make a mistake","間違える"],["in a hurry","急いで"],
+      ["in time for 〜","〜に間に合って"],["〜, …, and so on","〜や…など"],["be responsible for 〜","〜に対して責任がある"],["by nature","生まれつき"],["on purpose","わざと"],
+      ["at the moment","ちょうど今"],["send out 〜","〜を発送する"],["put down 〜","〜を書き留める"],["look forward to doing","〜することを楽しみに待つ"],["be in trouble","困っている"],
+      ["all the year around","一年中"],["be about to do","まさに〜するところである"],["be typical of 〜","〜に典型例である"],["by the side of 〜","〜のそばに"],["come to life","意識を回復する"],
+      ["compare 〜 with …","〜と…を比べる"],["cut off 〜","〜を切り離す"],["do 〜 a favor","〜に親切な行為をする"],["do the laundry","洗濯する"],["drop by 〜","〜にひょいっと立ち寄る"],
+      ["focus on 〜","〜に注意を集中する"],["go out","外出する"],["lose sight of 〜","〜を見失う"],["put off 〜","〜を延期する"],["show off 〜","〜を見せびらかす"],
+      ["stay away from 〜","〜に近づかないでいる"],["as you know","知っての通り"],["be over","終わっている"],["make friends with 〜","〜と友達になる"],["be made from 〜","〜で作られている"],
+      ["run away","逃げる"],["a pair of 〜","1組の〜"],["once a week","週に1度"],["fall down","落ちる"],["in a minute","すぐに"],
+
+      // Section 14 (1301-1400, 熟語)
+      ["on one's way home","家に帰る途中で"],["across from 〜","〜の向こう側に"],["after a while","しばらくして"],["be away","留守にする"],["get out of 〜","〜から出る"],
+      ["have a chance to do","〜する機会を持つ"],["run into 〜","〜と偶然出会う"],["sleep well","よく眠る"],["some other time","いつか別のときに"],["take 〜 out of …","…から〜を取り出す"],
+      ["suffer from 〜","〜に苦しむ"],["in particular","特に"],["be based on 〜","〜に基づいている"],["bring back 〜","〜を持ち帰る"],["no longer 〜","もはや〜でない"],
+      ["depend on 〜","〜に依存する"],["get rid of 〜","〜を取り除く"],["leave for 〜","〜に向けて出発する"],["turn on 〜","〜のスイッチを入れる"],["result in 〜","結局〜に終わる"],
+      ["be related to 〜","〜に関係がある"],["all the time","いつでも"],["for a while","しばらくの間"],["by the end of 〜","〜の終わりまでには"],["hold on","電話を切らないでおく"],
+      ["fill up 〜","〜を満たす"],["in other words","言い換えれば"],["in turn","順番に"],["point out 〜","〜を指摘する"],["after all","結局"],
+      ["for long","長い間"],["go wrong","うまくいかない"],["in line","整列して"],["in return for 〜","〜のお返しに"],["take a look at 〜","〜を見る"],
+      ["whether 〜 or not","〜であろうとなかろうと"],["be proud of 〜","〜を誇りに思う"],["be sold out","売り切れている"],["be full of 〜","〜でいっぱいである"],["get in 〜","〜に乗る"],
+      ["get together","集まる"],["by far","断然"],["for sure","確かに"],["let 〜 down","〜を失望させる"],["make up one's mind","決心する"],
+      ["take after 〜","〜に似ている"],["turn out to be 〜","〜であることがわかる"],["with luck","運がよければ"],["be against 〜","〜に反対である"],["check out","チェックアウトする"],
+      ["just in case","万が一に備えて"],["in public","人前で"],["look through 〜","〜にざっと目を通す"],["now that 〜","今や〜なので"],["of one's own","自分自身の"],
+      ["plenty of 〜","たくさんの〜"],["take one's time","ゆっくりやる"],["be sick in bed","病気で寝ている"],["give 〜 a ride","〜を車に乗せる"],["how far 〜","どのくらい〜"],
+      ["come true","実現する"],["at the end of 〜","〜の最後に"],["it takes 〜 to do","〜するのに…かかる"],["make a speech","演説をする"],["something 〜 to do","何か…する〜なもの"],
+      ["show 〜 around …","〜に…を案内する"],["against one's will","意思に反して"],["appeal to 〜","〜に訴える"],["at the most","最大でも"],["at length","ついに"],
+      ["at the risk of 〜","〜の危険を冒して"],["be capable of doing","〜する能力がある"],["be free from 〜","〜から解放されている"],["be grateful for 〜","〜のことを感謝している"],["be independent of 〜","〜から独立している"],
+      ["be jealous of 〜","〜を妬んでいる"],["be out of order","故障している"],["be out of the question","あり得ない"],["be poor at 〜","〜が苦手である"],["be sick of 〜","〜いうんざりしている"],
+      ["be sure of 〜","〜を確信している"],["break up 〜","〜をばらばらにする"],["bring up 〜","〜を育てる"],["by heart","暗記して"],["care about 〜","〜を心配する"],
+      ["do without 〜","〜なしで済ます"],["feel at home","くつろぐ"],["feel sorry for 〜","〜のことですまないと思う"],["for a change","気分転換に"],["get away from 〜","〜から離れる"],
+      ["head for 〜","〜へ向かう"],["in a sense","ある意味では"],["in contrast","それとは対照的に"],["in shape","体調が良くて"],["keep an eye on 〜","〜から目を離さない"],
+      ["keep one's promise","約束を守る"],["look up to 〜","〜を尊敬する"],["lose control","自制を失う"],["lose one's balance","バランスを崩す"],["make oneself at home","くつろぐ"],
+
+      // Section 15 (1401-1500, 熟語)
+      ["make sense","意味が通じる"],["none of one's business","〜の知ったことではない"],["do nothing but do","〜してばかりいる"],["on demand","要求があり次第"],["out of date","時代遅れの"],
+      ["participate in 〜","〜に参加する"],["pass by 〜","〜のそばを通る"],["reach out for 〜","〜を取ろうと手を伸ばす"],["separate 〜 from …","〜を…から分離する"],["speak up","はっきり言う"],
+      ["stand by 〜","〜を支援する"],["stand out","目立つ"],["succeed in 〜","〜に成功する"],["take a bite","一口食べる"],["The point is that 〜","重要な点は〜である"],
+      ["to the point","的な射た"],["with care","気をつけて"],["without fail","必ず"],["another 〜 minutes","もう〜分"],["as if 〜","まるで〜のように"],
+      ["be busy with 〜","〜で忙しい"],["be ready to do","〜する準備ができている"],["be tired from 〜","〜で疲れている"],["dress up","正装する"],["eat out","外食する"],
+      ["either 〜 or …","〜か…のどちらか"],["for a minute","ちょっとの間"],["go on a tour","旅行に行く"],["go out of business","破産する"],["have a sore throat","のどが痛む"],
+      ["make an appointment with 〜","〜の予約をする"],["make sense of 〜","〜の意味を理解する"],["no more than 〜","〜にすぎない"],["on one's own","自身の力で"],["over and over again","何度も"],
+      ["put away 〜","〜を片付ける"],["see 〜 off","〜を見送る"],["stay in bed","寝ている"],["take a seat","座る"],["try one's best","全力を尽くして"],
+      ["when to do","いつ〜すべきか"],["lead to 〜","〜に通じる"],["provide 〜 with …","〜に…を提供する"],["hand in 〜","〜を提出する"],["be aware of 〜","〜に気づいている"],
+      ["carry out 〜","〜を実行する"],["as a result of 〜","〜の結果として"],["as long as 〜","〜する限り"],["be involved in 〜","〜に関与する"],["break down","故障する"],
+      ["in conclusion","結論として"],["at the beginning of 〜","〜の初めに"],["on business","仕事で"],["all the way","はるばる"],["run out of 〜","〜がなくなる"],
+      ["be injured","けがをする"],["by accident","偶然に"],["come across 〜","〜に偶然出会う"],["in charge of 〜","〜を担当して"],["make an effort","努力する"],
+      ["pay attention to 〜","〜に注意する"],["rely on 〜","〜を頼る"],["be tired of 〜","〜に飽きる"],["change one's mind","気が変わる"],["a bunch of 〜","一束の〜"],
+      ["ahead of 〜","〜の前に"],["be expected to do","〜するように期待されている"],["be impressed with 〜","〜に感銘を受ける"],["be in danger","危険にさらされている"],["be said to be 〜","〜であると言われている"],
+      ["be satisfied with 〜","〜に満足している"],["be unable to do","〜することができない"],["catch up with 〜","〜に追いつく"],["from now on","今後ずっと"],["get along with 〜","〜とうまくやっていく"],
+      ["get over 〜","〜を克服する"],["go through 〜","〜を経験する"],["had better do","〜した方がよい"],["hope for 〜","〜を願う"],["in advance","あらかじめ"],
+      ["in reality","実際は"],["in spite of 〜","〜にもかかわらず"],["in the long run","長い目で見れば"],["lead 〜 to …","〜を…に導く"],["leave 〜 behind","〜を置いていく"],
+      ["look out","用心する"],["make a difference","違いをもたらす"],["make up for 〜","〜の埋め合わせをする"],["mean to do","〜するつもりである"],["on board","〜に乗って"],
+      ["play an important role in 〜","〜で重要な役割を果たす"],["stand for 〜","〜を意味する"],["start with 〜","〜で始まる"],["take 〜 back to …","〜を…に返品する"],["to one's surprise","驚いたことに"],
+      ["watch out for 〜","〜に用心する"],["stay up late","夜ふかしをする"],["as usual","いつものように"],["cheer 〜 up","〜を元気づける"],["name 〜 after …","…にちなんで〜を名付ける"]
+    ];
+
+    /* ==========================================================================
+       APP STATE & CONFIGURATION
+       ========================================================================== */
+    const TOTAL_WORDS = WORDS_DATA.length; // 1500
+
+    let appState = {
+      mastered: new Set(), // Set of word IDs (1..1500)
+      weak: new Set(),     // Set of word IDs (1..1500)
+      quizHistory: {
+        totalAnswered: 0,
+        totalCorrect: 0,
+        quizzesTaken: 0
+      },
+      settings: {
+        sound: true,
+        speechRate: 1.0,
+        timerSec: 10,
+        quizCount: 10,
+        scopePreset: 'sec1',
+        rangeStart: 1,
+        rangeEnd: 100
+      }
+    };
+
+    let currentMode = 'quizEJ'; // 'quizEJ', 'quizJE', 'cards', 'weakness', 'list'
+    let currentScopeIds = [];    // Array of word IDs currently selected
+
+    // Quiz runtime
+    let quizQuestions = [];
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let quizTimerInterval = null;
+    let quizTimeRemaining = 10;
+    let quizAnswered = false;
+    let quizStartTime = 0;
+    let quizMissedWords = [];
+
+    // Flashcard runtime
+    let cardDeck = [];
+    let currentCardIndex = 0;
+    let isCardFlipped = false;
+    let isCardSideReversed = false; // true if front is Japanese
+
+    // Directory list runtime
+    let dirFilteredList = [];
+    let dirCurrentPage = 1;
+    const DIR_PAGE_SIZE = 50;
+    let dirActiveFilter = 'all'; // 'all', 'words', 'idioms', 'mastered', 'unmastered', 'weak'
+    let dirSearchTerm = '';
+
+    // Audio & Sound
+    let webAudioCtx = null;
+
+    /* ==========================================================================
+       UTILITY & HELPER FUNCTIONS
+       ========================================================================== */
+    function getWordItem(id) {
+      const idx = id - 1;
+      if (idx < 0 || idx >= TOTAL_WORDS) return null;
+      const entry = WORDS_DATA[idx];
+      const section = Math.floor(idx / 100) + 1;
+      const isIdiom = id > 1100;
+      return {
+        id: id,
+        word: entry[0],
+        meaning: entry[1],
+        section: section,
+        type: isIdiom ? "熟語" : "単語"
+      };
+    }
+
+    function formatNumber(num) {
+      return num.toLocaleString();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastMessage');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2400);
+    }
+
+    function shuffleArray(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    /* Web Audio Synthesis Chimes */
+    function getAudioCtx() {
+      if (!webAudioCtx) {
+        const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtxClass) webAudioCtx = new AudioCtxClass();
+      }
+      if (webAudioCtx && webAudioCtx.state === 'suspended') {
+        webAudioCtx.resume();
+      }
+      return webAudioCtx;
+    }
+
+    function playSound(type) {
+      if (!appState.settings.sound) return;
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === 'correct') {
+          // Cheerful chime: G5 -> C6
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(783.99, now);
+          osc.frequency.setValueAtTime(1046.50, now + 0.1);
+          gain.gain.setValueAtTime(0.18, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
+          osc.start(now);
+          osc.stop(now + 0.38);
+        } else if (type === 'incorrect') {
+          // Low double buzz
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(240, now);
+          osc.frequency.setValueAtTime(190, now + 0.12);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+          osc.start(now);
+          osc.stop(now + 0.35);
+        } else if (type === 'flip') {
+          // Gentle soft tick
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(420, now);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+          osc.start(now);
+          osc.stop(now + 0.08);
+        }
+      } catch (e) {
+        // Audio error fallback
+      }
+    }
+
+    /* Web Speech Synthesis */
+    function speakText(text) {
+      if (!('speechSynthesis' in window)) {
+        showToast("お使いの環境は音声合成に対応していません");
+        return;
+      }
+      window.speechSynthesis.cancel();
+      // Remove placeholder signs like 〜 and …
+      const clean = text.replace(/[〜…\.\-\/]/g, ' ').replace(/\s+/g, ' ').trim();
+      if (!clean) return;
+
+      const utter = new SpeechSynthesisUtterance(clean);
+      utter.lang = 'en-US';
+      utter.rate = parseFloat(appState.settings.speechRate) || 1.0;
+      window.speechSynthesis.speak(utter);
+    }
+
+    /* ==========================================================================
+       DATA PERSISTENCE & INITIALIZATION
+       ========================================================================== */
+    async function loadSavedState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved) {
+            if (Array.isArray(saved.masteredIds)) {
+              appState.mastered = new Set(saved.masteredIds);
+            }
+            if (Array.isArray(saved.weakIds)) {
+              appState.weak = new Set(saved.weakIds);
+            }
+            if (saved.quizHistory) {
+              appState.quizHistory = { ...appState.quizHistory, ...saved.quizHistory };
+            }
+            if (saved.settings) {
+              appState.settings = { ...appState.settings, ...saved.settings };
+            }
+          }
+        }
+      } catch (err) {
+        console.warn("Could not restore persisted state:", err);
+      }
+      syncSettingsToInputs();
+      updateStatsTiles();
+      applyScopeFromState();
+    }
+
+    let saveTimeout = null;
+    function scheduleSave() {
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(async () => {
+        try {
+          if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+            await window.notebookAppApi.setAppState({
+              masteredIds: Array.from(appState.mastered),
+              weakIds: Array.from(appState.weak),
+              quizHistory: appState.quizHistory,
+              settings: appState.settings
+            });
+          }
+        } catch (err) {
+          console.warn("State save error:", err);
+        }
+      }, 300);
+    }
+
+    function syncSettingsToInputs() {
+      const s = appState.settings;
+      const soundCheck = document.getElementById('toggleSound');
+      if (soundCheck) soundCheck.checked = s.sound;
+
+      const rateSelect = document.getElementById('speechRateSelect');
+      if (rateSelect) rateSelect.value = String(s.speechRate);
+
+      const timerSelect = document.getElementById('quizTimerSelect');
+      if (timerSelect) timerSelect.value = String(s.timerSec);
+
+      const countSelect = document.getElementById('quizCountSelect');
+      if (countSelect) countSelect.value = String(s.quizCount);
+
+      const presetSelect = document.getElementById('scopePresetSelect');
+      if (presetSelect) presetSelect.value = s.scopePreset || 'sec1';
+
+      const rStart = document.getElementById('rangeStartInput');
+      const rEnd = document.getElementById('rangeEndInput');
+      if (rStart && rEnd) {
+        rStart.value = s.rangeStart || 1;
+        rEnd.value = s.rangeEnd || 100;
+      }
+    }
+
+    function updateStatsTiles() {
+      const masteredCount = appState.mastered.size;
+      const weakCount = appState.weak.size;
+      const masteredPct = ((masteredCount / TOTAL_WORDS) * 100).toFixed(1);
+
+      const statMasteredCountEl = document.getElementById('statMasteredCount');
+      if (statMasteredCountEl) {
+        statMasteredCountEl.innerHTML = `${formatNumber(masteredCount)}<span style="font-size:0.9rem; font-weight:600; margin-left:4px;">語</span>`;
+      }
+      const statMasteredPctEl = document.getElementById('statMasteredPct');
+      if (statMasteredPctEl) {
+        statMasteredPctEl.textContent = `達成率: ${masteredPct}%`;
+      }
+
+      const statWeakCountEl = document.getElementById('statWeakCount');
+      if (statWeakCountEl) {
+        statWeakCountEl.innerHTML = `${formatNumber(weakCount)}<span style="font-size:0.9rem; font-weight:600; margin-left:4px;">語</span>`;
+      }
+      const tabWeakBadgeEl = document.getElementById('tabWeakBadge');
+      if (tabWeakBadgeEl) {
+        tabWeakBadgeEl.textContent = weakCount;
+      }
+      const weakHeroCountEl = document.getElementById('weakHeroCount');
+      if (weakHeroCountEl) {
+        weakHeroCountEl.textContent = weakCount;
+      }
+
+      const qH = appState.quizHistory;
+      const accuracy = qH.totalAnswered > 0 ? Math.round((qH.totalCorrect / qH.totalAnswered) * 100) : '--';
+      const statQuizAccuracyEl = document.getElementById('statQuizAccuracy');
+      if (statQuizAccuracyEl) {
+        statQuizAccuracyEl.innerHTML = `${accuracy}<span style="font-size:0.9rem; font-weight:600; margin-left:4px;">%</span>`;
+      }
+      const statQuizTotalEl = document.getElementById('statQuizTotal');
+      if (statQuizTotalEl) {
+        statQuizTotalEl.textContent = `正解数: ${formatNumber(qH.totalCorrect)} / 挑戦数: ${formatNumber(qH.totalAnswered)}問`;
+      }
+    }
+
+    /* ==========================================================================
+       SCOPE & RANGE SELECTION LOGIC
+       ========================================================================== */
+    function handlePresetChange(presetKey) {
+      appState.settings.scopePreset = presetKey;
+      let start = 1;
+      let end = 100;
+
+      if (presetKey.startsWith('sec')) {
+        const secNum = parseInt(presetKey.replace('sec', ''), 10);
+        start = (secNum - 1) * 100 + 1;
+        end = secNum * 100;
+      } else if (presetKey === 'allWords') {
+        start = 1;
+        end = 1100;
+      } else if (presetKey === 'allIdioms') {
+        start = 1101;
+        end = 1500;
+      } else if (presetKey === 'all') {
+        start = 1;
+        end = 1500;
+      } else if (presetKey === 'weakOnly') {
+        // Special case: Weak only
+        applyScopeFromState();
+        scheduleSave();
+        return;
+      } else if (presetKey === 'custom') {
+        // Keeps current inputs
+        applyScopeFromState();
+        scheduleSave();
+        return;
+      }
+
+      document.getElementById('rangeStartInput').value = start;
+      document.getElementById('rangeEndInput').value = end;
+      appState.settings.rangeStart = start;
+      appState.settings.rangeEnd = end;
+
+      applyScopeFromState();
+      scheduleSave();
+    }
+
+    function handleRangeInputChange() {
+      const presetSelect = document.getElementById('scopePresetSelect');
+      if (presetSelect) presetSelect.value = 'custom';
+      appState.settings.scopePreset = 'custom';
+      applyCustomRange();
+    }
+
+    function applyCustomRange() {
+      const rStart = document.getElementById('rangeStartInput');
+      const rEnd = document.getElementById('rangeEndInput');
+      let start = parseInt(rStart.value, 10) || 1;
+      let end = parseInt(rEnd.value, 10) || 100;
+
+      if (start < 1) start = 1;
+      if (start > TOTAL_WORDS) start = TOTAL_WORDS;
+      if (end < start) end = start;
+      if (end > TOTAL_WORDS) end = TOTAL_WORDS;
+
+      rStart.value = start;
+      rEnd.value = end;
+      appState.settings.rangeStart = start;
+      appState.settings.rangeEnd = end;
+
+      applyScopeFromState();
+      scheduleSave();
+      showToast(`出題範囲を設定しました: No. ${start}〜${end}`);
+    }
+
+    function applyScopeFromState() {
+      const preset = appState.settings.scopePreset;
+      const summaryEl = document.getElementById('currentScopeSummary');
+
+      if (preset === 'weakOnly') {
+        currentScopeIds = Array.from(appState.weak);
+        if (summaryEl) {
+          summaryEl.textContent = `現在の対象: 弱点・要復習語のみ (${currentScopeIds.length}語)`;
+        }
+      } else {
+        const start = parseInt(appState.settings.rangeStart, 10) || 1;
+        const end = parseInt(appState.settings.rangeEnd, 10) || 100;
+        currentScopeIds = [];
+        for (let i = start; i <= end; i++) {
+          currentScopeIds.push(i);
+        }
+        if (summaryEl) {
+          let label = `No. ${start}〜${end} (${currentScopeIds.length}語)`;
+          if (preset.startsWith('sec')) {
+            const sNum = preset.replace('sec', '');
+            label = `Section ${sNum} (No. ${start}〜${end} / ${currentScopeIds.length}語)`;
+          } else if (preset === 'allWords') {
+            label = `全単語 (No. 1〜1100 / 1,100語)`;
+          } else if (preset === 'allIdioms') {
+            label = `全熟語 (No. 1101〜1500 / 400語)`;
+          } else if (preset === 'all') {
+            label = `全1500語 完全範囲 (No. 1〜1500)`;
+          }
+          summaryEl.textContent = `現在の対象: ${label}`;
+        }
+      }
+
+      // Refresh current active mode
+      if (currentMode === 'quizEJ' || currentMode === 'quizJE') {
+        startQuizWithCurrentScope();
+      } else if (currentMode === 'cards') {
+        initFlashcardDeck();
+      }
+    }
+
+    function updateQuizCountSetting(val) {
+      appState.settings.quizCount = val;
+      scheduleSave();
+      if (currentMode === 'quizEJ' || currentMode === 'quizJE') {
+        startQuizWithCurrentScope();
+      }
+    }
+
+    function updateTimerSetting(val) {
+      appState.settings.timerSec = parseInt(val, 10) || 0;
+      scheduleSave();
+    }
+
+    function toggleSoundSetting(val) {
+      appState.settings.sound = val;
+      scheduleSave();
+      showToast(val ? "効果音: オン" : "効果音: ミュート");
+    }
+
+    function changeSpeechRate(val) {
+      appState.settings.speechRate = parseFloat(val) || 1.0;
+      scheduleSave();
+      speakText("Speed set to " + val);
+    }
+
+    /* ==========================================================================
+       NAVIGATION & MODE SWITCHING
+       ========================================================================== */
+    function switchMode(newMode) {
+      currentMode = newMode;
+
+      // Update Nav Buttons
+      const tabMap = {
+        'quizEJ': 'tabBtnQuizEJ',
+        'quizJE': 'tabBtnQuizJE',
+        'cards': 'tabBtnCards',
+        'weakness': 'tabBtnWeak',
+        'list': 'tabBtnList'
+      };
+      Object.keys(tabMap).forEach(k => {
+        const btn = document.getElementById(tabMap[k]);
+        if (btn) {
+          const isActive = k === newMode;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        }
+      });
+
+      // Update View Containers
+      const views = ['quizView', 'cardsView', 'weaknessView', 'listView'];
+      views.forEach(vId => {
+        const el = document.getElementById(vId);
+        if (el) el.classList.remove('active');
+      });
+
+      if (newMode === 'quizEJ' || newMode === 'quizJE') {
+        const qView = document.getElementById('quizView');
+        if (qView) qView.classList.add('active');
+        const badge = document.getElementById('quizModeBadge');
+        if (badge) badge.textContent = newMode === 'quizEJ' ? '英→日' : '日→英';
+        startQuizWithCurrentScope();
+      } else if (newMode === 'cards') {
+        const cView = document.getElementById('cardsView');
+        if (cView) cView.classList.add('active');
+        initFlashcardDeck();
+      } else if (newMode === 'weakness') {
+        const wView = document.getElementById('weaknessView');
+        if (wView) wView.classList.add('active');
+        renderWeaknessView();
+      } else if (newMode === 'list') {
+        const lView = document.getElementById('listView');
+        if (lView) lView.classList.add('active');
+        renderDirectoryList();
+      }
+    }
+
+    /* ==========================================================================
+       QUIZ ENGINE (英→日 & 日→英)
+       ========================================================================== */
+    function startQuizWithCurrentScope() {
+      // Validate scope pool
+      let pool = [...currentScopeIds];
+      if (pool.length === 0) {
+        if (appState.settings.scopePreset === 'weakOnly') {
+          showToast("弱点リストが空のため、全範囲を出題します");
+          pool = Array.from({ length: TOTAL_WORDS }, (_, i) => i + 1);
+        } else {
+          pool = Array.from({ length: 100 }, (_, i) => i + 1);
+        }
+      }
+
+      // Determine question count
+      let qCount = pool.length;
+      if (appState.settings.quizCount !== 'all') {
+        const requested = parseInt(appState.settings.quizCount, 10);
+        if (requested && requested < pool.length) {
+          qCount = requested;
+        }
+      }
+
+      // Shuffle pool and slice
+      const shuffled = shuffleArray(pool);
+      const selectedIds = shuffled.slice(0, qCount);
+
+      // Build question objects
+      quizQuestions = selectedIds.map(wordId => {
+        const item = getWordItem(wordId);
+        // Distractors: pick 3 distinct items from full dataset
+        const distractors = [];
+        const usedIds = new Set([wordId]);
+        while (distractors.length < 3) {
+          const randId = Math.floor(Math.random() * TOTAL_WORDS) + 1;
+          if (!usedIds.has(randId)) {
+            usedIds.add(randId);
+            distractors.push(getWordItem(randId));
+          }
+        }
+        const options = shuffleArray([item, ...distractors]);
+        const correctIndex = options.findIndex(o => o.id === item.id);
+        return {
+          item: item,
+          options: options,
+          correctIndex: correctIndex
+        };
+      });
+
+      currentQuizIndex = 0;
+      quizScore = 0;
+      quizMissedWords = [];
+      quizStartTime = Date.now();
+
+      // UI reset
+      document.getElementById('quizPlayingArea').style.display = 'block';
+      document.getElementById('quizResultsArea').style.display = 'none';
+
+      renderQuizQuestion();
+    }
+
+    function renderQuizQuestion() {
+      clearInterval(quizTimerInterval);
+      quizAnswered = false;
+
+      if (currentQuizIndex >= quizQuestions.length) {
+        finishQuiz();
+        return;
+      }
+
+      const qData = quizQuestions[currentQuizIndex];
+      const item = qData.item;
+      const isEJ = currentMode === 'quizEJ';
+
+      // Update counters
+      document.getElementById('quizCurrentQ').textContent = currentQuizIndex + 1;
+      document.getElementById('quizTotalQ').textContent = quizQuestions.length;
+      document.getElementById('quizScoreCount').textContent = quizScore;
+
+      // Question metadata
+      document.getElementById('quizWordNoBadge').textContent = `No. ${String(item.id).padStart(4, '0')}`;
+      document.getElementById('quizWordSecBadge').textContent = `Section ${item.section}`;
+      document.getElementById('quizWordTypeBadge').textContent = item.type;
+
+      // Question word & prompt
+      const promptEl = document.getElementById('quizPromptLabel');
+      const wordEl = document.getElementById('quizQuestionWord');
+      const speakBtn = document.getElementById('quizSpeakBtn');
+
+      if (isEJ) {
+        promptEl.textContent = "この英単語・英熟語の正しい意味を選択してください：";
+        wordEl.textContent = item.word;
+        speakBtn.style.display = 'inline-flex';
+      } else {
+        promptEl.textContent = "この意味に対応する英単語・英熟語を選択してください：";
+        wordEl.textContent = item.meaning;
+        speakBtn.style.display = 'none';
+      }
+
+      // Render 4 Options
+      for (let i = 0; i < 4; i++) {
+        const btn = document.getElementById(`quizOpt${i}`);
+        const textSpan = document.getElementById(`quizOptText${i}`);
+        const optItem = qData.options[i];
+
+        btn.className = 'quiz-option-btn';
+        btn.disabled = false;
+        textSpan.textContent = isEJ ? optItem.meaning : optItem.word;
+      }
+
+      // Hide feedback
+      const feedbackBox = document.getElementById('quizFeedbackBox');
+      feedbackBox.className = 'quiz-feedback-box';
+
+      // Start Timer
+      startQuizTimer();
+
+      // Auto-speak English prompt if EJ mode
+      if (isEJ && appState.settings.sound) {
+        speakText(item.word);
+      }
+    }
+
+    function startQuizTimer() {
+      const timerBar = document.getElementById('quizTimerBar');
+      const timerText = document.getElementById('quizTimerSecText');
+      const timerSecSetting = appState.settings.timerSec;
+
+      if (!timerSecSetting || timerSecSetting <= 0) {
+        document.getElementById('quizTimerWrap').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('quizTimerWrap').style.display = 'flex';
+      quizTimeRemaining = timerSecSetting;
+      timerText.textContent = `${quizTimeRemaining}s`;
+      timerBar.style.width = '100%';
+      timerBar.className = 'timer-bar-inner';
+
+      const intervalMs = 100;
+      const stepPct = (intervalMs / (timerSecSetting * 1000)) * 100;
+      let currentWidth = 100;
+
+      quizTimerInterval = setInterval(() => {
+        if (quizAnswered) {
+          clearInterval(quizTimerInterval);
+          return;
+        }
+
+        currentWidth -= stepPct;
+        if (currentWidth < 0) currentWidth = 0;
+        timerBar.style.width = `${currentWidth}%`;
+
+        const curSeconds = Math.ceil((currentWidth / 100) * timerSecSetting);
+        timerText.textContent = `${curSeconds}s`;
+
+        if (curSeconds <= 3) {
+          timerBar.className = 'timer-bar-inner danger';
+        } else if (curSeconds <= timerSecSetting * 0.5) {
+          timerBar.className = 'timer-bar-inner warning';
+        }
+
+        if (currentWidth <= 0) {
+          clearInterval(quizTimerInterval);
+          handleQuizTimeout();
+        }
+      }, intervalMs);
+    }
+
+    function handleQuizTimeout() {
+      if (quizAnswered) return;
+      handleQuizAnswer(-1); // -1 signifies timeout mistake
+    }
+
+    function handleQuizAnswer(selectedIndex) {
+      if (quizAnswered) return;
+      quizAnswered = true;
+      clearInterval(quizTimerInterval);
+
+      const qData = quizQuestions[currentQuizIndex];
+      const correctIdx = qData.correctIndex;
+      const isCorrect = selectedIndex === correctIdx;
+
+      // Disable all option buttons
+      for (let i = 0; i < 4; i++) {
+        const btn = document.getElementById(`quizOpt${i}`);
+        btn.disabled = true;
+        if (i === correctIdx) {
+          btn.classList.add('correct');
+        }
+      }
+
+      if (!isCorrect && selectedIndex >= 0) {
+        const selectedBtn = document.getElementById(`quizOpt${selectedIndex}`);
+        if (selectedBtn) selectedBtn.classList.add('incorrect');
+      }
+
+      // Update score and stats
+      appState.quizHistory.totalAnswered += 1;
+      if (isCorrect) {
+        quizScore += 1;
+        appState.quizHistory.totalCorrect += 1;
+        playSound('correct');
+      } else {
+        playSound('incorrect');
+        // Add to weak list & results missed list
+        appState.weak.add(qData.item.id);
+        quizMissedWords.push(qData.item);
+      }
+      scheduleSave();
+      updateStatsTiles();
+
+      // Show Feedback Box
+      const feedbackBox = document.getElementById('quizFeedbackBox');
+      const feedbackText = document.getElementById('quizFeedbackText');
+      feedbackBox.classList.add('show');
+
+      if (isCorrect) {
+        feedbackText.className = 'quiz-feedback-text is-correct';
+        feedbackText.innerHTML = `
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>正解！素晴らしい！</span>
+        `;
+      } else {
+        feedbackText.className = 'quiz-feedback-text is-incorrect';
+        const timeoutNote = selectedIndex === -1 ? '（時間切れ）' : '';
+        feedbackText.innerHTML = `
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <span>惜しい！${timeoutNote} 正解: <strong>${qData.item.word}</strong> 【${qData.item.meaning}】（弱点リストに追加）</span>
+        `;
+      }
+
+      // Speak pronunciation on answer in JE mode so user hears the correct word
+      if (currentMode === 'quizJE') {
+        speakText(qData.item.word);
+      }
+    }
+
+    function nextQuizQuestion() {
+      currentQuizIndex += 1;
+      renderQuizQuestion();
+    }
+
+    function speakCurrentQuizWord() {
+      if (currentQuizIndex < quizQuestions.length) {
+        speakText(quizQuestions[currentQuizIndex].item.word);
+      }
+    }
+
+    function finishQuiz() {
+      clearInterval(quizTimerInterval);
+      appState.quizHistory.quizzesTaken += 1;
+      scheduleSave();
+      updateStatsTiles();
+
+      document.getElementById('quizPlayingArea').style.display = 'none';
+      document.getElementById('quizResultsArea').style.display = 'block';
+
+      const total = quizQuestions.length;
+      const score = quizScore;
+      const pct = total > 0 ? Math.round((score / total) * 100) : 0;
+      const elapsedSec = Math.round((Date.now() - quizStartTime) / 1000);
+      const minutes = Math.floor(elapsedSec / 60);
+      const seconds = elapsedSec % 60;
+      const timeStr = minutes > 0 ? `${minutes}分${seconds}秒` : `${seconds}秒`;
+
+      document.getElementById('resultsScoreDisplay').textContent = `${score} / ${total}`;
+      document.getElementById('resultsPctDisplay').textContent = `${pct}%`;
+      document.getElementById('resultsTimeDisplay').textContent = timeStr;
+      document.getElementById('resultsMistakeCount').textContent = `${quizMissedWords.length}語`;
+
+      const evalEl = document.getElementById('resultsEvaluationText');
+      if (pct === 100) {
+        evalEl.textContent = "パーフェクト達成！完璧な暗記です！";
+        evalEl.style.color = "var(--positive)";
+      } else if (pct >= 80) {
+        evalEl.textContent = "合格ライン突破！高い完成度です！";
+        evalEl.style.color = "var(--primary)";
+      } else if (pct >= 60) {
+        evalEl.textContent = "あと少し！間違えた語を弱点特訓で復習しましょう。";
+        evalEl.style.color = "var(--on-surface)";
+      } else {
+        evalEl.textContent = "焦らず着実に！フラッシュカードでインプットを深めましょう。";
+        evalEl.style.color = "var(--warning)";
+      }
+
+      // Render Missed Table
+      const missedSection = document.getElementById('resultsMissedSection');
+      const missedTbody = document.getElementById('resultsMissedTbody');
+      const retryMissedBtn = document.getElementById('retryMissedOnlyBtn');
+
+      if (quizMissedWords.length === 0) {
+        missedSection.style.display = 'none';
+        retryMissedBtn.style.display = 'none';
+      } else {
+        missedSection.style.display = 'block';
+        retryMissedBtn.style.display = 'inline-flex';
+        missedTbody.innerHTML = '';
+        quizMissedWords.forEach(w => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="col-num">#${String(w.id).padStart(4, '0')}</td>
+            <td class="col-word">${escapeHtml(w.word)}</td>
+            <td class="col-meaning">${escapeHtml(w.meaning)}</td>
+            <td style="text-align:right;">
+              <button class="icon-btn" onclick="speakText('${escapeQuotes(w.word)}')" title="発音を聞く">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </button>
+            </td>
+          `;
+          missedTbody.appendChild(tr);
+        });
+      }
+    }
+
+    function retryMissedWordsOnly() {
+      if (quizMissedWords.length === 0) return;
+      currentScopeIds = quizMissedWords.map(w => w.id);
+      document.getElementById('currentScopeSummary').textContent = `現在の対象: 直前間違えた問題のみ (${currentScopeIds.length}問)`;
+      startQuizWithCurrentScope();
+    }
+
+    /* ==========================================================================
+       FLASHCARDS ENGINE
+       ========================================================================== */
+    function initFlashcardDeck() {
+      let pool = [...currentScopeIds];
+      if (pool.length === 0) {
+        pool = Array.from({ length: 100 }, (_, i) => i + 1);
+      }
+
+      const shuffleCheck = document.getElementById('cardShuffleCheck');
+      if (shuffleCheck && shuffleCheck.checked) {
+        cardDeck = shuffleArray(pool);
+      } else {
+        cardDeck = [...pool];
+      }
+
+      currentCardIndex = 0;
+      isCardFlipped = false;
+      renderCurrentFlashcard();
+    }
+
+    function renderCurrentFlashcard() {
+      if (cardDeck.length === 0) {
+        document.getElementById('cardFrontWord').textContent = "対象単語なし";
+        document.getElementById('cardBackMeaning').textContent = "範囲を指定してください";
+        return;
+      }
+
+      if (currentCardIndex >= cardDeck.length) {
+        currentCardIndex = 0;
+      }
+      if (currentCardIndex < 0) {
+        currentCardIndex = cardDeck.length - 1;
+      }
+
+      const wordId = cardDeck[currentCardIndex];
+      const item = getWordItem(wordId);
+      if (!item) return;
+
+      isCardFlipped = false;
+      const inner = document.getElementById('cardInner');
+      if (inner) inner.classList.remove('is-flipped');
+
+      document.getElementById('cardCurIndex').textContent = currentCardIndex + 1;
+      document.getElementById('cardTotalCount').textContent = cardDeck.length;
+
+      const numStr = `No. ${String(item.id).padStart(4, '0')}`;
+      const secStr = `Section ${item.section} (${item.type})`;
+
+      document.getElementById('cardFrontNoBadge').textContent = numStr;
+      document.getElementById('cardFrontSecBadge').textContent = secStr;
+      document.getElementById('cardBackNoBadge').textContent = numStr;
+      document.getElementById('cardBackSecBadge').textContent = secStr;
+
+      if (!isCardSideReversed) {
+        // Front: English, Back: Japanese
+        document.getElementById('cardFrontWord').textContent = item.word;
+        document.getElementById('cardBackWordSub').textContent = item.word;
+        document.getElementById('cardBackMeaning').textContent = item.meaning;
+      } else {
+        // Front: Japanese, Back: English
+        document.getElementById('cardFrontWord').textContent = item.meaning;
+        document.getElementById('cardBackWordSub').textContent = item.meaning;
+        document.getElementById('cardBackMeaning').textContent = item.word;
+      }
+
+      // Auto pronunciation on display
+      const autoSpeakCheck = document.getElementById('cardAutoSpeakCheck');
+      if (autoSpeakCheck && autoSpeakCheck.checked && !isCardSideReversed) {
+        speakText(item.word);
+      }
+    }
+
+    function flipCurrentCard() {
+      const inner = document.getElementById('cardInner');
+      if (!inner) return;
+      isCardFlipped = !isCardFlipped;
+      inner.classList.toggle('is-flipped', isCardFlipped);
+      playSound('flip');
+
+      // Pronounce when flipped to reveal English
+      const autoSpeakCheck = document.getElementById('cardAutoSpeakCheck');
+      if (autoSpeakCheck && autoSpeakCheck.checked && isCardFlipped && isCardSideReversed) {
+        const item = getWordItem(cardDeck[currentCardIndex]);
+        if (item) speakText(item.word);
+      }
+    }
+
+    function speakCardWord() {
+      if (cardDeck.length === 0) return;
+      const item = getWordItem(cardDeck[currentCardIndex]);
+      if (item) speakText(item.word);
+    }
+
+    function prevCard() {
+      currentCardIndex -= 1;
+      renderCurrentFlashcard();
+    }
+
+    function nextCard() {
+      currentCardIndex += 1;
+      renderCurrentFlashcard();
+    }
+
+    function markCardMasteredAndNext() {
+      if (cardDeck.length === 0) return;
+      const id = cardDeck[currentCardIndex];
+      appState.mastered.add(id);
+      appState.weak.delete(id); // If mastered, remove from weak
+      scheduleSave();
+      updateStatsTiles();
+      playSound('correct');
+      showToast(`「覚えた」に登録: #${id}`);
+      nextCard();
+    }
+
+    function markCardWeakAndNext() {
+      if (cardDeck.length === 0) return;
+      const id = cardDeck[currentCardIndex];
+      appState.weak.add(id);
+      appState.mastered.delete(id);
+      scheduleSave();
+      updateStatsTiles();
+      playSound('incorrect');
+      showToast(`「要復習・弱点」に追加: #${id}`);
+      nextCard();
+    }
+
+    function toggleCardShuffle(checked) {
+      initFlashcardDeck();
+    }
+
+    function toggleCardSideReverse(checked) {
+      isCardSideReversed = checked;
+      renderCurrentFlashcard();
+    }
+
+    /* ==========================================================================
+       WEAKNESS OVERVIEW & TRAINING
+       ========================================================================== */
+    function renderWeaknessView() {
+      const tbody = document.getElementById('weakTableTbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      const weakIds = Array.from(appState.weak).sort((a, b) => a - b);
+      document.getElementById('weakHeroCount').textContent = weakIds.length;
+
+      const btnEJ = document.getElementById('btnStartWeakQuizEJ');
+      const btnJE = document.getElementById('btnStartWeakQuizJE');
+      const btnCards = document.getElementById('btnStartWeakCards');
+
+      const hasWeak = weakIds.length > 0;
+      if (btnEJ) btnEJ.disabled = !hasWeak;
+      if (btnJE) btnJE.disabled = !hasWeak;
+      if (btnCards) btnCards.disabled = !hasWeak;
+
+      if (!hasWeak) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" style="text-align:center; padding:var(--space-xl); color:var(--on-surface-variant);">
+              現在登録されている弱点・要復習単語はありません。<br>
+              クイズで間違えた単語や、単語帳で「まだ」を選んだ単語がここに自動集約されます。
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      weakIds.forEach(id => {
+        const item = getWordItem(id);
+        if (!item) return;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="col-num">#${String(item.id).padStart(4, '0')}</td>
+          <td><span class="badge-pill">Sec ${item.section}</span></td>
+          <td class="col-word">${escapeHtml(item.word)}</td>
+          <td class="col-meaning">${escapeHtml(item.meaning)}</td>
+          <td style="text-align:right;">
+            <div style="display:inline-flex; gap:6px;">
+              <button class="icon-btn" onclick="speakText('${escapeQuotes(item.word)}')" title="発音を聞く">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </button>
+              <button class="btn btn--positive btn--sm" onclick="graduateWeakWord(${item.id})" title="覚えたので弱点から解除">
+                克服完了
+              </button>
+              <button class="icon-btn" onclick="removeWeakWord(${item.id})" title="弱点リストから削除">
+                ✕
+              </button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function graduateWeakWord(id) {
+      appState.weak.delete(id);
+      appState.mastered.add(id);
+      scheduleSave();
+      updateStatsTiles();
+      renderWeaknessView();
+      showToast(`克服完了！マスター済みに移動しました: #${id}`);
+    }
+
+    function removeWeakWord(id) {
+      appState.weak.delete(id);
+      scheduleSave();
+      updateStatsTiles();
+      renderWeaknessView();
+      showToast(`弱点リストから削除しました: #${id}`);
+    }
+
+    function clearWeakList() {
+      if (appState.weak.size === 0) return;
+      if (confirm("弱点リストの登録をすべてクリアしますか？")) {
+        appState.weak.clear();
+        scheduleSave();
+        updateStatsTiles();
+        renderWeaknessView();
+        showToast("弱点リストをすべてクリアしました");
+      }
+    }
+
+    function startWeakQuizEJ() {
+      if (appState.weak.size === 0) {
+        showToast("弱点単語が登録されていません");
+        return;
+      }
+      appState.settings.scopePreset = 'weakOnly';
+      document.getElementById('scopePresetSelect').value = 'weakOnly';
+      switchMode('quizEJ');
+    }
+
+    function startWeakQuizJE() {
+      if (appState.weak.size === 0) {
+        showToast("弱点単語が登録されていません");
+        return;
+      }
+      appState.settings.scopePreset = 'weakOnly';
+      document.getElementById('scopePresetSelect').value = 'weakOnly';
+      switchMode('quizJE');
+    }
+
+    function startWeakCards() {
+      if (appState.weak.size === 0) {
+        showToast("弱点単語が登録されていません");
+        return;
+      }
+      appState.settings.scopePreset = 'weakOnly';
+      document.getElementById('scopePresetSelect').value = 'weakOnly';
+      switchMode('cards');
+    }
+
+    /* ==========================================================================
+       DIRECTORY (1500-WORD LIST) & INSTANT SEARCH
+       ========================================================================== */
+    function setDirectoryFilter(filterType) {
+      dirActiveFilter = filterType;
+      const chips = ['all', 'words', 'idioms', 'mastered', 'unmastered', 'weak'];
+      chips.forEach(c => {
+        const el = document.getElementById('filterChip' + c.charAt(0).toUpperCase() + c.slice(1));
+        if (el) el.classList.toggle('active', c === filterType);
+      });
+      dirCurrentPage = 1;
+      renderDirectoryList();
+    }
+
+    function handleDirectorySearch(term) {
+      dirSearchTerm = term.trim().toLowerCase();
+      dirCurrentPage = 1;
+      renderDirectoryList();
+    }
+
+    function clearSearchInput() {
+      const input = document.getElementById('dirSearchInput');
+      if (input) input.value = '';
+      dirSearchTerm = '';
+      dirCurrentPage = 1;
+      renderDirectoryList();
+    }
+
+    function jumpToSection(secNum) {
+      clearSearchInput();
+      dirActiveFilter = 'all';
+      setDirectoryFilter('all');
+      // Set page that includes this section
+      const startId = (secNum - 1) * 100 + 1;
+      dirCurrentPage = Math.floor((startId - 1) / DIR_PAGE_SIZE) + 1;
+      renderDirectoryList();
+      showToast(`Section ${secNum} (No. ${startId}〜) へジャンプしました`);
+    }
+
+    function changeDirPage(delta) {
+      const totalPages = Math.ceil(dirFilteredList.length / DIR_PAGE_SIZE) || 1;
+      const newPage = dirCurrentPage + delta;
+      if (newPage >= 1 && newPage <= totalPages) {
+        dirCurrentPage = newPage;
+        renderDirectoryList(false);
+      }
+    }
+
+    function renderDirectoryList(recompute = true) {
+      if (recompute) {
+        // Filter the 1500 items
+        dirFilteredList = [];
+        for (let i = 1; i <= TOTAL_WORDS; i++) {
+          const item = getWordItem(i);
+
+          // Type / mastery category filter
+          if (dirActiveFilter === 'words' && item.type !== '単語') continue;
+          if (dirActiveFilter === 'idioms' && item.type !== '熟語') continue;
+          if (dirActiveFilter === 'mastered' && !appState.mastered.has(i)) continue;
+          if (dirActiveFilter === 'unmastered' && appState.mastered.has(i)) continue;
+          if (dirActiveFilter === 'weak' && !appState.weak.has(i)) continue;
+
+          // Search term filter
+          if (dirSearchTerm) {
+            const numMatch = String(i) === dirSearchTerm || `#${i}` === dirSearchTerm;
+            const wordMatch = item.word.toLowerCase().includes(dirSearchTerm);
+            const meaningMatch = item.meaning.toLowerCase().includes(dirSearchTerm);
+            if (!numMatch && !wordMatch && !meaningMatch) continue;
+          }
+
+          dirFilteredList.push(item);
+        }
+      }
+
+      const totalItems = dirFilteredList.length;
+      const totalPages = Math.ceil(totalItems / DIR_PAGE_SIZE) || 1;
+      if (dirCurrentPage > totalPages) dirCurrentPage = totalPages;
+      if (dirCurrentPage < 1) dirCurrentPage = 1;
+
+      const startIndex = (dirCurrentPage - 1) * DIR_PAGE_SIZE;
+      const endIndex = Math.min(startIndex + DIR_PAGE_SIZE, totalItems);
+      const pageSlice = dirFilteredList.slice(startIndex, endIndex);
+
+      // Pagination indicators
+      document.getElementById('tableTotalFilteredCount').textContent = formatNumber(totalItems);
+      document.getElementById('tableShowingCount').textContent = totalItems === 0 ? "0" : `${startIndex + 1}〜${endIndex}`;
+      document.getElementById('dirCurrentPageText').textContent = dirCurrentPage;
+      document.getElementById('dirTotalPagesText').textContent = totalPages;
+
+      const prevBtn = document.getElementById('dirPrevPageBtn');
+      const nextBtn = document.getElementById('dirNextPageBtn');
+      if (prevBtn) prevBtn.disabled = dirCurrentPage <= 1;
+      if (nextBtn) nextBtn.disabled = dirCurrentPage >= totalPages;
+
+      // Render table rows
+      const tbody = document.getElementById('directoryTbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      if (pageSlice.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" style="text-align:center; padding:var(--space-xl); color:var(--on-surface-variant);">
+              該当する単語が見つかりませんでした。検索条件を変更してください。
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      pageSlice.forEach(item => {
+        const isMastered = appState.mastered.has(item.id);
+        const isWeak = appState.weak.has(item.id);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="col-num">#${String(item.id).padStart(4, '0')}</td>
+          <td class="col-sec">
+            <span class="badge-pill" style="font-size:0.75rem;">Sec ${item.section}</span>
+          </td>
+          <td class="col-word">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span>${escapeHtml(item.word)}</span>
+              <button class="icon-btn" onclick="speakText('${escapeQuotes(item.word)}')" title="発音を聞く" style="width:26px; height:26px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </button>
+            </div>
+          </td>
+          <td class="col-meaning">${escapeHtml(item.meaning)}</td>
+          <td class="col-actions">
+            <div style="display:inline-flex; align-items:center; gap:8px;">
+              <label style="display:inline-flex; align-items:center; gap:4px; font-size:0.78rem; font-weight:700; cursor:pointer;" title="覚えたらチェック">
+                <input type="checkbox" ${isMastered ? 'checked' : ''} onchange="toggleWordMastery(${item.id}, this.checked)">
+                <span>覚えた</span>
+              </label>
+              <button class="icon-btn ${isWeak ? 'active-star' : ''}" onclick="toggleWordWeakness(${item.id})" title="${isWeak ? '弱点リストから外す' : '弱点・要復習に登録'}" style="width:30px; height:30px;">
+                ★
+              </button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function toggleWordMastery(id, checked) {
+      if (checked) {
+        appState.mastered.add(id);
+        appState.weak.delete(id); // If marked mastered, remove from weakness
+      } else {
+        appState.mastered.delete(id);
+      }
+      scheduleSave();
+      updateStatsTiles();
+      renderDirectoryList(false);
+      showToast(checked ? `「覚えた」に設定: #${id}` : `「覚えた」を解除: #${id}`);
+    }
+
+    function toggleWordWeakness(id) {
+      if (appState.weak.has(id)) {
+        appState.weak.delete(id);
+        showToast(`弱点リストから解除: #${id}`);
+      } else {
+        appState.weak.add(id);
+        appState.mastered.delete(id);
+        showToast(`弱点リストに登録: #${id}`);
+      }
+      scheduleSave();
+      updateStatsTiles();
+      renderDirectoryList(false);
+    }
+
+    /* ==========================================================================
+       IMPORT / EXPORT / RESET
+       ========================================================================== */
+    function exportUserData() {
+      const payload = {
+        app: "eiken-pre2-passtan-1500",
+        exportDate: new Date().toISOString(),
+        masteredIds: Array.from(appState.mastered),
+        weakIds: Array.from(appState.weak),
+        quizHistory: appState.quizHistory,
+        settings: appState.settings
+      };
+      const jsonStr = JSON.stringify(payload, null, 2);
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+        window.notebookAppApi.triggerFileDownload({
+          content: jsonStr,
+          contentType: 'text/plain',
+          encoding: 'UTF-8',
+          filename: `eiken_pre2_progress_${new Date().toISOString().slice(0, 10)}.json`
+        });
+        showToast("進捗データをダウンロード出力しました");
+      } else {
+        // Fallback blob
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `eiken_pre2_progress_${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast("進捗データをダウンロード出力しました");
+      }
+    }
+
+    function resetUserData() {
+      if (confirm("これまでの学習履歴・覚えたチェック・弱点リストをすべて初期化しますか？")) {
+        appState.mastered.clear();
+        appState.weak.clear();
+        appState.quizHistory = { totalAnswered: 0, totalCorrect: 0, quizzesTaken: 0 };
+        scheduleSave();
+        updateStatsTiles();
+        if (currentMode === 'list') renderDirectoryList();
+        if (currentMode === 'weakness') renderWeaknessView();
+        showToast("学習データを初期化しました");
+      }
+    }
+
+    /* Escape helpers */
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+    function escapeQuotes(str) {
+      return String(str).replace(/'/g, "\\'").replace(/"/g, '\\"');
+    }
+
+    /* ==========================================================================
+       KEYBOARD SHORTCUTS
+       ========================================================================== */
+    window.addEventListener('keydown', (e) => {
+      // Ignore if user is typing in input fields
+      const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+      if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+
+      if (currentMode === 'quizEJ' || currentMode === 'quizJE') {
+        if (!quizAnswered) {
+          if (e.key === '1') handleQuizAnswer(0);
+          else if (e.key === '2') handleQuizAnswer(1);
+          else if (e.key === '3') handleQuizAnswer(2);
+          else if (e.key === '4') handleQuizAnswer(3);
+        } else {
+          if (e.key === 'Enter') nextQuizQuestion();
+        }
+        if (e.key.toLowerCase() === 'a') speakCurrentQuizWord();
+      } else if (currentMode === 'cards') {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          flipCurrentCard();
+        } else if (e.key === 'ArrowLeft') {
+          prevCard();
+        } else if (e.key === 'ArrowRight') {
+          nextCard();
+        } else if (e.key === '1') {
+          markCardWeakAndNext();
+        } else if (e.key === '2') {
+          markCardMasteredAndNext();
+        } else if (e.key.toLowerCase() === 'a') {
+          speakCardWord();
+        }
+      }
+    });
+
+    /* ==========================================================================
+       BOOTSTRAP / ON LOAD
+       ========================================================================== */
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loadSavedState();
+      switchMode('quizEJ');
+
+      // Notify host runtime that app has finished initial rendering
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    });
+  </script>
+</body>
+</html>
